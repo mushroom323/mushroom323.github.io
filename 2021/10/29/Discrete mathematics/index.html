@@ -142,80 +142,12 @@ mjx-container[display="true"] + br {
 
 
 <body>
-.progress-bar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: $z-index-9;
+<div class="progress-bar-container">
+    
 
-  if (hexo-config('pjax.enable') == true) {
+    
+</div>
 
-    .pjax-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 2px;
-      width: 0;
-      background: var(--pjax-progress-bar-color);
-      visibility: hidden;
-      opacity: 0;
-      z-index: $z-index-8;
-      transition-t("width", "0", "0.1", "linear");
-
-
-      &.show {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-
-
-    .pjax-progress-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: $z-index-8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px 6px 0 0;
-      visibility: hidden;
-      font-size: 1.1rem;
-      color: var(--default-text-color);
-
-      +keep-tablet() {
-        padding: 6px 5px 0 0;
-        font-size: 1rem;
-      }
-
-      &.show {
-        visibility: visible;
-      }
-    }
-
-  }
-
-  if (hexo-config('style.scroll.progress_bar.enable') == true) {
-
-    .scroll-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: $scroll-progress-bar-height;
-      visibility: hidden;
-      z-index: $z-index-7;
-      background: var(--primary-color);
-      transition-t("width", "0", "0.1", "linear");
-
-      &.hide {
-        display: none !important;
-      }
-    }
-
-  }
-}
 
 <main class="page-container">
 
@@ -224,313 +156,94 @@ mjx-container[display="true"] + br {
     <div class="page-main-content">
 
         <div class="page-main-content-top">
-            $logo-title-font-size = 2rem;
-$pc-search-icon-font-size = 1.5rem;
-$menu-bar-line-height = 2.5px;
-$logo-image-box-width = 46px;
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                槐序七
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
 
-.header-wrapper {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--background-color);
-  padding-top: $scroll-progress-bar-height;
-
-  hover-style(false, 0, 0);
-
-  .header-content {
-    position: relative;
-    height: 100%;
-    width: $main-content-width;
-    max-width: $content-max-width;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    z-index: $z-index-5;
-
-
-    &.has-first-screen {
-      max-width: $content-max-width * 1.2;
-    }
-
-    +keep-tablet() {
-      width: $main-content-width-tablet;
-    }
-
-    +keep-mobile() {
-      width: $main-content-width-mobile;
-    }
-
-    .left {
-      display: flex;
-      align-items: center;
-      transition-t("transform", "0", "0.2", "linear");
-
-      .header-shrink & {
-        transform: scale(0.72);
-        transform-origin: left;
-      }
-
-
-      if (hexo-config('base_info.logo_img') && hexo-config('base_info.logo_img') != '') {
-        .logo-image {
-          width: $logo-image-box-width;
-          height: $logo-image-box-width;
-          margin-right: 8px;
-
-
-          +keep-tablet() {
-            width: $logo-image-box-width * 0.9;
-            height: $logo-image-box-width * 0.9;
-          }
-
-          +keep-mobile() {
-            width: $logo-image-box-width * 0.8;
-            height: $logo-image-box-width * 0.8;
-          }
-
-          img {
-            border-radius: 6px;
-            width: 100%;
-          }
-        }
-
-      }
-
-      .logo-title {
-        font-size: $logo-title-font-size;
-        font-weight: bold;
-        letter-spacing: 1px;
-        line-height: 1;
-        color: var(--first-text-color);
-
-        +keep-tablet() {
-          font-size: $logo-title-font-size * 0.9;
-        }
-
-        +keep-mobile() {
-          font-size: $logo-title-font-size * 0.8;
-        }
-      }
-
-    }
-
-
-    .right {
-
-      .pc {
-
-        .menu-list {
-          display: flex;
-          align-items: center;
-
-          +keep-tablet() {
-            display: none;
-          }
-
-
-          .menu-item {
-            float: left;
-            position: relative;
-            margin-left: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            color: var(--default-text-color);
-
-            &:first-child {
-              margin-left: 0;
-            }
-
-
-            a:hover, .active {
-
-              &::after {
-                content: '';
-                position: absolute;
-                bottom: -10px;
-                left: 50%;
-                width: 100%;
-                height: 2px;
-                transform: translateX(-50%);
-                background: var(--primary-color);
-                transition-t("transform, bottom", "0, 0", "0.2, 0.2", "linear, linear");
-
-                .header-shrink & {
-                  bottom: -($header-shrink-height / 2 - 12);
-                }
-              }
-            }
-
-            &.search {
-              font-size: $pc-search-icon-font-size;
-              margin-left: 26px;
-
-              i {
-                color: var(--default-text-color);
-              }
-
-            }
-          }
-
-
-        }
-
-      }
-
-
-      .mobile {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .icon-item {
-          display: none;
-          position: relative;
-          cursor: pointer;
-          font-size: 18px;
-          margin-left: 12px;
-          width: 20px;
-          height: 20px;
-          color: var(--default-text-color);
-
-          i {
-            color: var(--default-text-color);
-          }
-
-          &:first-child {
-            margin-left: 0;
-          }
-
-          +keep-tablet() {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-        }
-
-        .menu-bar {
-
-          .menu-bar-middle {
-            width: 18px;
-            height: $menu-bar-line-height;
-            position: relative;
-            background: var(--default-text-color);
-
-            .header-drawer-show & {
-              background: transparent;
-            }
-
-
-            &::before, &::after {
-              content: '';
-              position: absolute;
-              left: 0;
-              width: 100%;
-              height: $menu-bar-line-height;
-              background: var(--default-text-color);
-              transition-t("transform", "0", "0.38", "ease");
-            }
-
-
-            &::before {
-              top: -6px;
-
-              .header-drawer-show & {
-                transform: translateY(6px) rotate(45deg);
-              }
-            }
-
-
-            &::after {
-              bottom: -6px;
-
-              .header-drawer-show & {
-                transform: translateY(-6px) rotate(-45deg);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-
-  .header-drawer {
-    width: 100%;
-    padding: $header-height 0 20px 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    z-index: $z-index-2;
-    background: var(--background-color);
-    transition-t("transform", "0", "0.38", "ease");
-
-    .header-drawer-show & {
-      transform: scaleY(1);
-    }
-
-    .drawer-menu-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-
-      .drawer-menu-item {
-        font-size: 1rem;
-        margin: 6px 0;
-        height: 38px;
-
-        a {
-          padding: 6px 20px;
-          border-radius: 20px;
-          color: var(--default-text-color);
-
-          &:hover {
-            color: var(--second-text-color);
-            border: 1px solid var(--default-text-color);
-          }
-
-
-          &.active {
-            border: 1px solid var(--default-text-color);
-            color: var(--second-text-color);
-          }
-        }
-
-
-      }
-    }
-  }
-
-
-  .window-mask {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: $z-index-1;
-    visibility: hidden;
-    opacity: 0;
-    transition-t("transform, opacity", "0, 0", "0.38, 0.38", "ease, ease");
-
-    .header-drawer-show & {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-
-}
-
-.header-drawer-show {
-  overflow: hidden;
-}
 
         </div>
 
@@ -559,50 +272,33 @@ $logo-image-box-width = 46px;
                         
                     </div>
                     <div class="meta-info">
-                        .article-meta-info {
-  font-size: 0.8rem;
-  color: var(--third-text-color);
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-10-29 22:52:45
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Discrete-mathematics/">Discrete mathematics</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
 
-  .article-meta-item {
-    margin-right: 10px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-
-  .article-tags, .article-categories {
-    display: inline;
-
-    ul, li {
-      display: inline;
-    }
-
-    a {
-      color: var(--third-text-color);
-
-      &:hover {
-        color: var(--primary-color);
-      }
-    }
-  }
-
-
-  .article-wordcount, .article-tags {
-    +keep-mobile() {
-      display: none;
-    }
-  }
-
-  .article-min2read, .article-categories {
-
-    +keep-tablet() {
-      display: none;
-    }
-
-  }
-}
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>9.1k Words</span>
+        </span>
+    
+    
+    
+</div>
 
                     </div>
                 </div>
@@ -1425,45 +1121,81 @@ $logo-image-box-width = 46px;
 
         
             <div class="comment-container">
-                if (hexo-config('comment.enable') == true && hexo-config('comment.use') != "") {
-  if (hexo-config('comment.use') == "valine") {
-    @require "./valine.styl";
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
 
-  } else if (hexo-config('comment.use') == "gitalk") {
-    @require "./gitalk.styl";
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
+                    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '发表神喻',
+                    lang: 'ZH_cn'.toLowerCase()
+                });
 
-  } else if (hexo-config('comment.use') == "twikoo") {
-    @require "./twikoo.styl";
-  }
-}
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
 
-.comments-container {
-  display: inline-block;
-  margin-top: $component-spacing-value;
-  width: 100%;
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'mushroom323';
 
-  #comment-anchor {
-    width: 100%;
-    height: 10px;
-  }
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
 
-  .comment-area-title {
-    width: 100%;
-    margin: 10px 0;
-    font-size: 1.38rem;
-    color: var(--default-text-color);
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
 
-    i {
-      color: var(--default-text-color);
-    }
 
-    +keep-tablet() {
-      margin: 5px 0;
-      font-size: 1.2rem;
-    }
-  }
 
-}
+        
+    
+</div>
 
             </div>
         
@@ -1477,330 +1209,108 @@ $logo-image-box-width = 46px;
         </div>
 
         <div class="page-main-content-bottom">
-            .footer {
-  font-size: 1rem;
-  color: var(--third-text-color);
-
-
-  a {
-    color: var(--third-text-color);
-
-
-    &:hover {
-      color: var(--primary-color);
-
-    }
-  }
-
-  .info-container {
-    padding-bottom: 10px;
-    text-align: center;
-  }
-
-  .info-item {
-    margin: 5px 0;
-  }
-
-  .icon-animate {
-    animation: icon-animate 1.2s ease-in-out infinite;
-  }
-
-}
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">mushroom323</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+        
+    </div>
+</footer>
 
         </div>
     </div>
 
     
         <div class="post-tools">
-            $li-border-radius = 5px;
-$li-margin-bottom = 12px;
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
-.post-tools-container {
-
-  .tools-list {
-
-    li {
-      cursor: pointer;
-      width: $post-tool-button-width;
-      height: $post-tool-button-width;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: $li-margin-bottom;
-      background: var(--background-color);
-      color: var(--default-text-color);
-
-      i {
-        color: var(--default-text-color);
-      }
-
-      &:hover {
-        background: var(--primary-color);
-        color: var(--background-color);
-
-        i {
-          color: var(--background-color);
-        }
-      }
-
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-
-      hover-style(true, 1.06, 1.06);
-
-      &.page-aside-toggle {
-        display: none;
-
-        +keep-tablet() {
-          display: none !important;
-        }
-      }
-    }
-  }
-
-}
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
 
         </div>
     
 
     <div class="right-bottom-side-tools">
-        $tools-item-width = 32px;
-$tools-item-font-size = 1.1rem;
-$tools-item-border-radius = 1px;
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
 
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
 
-.side-tools-container {
-  position: relative;
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
 
-  .tools-item {
-    width: $tools-item-width;
-    height: $tools-item-width;
-    font-size: $tools-item-font-size;
-    margin-bottom: 3px;
-    cursor: pointer;
-    border-right: none;
-    border-radius: $tools-item-border-radius;
-    box-shadow: 1px 1px 3px var(--shadow-color);
-    color: var(--default-text-color);
-    background: var(--background-color);
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
 
-    i {
-      color: var(--default-text-color);
-    }
+        <!-- rss -->
+        
 
-    &:hover {
-      color: var(--background-color);
-      background: var(--primary-color);
-      box-shadow: 2px 2px 6px var(--shadow-color);
+        
 
-      i {
-        color: var(--background-color);
-      }
-    }
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
 
-    +keep-tablet() {
-      width: $tools-item-width * 0.9;
-      height: $tools-item-width * 0.9;
-      font-size: $tools-item-font-size * 0.9;
-      margin-bottom: 2px;
-    }
-
-    &.rss {
-
-      a {
-        border-radius: $tools-item-border-radius;
-        width: 100%;
-        height: 100%;
-
-        &:hover {
-          color: var(--background-color);
-          background: var(--primary-color);
-          box-shadow: 2px 2px 6px var(--shadow-color);
-        }
-      }
-    }
-  }
-
-
-  .side-tools-list {
-    opacity: 0;
-    transform: translateX(100%);
-    transition-t("transform, opacity", "0, 0", "0.2, 0.2", "linear, linear");
-
-    .tool-expand-width {
-      +keep-tablet() {
-        display: none;
-      }
-    }
-
-
-    &.show {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-
-  .exposed-tools-list {
-
-    if (hexo-config('style.scroll.percent.enable') == true) {
-      .tool-scroll-to-top {
-        display: none;
-
-        &.show {
-          display: flex;
-        }
-
-        &:hover {
-
-          .percent {
-            display: none;
-          }
-
-          .arrow-up {
-            display: flex;
-          }
-
-        }
-
-        .arrow-up {
-          display: none;
-        }
-
-        .percent {
-          display: flex;
-          font-size: 1rem;
-        }
-
-      }
-
-    }
-  }
-}
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
 
     </div>
 
     
         <aside class="page-aside">
-            .post-toc-wrap {
-  width: 100%;
-  font-size: 0.92rem;
-  box-sizing: border-box;
-
-  .post-toc {
-
-    ol {
-      list-style: none;
-      margin: 0;
-      padding: 0 2px 12px 10px;
-      text-align: left;
-
-      &:last-child {
-        padding-bottom: 0;
-      }
-
-      > ol {
-        padding-left: 0;
-      }
-
-      a {
-        transition-property: all;
-        transition();
-      }
-    }
-
-
-    .nav-item {
-      line-height: 1.8;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-
-    .nav {
-      .nav-child {
-        display: hexo-config('toc.expand_all') ? block : none;
-      }
-
-      .active > .nav-child {
-        display: block;
-      }
-
-      .active-current > .nav-child {
-        display: block;
-
-        > .nav-item {
-          display: block;
-        }
-      }
-
-
-      .nav-number, .nav-text {
-        color: var(--default-text-color);
-      }
-
-      .active > a {
-        .nav-number, .nav-text {
-          color: var(--primary-color);
-        }
-      }
-
-      .active-current > a {
-        .nav-number, .nav-text {
-          color: var(--primary-color);
-        }
-      }
-    }
-  }
-}
-
-
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%BB%93%E6%9E%84-%E7%AC%AC9%E7%AB%A0-%E5%8D%8A%E7%BE%A4%E4%B8%8E%E7%BE%A4"><span class="nav-text">离散数学结构 第9章 半群与群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E6%80%A7%E8%B4%A8"><span class="nav-text">9.1 关系及其性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-text">关系的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-n%E5%85%83%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="nav-text">9.2 n元关系及其应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-%E5%85%B3%E7%B3%BB%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-text">9.3 关系的表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-4-%E5%85%B3%E7%B3%BB%E7%9A%84%E9%97%AD%E5%8C%85"><span class="nav-text">9.4 关系的闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BE%97%E5%88%B0%E4%BC%A0%E9%80%92%E9%97%AD%E5%8C%85"><span class="nav-text">如何得到传递闭包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-5-%E7%AD%89%E4%BB%B7%E5%85%B3%E7%B3%BB"><span class="nav-text">9.5 等价关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-6-%E5%81%8F%E5%BA%8F"><span class="nav-text">9.6 偏序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hasse-Diagrams"><span class="nav-text">Hasse Diagrams</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%B9%9D%E7%AB%A0"><span class="nav-text">离散数学结构 第九章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-%E5%86%8D%E8%AE%BA%E4%BA%8C%E5%85%83%E8%BF%90%E7%AE%97"><span class="nav-text">9.1 再论二元运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-%E5%8D%8A%E7%BE%A4"><span class="nav-text">9.2 半群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%9E%84%E4%B8%8E%E5%90%8C%E6%80%81"><span class="nav-text">同构与同态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-%E5%8D%8A%E7%BE%A4%E7%9A%84%E7%A7%AF%E5%92%8C%E5%95%86"><span class="nav-text">9.3 半群的积和商</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-4-%E7%BE%A4"><span class="nav-text">9.4 群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%AF%B9%E7%A7%B0%E7%BE%A4"><span class="nav-text">三角对称群</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-5-%E7%BE%A4%E7%9A%84%E7%A7%AF%E5%92%8C%E5%95%86"><span class="nav-text">9.5 群的积和商</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%BB%93%E6%9E%84-%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E7%BE%A4%E5%92%8C%E7%BC%96%E7%A0%81"><span class="nav-text">离散数学结构 第十一章 群和编码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-1-%E4%BA%8C%E5%85%83%E4%BF%A1%E6%81%AF%E7%A0%81%E5%92%8C%E6%A3%80%E9%94%99%E7%A0%81"><span class="nav-text">11.1 二元信息码和检错码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-2-%E8%AF%91%E7%A0%81%E5%92%8C%E7%BA%A0%E9%94%99"><span class="nav-text">11.2 译码和纠错</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%AC%E5%85%AB%E7%AB%A0-%E9%AB%98%E7%BA%A7%E8%AE%A1%E6%95%B0%E5%9F%BA%E7%A1%80"><span class="nav-text">离散数学第八章 高级计数基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-%E6%B1%82%E8%A7%A3%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E5%85%B3%E7%B3%BB"><span class="nav-text">8.2 求解线性递推关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E8%A7%A3%E5%B8%B8%E7%B3%BB%E6%95%B0k%E9%98%B6%E7%BA%BF%E6%80%A7%E9%BD%90%E6%AC%A1%E9%80%92%E6%8E%A8%E5%85%B3%E7%B3%BB"><span class="nav-text">求解常系数k阶线性齐次递推关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E8%A7%A3%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E9%9D%9E%E9%BD%90%E6%AC%A1%E9%80%92%E6%8E%A8%E5%85%B3%E7%B3%BB"><span class="nav-text">求解常系数线性非齐次递推关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-Generating-Functions"><span class="nav-text">8.4 Generating Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0%E8%A7%A3%E5%86%B3%E8%AE%A1%E6%95%B0%E9%97%AE%E9%A2%98"><span class="nav-text">生成函数解决计数问题</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
         </aside>
     
 
-    .image-viewer-container {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0);
-  visibility: hidden;
-  z-index: $z-index-8;
-  padding: 6%;
-  box-sizing: border-box;
-  transition-t("visibility, background", "0, 0", "0.3, 0.3", "ease, ease");
-
-  &.active {
-    background: rgba(0, 0, 0, 0.5);
-    visibility: visible;
-
-    img {
-      cursor: zoom-out;
-      transform: scale(1);
-      padding: 2px;
-      background: var(--background-color);
-    }
-  }
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    transform: scale(0);
-    transition-t("transform", "0", "0.3", "ease");
-  }
-}
-
-
+    <div class="image-viewer-container">
+    <img src="">
+</div>
 
 
     
