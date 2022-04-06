@@ -20,8 +20,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"mushroom323.github.io","root":"/","language":"ZH_cn"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#54DB79","avatar":"https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg","favicon":"https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://api2.mubu.com/v3/document_image/90012e4b-696b-43d5-8adc-e381744d88c3-14970684.jpg","description":"【龙舌兰日落】"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"mushroom323.github.io","root":"/","language":"ZH_cn","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#54DB79","avatar":"https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg","favicon":"https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://api2.mubu.com/v3/document_image/90012e4b-696b-43d5-8adc-e381744d88c3-14970684.jpg","description":"【龙舌兰日落】"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
@@ -240,6 +240,14 @@ mjx-container[display="true"] + br {
                     
                         <li class="menu-item">
                             <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
                                href="/links"
                             >
                                 LINKS
@@ -255,9 +263,15 @@ mjx-container[display="true"] + br {
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -277,6 +291,11 @@ mjx-container[display="true"] + br {
                 <li class="drawer-menu-item flex-center">
                     <a class=""
                        href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
@@ -334,7 +353,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/Be-Garbage/">Be Garbage</a>&nbsp;
+                            <a href="/tags/%E6%9D%82%E8%B0%88/">杂谈</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -343,6 +362,56 @@ mjx-container[display="true"] + br {
     </div>
 
     <a href="/2021/11/25/encry/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/04/06/jiwang_3/">
+                        计网数据链路层
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        笔记来源和物理层一致，教材ppt和大爹。
+没有一张图是自己截的。
+3.1 数据链路层的设计问题
+数据链路层的功能
+向网络层提供一个定义良好的服务接口
+处理传输错误。
+调节数据流，确保慢速的接收方不会被过快的数据流淹没。
+
+
+
+3.1.1 提供给网络层...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Apr 06 2022 22:59:13 GMT+0800">2022-04-06</span></span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/04/06/jiwang_3/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -375,7 +444,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/fuckthelesson/">fuckthelesson</a>&nbsp;
+                            <a href="/tags/%E6%9D%82%E8%B0%88/">杂谈</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -400,11 +469,11 @@ mjx-container[display="true"] + br {
 
                 <div class="home-article-content markdown-body">
                     
-                        上课教的这和考研内容差的是真tm多啊。
+                        上课教的这和考研内容差的是真多啊。
 以为照着考研学就ojbk了，结果脑壳开瓶盖不太靠谱了。
 没法子。重开一章。按照课内范围再梳理一遍。
 还有这jb教程ppt，讲了似没讲，没讲似要讲，看的跟修禅作佛似的，回头给我坐化了。
-主要范围是按照ppt给的范...
+主要范围是按照ppt给的范围来...
                     
                 </div>
 
@@ -419,7 +488,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/fuckthelesson/">fuckthelesson</a>&nbsp;
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -459,7 +528,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/Be-Garbage/">Be Garbage</a>&nbsp;
+                            <a href="/tags/%E6%9D%82%E8%B0%88/">杂谈</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -499,7 +568,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/fuckthelesson/">fuckthelesson</a>&nbsp;
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -543,7 +612,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/fuckthelesson/">fuckthelesson</a>&nbsp;
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -587,7 +656,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/fuckthelesson/">fuckthelesson</a>&nbsp;
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -627,7 +696,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/Be-Garbage/">Be Garbage</a>&nbsp;
+                            <a href="/tags/%E6%9D%82%E8%B0%88/">杂谈</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -670,7 +739,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/fuckthelesson/">fuckthelesson</a>&nbsp;
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -679,50 +748,6 @@ mjx-container[display="true"] + br {
     </div>
 
     <a href="/2021/12/18/godknow/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/10/29/csapp/">
-                        深入理解计算机系统
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        啥也没整理，鹦鹉学舌，都是书上现有的东西。随便瞟两眼就行，别细看，细看就够得上浪费时间谋害生命。
-第一章 第一章啥也没有，跳了。 也许有点啥，但我白兰。
-第二章
-将的非负整数次幂,即快速转置成十六进制：
-将表示成的形式，转置后的十六进制即为面跟着个十...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Oct 29 2021 22:59:13 GMT+0800">2021-10-29</span></span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/csapp/">csapp</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2021/10/29/csapp/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -826,6 +851,35 @@ mjx-container[display="true"] + br {
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -843,6 +897,10 @@ mjx-container[display="true"] + br {
 
 <script src="/js/dark-light-toggle.js"></script>
 
+
+
+    
+<script src="/js/local-search.js"></script>
 
 
 

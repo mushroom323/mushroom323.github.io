@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ZH_cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="mushroom323">
+    
+    <title>
+        
+            计网数据链路层 |
+        
+        槐序七
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"mushroom323.github.io","root":"/","language":"ZH_cn","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#54DB79","avatar":"https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg","favicon":"https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://api2.mubu.com/v3/document_image/90012e4b-696b-43d5-8adc-e381744d88c3-14970684.jpg","description":"【龙舌兰日落】"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                槐序七
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">计网数据链路层</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">mushroom323</span>
+                        
+                            <span class="author-label">damn人</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-04-06 22:59:13
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>4.4k Words</span>
+        </span>
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>笔记来源和物理层一致，教材ppt和大爹。</p>
+<p>没有一张图是自己截的。</p>
+<h1 id="3-1-数据链路层的设计问题"><a href="#3-1-数据链路层的设计问题" class="headerlink" title="3.1 数据链路层的设计问题"></a>3.1 数据链路层的设计问题</h1><ul>
+<li>数据链路层的<strong>功能</strong><ul>
+<li>向网络层提供一个定义良好的服务接口</li>
+<li>处理传输错误。</li>
+<li>调节数据流，确保慢速的接收方不会被过快的数据流淹没。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-1-1-提供给网络层的服务"><a href="#3-1-1-提供给网络层的服务" class="headerlink" title="3.1.1 提供给网络层的服务"></a>3.1.1 提供给网络层的服务</h2><ul>
+<li><p>数据包和帧的关系<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/81033b76-c1a2-4993-8aa8-555f25016ace-14970684.jpg" alt="5.png"></p>
+</li>
+<li><p>提供的服务类型</p>
+<ul>
+<li>Unacknowledged connectionless service. 无确认无连接</li>
+<li>Acknowledged connectionless service. 有确认无连接</li>
+<li>Acknowledged connection-oriented service 有确认有连接（面向连接的服务<ul>
+<li>Connection establishment</li>
+<li>Timer</li>
+<li>Sequence number</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-1-2-Framing"><a href="#3-1-2-Framing" class="headerlink" title="3.1.2 Framing"></a>3.1.2 Framing</h2><h3 id="Character-Count"><a href="#Character-Count" class="headerlink" title="Character Count"></a>Character Count</h3><p>字符计数</p>
+<p>这种成帧方法利用头部中的一个字段来标识该帧中的字符数。当接收方的数据链路层看到字符计数值时，它就知道后面跟着多少个字节，因此也就知道了该帧在哪里结東。</p>
+<p>但如果计数的头字符出错了后面就全都错了。如图：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/87e8633a-c2e8-4756-a185-cd9ef88fde04-14970684.jpg" alt="5.png"></p>
+<h3 id="Byte-Stuffing"><a href="#Byte-Stuffing" class="headerlink" title="Byte Stuffing"></a>Byte Stuffing</h3><p>字节填充的标志字节法</p>
+<p>第二种成帧方法考虑到了出错之后的重新同步问题，它让每个用一些特殊的字节作为开始和结朿。这些特殊字节通常都相同，称为标志字节(flag byte)，作为帧的起始和结束分界符，如图3-4(a)中的FLAG所示。两个连续的标志字节代表了一帧的结束和下帧的开始。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/eecf14af-6303-4a1f-80a0-ab6acf754996-14970684.jpg" alt="5.png"></p>
+<p>问题：发送的信息含有很多控制字符，需要转译的字符大大增加<br>开销：overhead，跟需要发送的数据相比，额外添加的转义字符所占的比例，比如全是需要转译的字符的信息，overhead就是100%。</p>
+<h3 id="Bit-Stuffing"><a href="#Bit-Stuffing" class="headerlink" title="Bit Stuffing"></a>Bit Stuffing</h3><p>比特填充的标志比特法</p>
+<p>每个帧的开头结尾都是一个special bit pattern, 01111110 ，也就是16进制的7EH，当数据内容出现连续的1时，每遇到五个1添加一个0（硬件不管这5个1后面是0还是1），接收方做相反的工作。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/c7e3cce3-443d-4224-b633-bc6f9cefff4b-16175743.jpg" alt="5.png"></p>
+<p>(a) The original data.<br>(b) The data as they appear on the line.<br>(c) The data as they are stored in receiver’s memory after destuffing.</p>
+<h3 id="Physical-Layer-Coding-Violations"><a href="#Physical-Layer-Coding-Violations" class="headerlink" title="Physical Layer Coding Violations"></a>Physical Layer Coding Violations</h3><p>物理层编码违例法</p>
+<p>比特编码成信号一般会包括一些冗余比特，以方便接收器同步接收。</p>
+<p>我们可以利用这些保留的信号来指示帧的开始和结束。实际上，我们使用”编码违法”来区分帧的边界。这种方案的优点在于，因为这些用作分界符的信号是保留不用的， 所以很容易通过它们找到帧的开始和结束，而且不再需要填充数据。</p>
+<p>例如：对于曼彻斯特Manchester编码，两个跳变表示一个bit，所以当出现长高电平，常低电平，就属于物理层违例了，可以作为帧的边界。</p>
+<h2 id="3-1-3-Error-Control"><a href="#3-1-3-Error-Control" class="headerlink" title="3.1.3 Error Control"></a>3.1.3 Error Control</h2><p>确保可靠传递的常用方法是向发送方提供一些有关线路另一端状况的反馈信息。通常情况下，协议要求接收方<strong>发回一些特殊的控制帧</strong>，在这些控制帧中，对于它所接收到的帧进行肯定的或者否定的确认</p>
+<p>当发送方发出一帧时，<strong>通常还要启动一个计时器</strong>。该计时器的超时值应该设置得足够长，以便保证在正常情况下该帧能够到达接收方，并且在接收方进行处理后再将确认返回到发送方。一般情况下，在计时器超时前，该帧应该被正确地接收，并且确认帧也被传了回米。这种情况下，计时器被取消。</p>
+<p>然而，如果帧或者确认被丢失，则计时器将被触发，从而警告发送方存在一个潜在的问题。一种显然的解决方案是重新发送该帧。然而，当有的帧被发送了多次之后，可能会出现这样的危险：接收方将两次或者多次接收到同一帧，并且多次将它传递给网络层。为了避免发生这样的情形，一般有必要<strong>给发送出去的帧分配序号</strong>，这样接收方可以根据帧的序号来有效区分原始帧和重传帧。</p>
+<p>一条消息第k次发送成功的概率为p，问期望发送次数<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/96d9ea6e-73f0-4e62-b619-0c8f977725b2-14970684.jpg" alt="5.png"></p>
+<h2 id="3-1-4-Flow-Control"><a href="#3-1-4-Flow-Control" class="headerlink" title="3.1.4 Flow Control"></a>3.1.4 Flow Control</h2><ul>
+<li><p>两种流量控制</p>
+<ul>
+<li>基于反馈信息的流量控制 feedback</li>
+<li>基于速率的流量控制（主要是网络层，一种内嵌的机制，浅显的理解是限制速率）rate-based</li>
+</ul>
+</li>
+<li><p>流量控制协议</p>
+<ul>
+<li>停等 Stop And Wait</li>
+<li>滑动窗口 Sliding Window</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-2-差错检测和纠正"><a href="#3-2-差错检测和纠正" class="headerlink" title="3.2 差错检测和纠正"></a>3.2 差错检测和纠正</h1><ul>
+<li>错误分类<ul>
+<li>lost frames：一个数据帧完全没能传过去，常常是因为噪音或者掉队</li>
+<li>damaged frames：一些bit错了</li>
+</ul>
+</li>
+<li>差错检测<ul>
+<li>奇偶校验码(parity):检测单比特错误</li>
+<li>循环冗余校验。Cyclic Redundancy Check:CRC: detecting some burst errors</li>
+<li>自动重发请求。Atuomatic Repeat reQuest:ARQ</li>
+</ul>
+</li>
+<li>差错纠正<ul>
+<li>前向纠错 FEC</li>
+</ul>
+</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/65092c06-d622-46dd-96c1-0ece51842b7f-14970684.jpg" alt="5.png"></p>
+<h2 id="3-2-1-纠错码"><a href="#3-2-1-纠错码" class="headerlink" title="3.2.1 纠错码"></a>3.2.1 纠错码</h2><p>书上四种纠错编码。只考察海明和奇偶。</p>
+<h3 id="海明码"><a href="#海明码" class="headerlink" title="海明码"></a>海明码</h3><blockquote>
+<p>补充：海明距离Hamming<br>两个编码异或之后为1的位数<br>检测到d个errors，需要distance为d+1的编码<br>纠正d个errors，需要distance为2d+1的编码<br>这里的距离指的是码表上任意两个编码之间的hamming距离，取最小。对于已知的检错方法，要确定能够检测出几个error应该考虑最坏的情况。</p>
+</blockquote>
+<p><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="16.487ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 7287.3 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(389,0)"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1489.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2489.4,0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3162.7,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(4162.9,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(4662.9,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(5329.7,0)"><path data-c="2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="msup" transform="translate(6385.4,0)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(533,413) scale(0.707)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container></p>
+<p>m:数据位数<br>r：所需的校验位<br>由该式可以解出需要的最少校验位</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/164890187785875d5.jpg" alt="5.png"></p>
+<p>字很潇洒。不是我的。</p>
+<p>来到纠错最高城海明，哎呀这不简便算法吗。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/3d5adb06-27a6-45a6-b76d-940db27f12a6-14970684.jpg" alt="5.png"></p>
+<p>还是看看远方的样例吧家人们</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/fa99ab53-156a-41bc-96b9-421bcbcf1113-14970684.jpg" alt="5.png"></p>
+<p>这是最多一位出错的基础上的算法。</p>
+<p>突发出错海明能不能纠错呢，ppt上说可以，但没说咋可以，教材没说。</p>
+<p>那就当它不行，我估计不会考海明对多位纠错。</p>
+<h2 id="3-2-2-检错码"><a href="#3-2-2-检错码" class="headerlink" title="3.2.2 检错码"></a>3.2.2 检错码</h2><h3 id="Checksum-校验和"><a href="#Checksum-校验和" class="headerlink" title="Checksum 校验和"></a>Checksum 校验和</h3><p><strong>校验和（checksum）</strong>这个词通常用来指与信息相关的一组校验位，不管这些校验位是如何计算出来的。一组奇偶校验位是校验和的一个例子。然而，还有其他种类的校验和，强大的校验和基础是对消息中的数据位进行求和计算。校验和通常放置在消息的末尾，作为求和功能的补充。这样一来，通过对整个接收到的码字(包含了数据位和校验和)进行求和计算就能检测出错误。如果计算结果是零，则没有检测出错误。</p>
+<ul>
+<li><strong>交错校验（interleaving）</strong>：<ul>
+<li>我们将为n列中的每列计算校验位，按k行发送全部的数据位，发送次序是从上到下发送每一行，行内数据位通常按从左到右的次序发送。在最后一行，发送n个校验位。</li>
+<li>交错校验是一种将检测(或纠正)单个错误的编码转换成能检测(或纠正)突发错误的通用技术。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/ba39ffd1-8e28-4d2b-bd67-43a7f74c857b-14970684.jpg" alt="5.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="CRC-循环冗余校验"><a href="#CRC-循环冗余校验" class="headerlink" title="CRC 循环冗余校验"></a>CRC 循环冗余校验</h3><p>大爹来了。</p>
+<p>这玩意儿应该是属于多项式编码的。  Polynomial Code </p>
+<p>多方参考了觉得我之前做的笔记里写的最清楚</p>
+<p>所以照抄。</p>
+<p>提一嘴，这玩意儿是模2除法，也就是直接异或，不是正常的除法。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/9350ebf9-7f88-49e0-a304-94f74f6def86-14970684.jpg" alt="5.png"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/b77377f2-8325-4f90-bfc0-5e8217601d15-14970684.jpg" alt="5.png"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/8bbd3642-377c-4eb3-96c5-15a22232567b-14970684.jpg" alt="5.png"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/275b26d7-2475-4036-b762-92c7e1c8ce32-14970684.jpg" alt="5.png"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/08fdf2e9-eb53-46b8-8baf-2fd57268ceb0-16175743.jpg" alt="5.png"></p>
+<p>CRC的性能<br>所有的一位错误都将被检测到</p>
+<p>可以捕捉到所有包含奇数个位变反的错误情形</p>
+<p><strong>带r个校验位的多项式编码可以检测到所有长度小于等于r的突发错误。</strong></p>
+<p>若让（x+1）是G(X)的一个因子（factor），则所有的奇数位都可以检测出来，</p>
+<p><strong>如果突发错误的长度为r+1</strong>，这样一个不正确的帧被当做有效帧接收的概率是<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.854ex" xmlns="http://www.w3.org/2000/svg" width="3.884ex" height="2.811ex" role="img" focusable="false" viewBox="0 -864.9 1716.7 1242.3"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(681.6,394) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="msup" transform="translate(220,-377.4) scale(0.707)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="TeXAtom" transform="translate(533,289) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(451,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(1229,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g><rect width="1476.7" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container></p>
+<p>同样可以证明，<strong>当一个长度大于r+1位的突发错误发生时</strong>，或者几个短突发错误发生时，一个坏帧被当做有效帧通过检测的概率为<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.781ex" xmlns="http://www.w3.org/2000/svg" width="2.438ex" height="2.737ex" role="img" focusable="false" viewBox="0 -864.9 1077.7 1209.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(362.1,394) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="msup" transform="translate(220,-345) scale(0.707)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="TeXAtom" transform="translate(533,289) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g><rect width="837.7" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container></p>
+<blockquote>
+<p>我哪知道咋证。反正大爹是这么说的。</p>
+</blockquote>
+<h1 id="3-3-基本数据链路层协议"><a href="#3-3-基本数据链路层协议" class="headerlink" title="3.3 基本数据链路层协议"></a>3.3 基本数据链路层协议</h1><p>有请大爹笔记。</p>
+<p>一些假设</p>
+<p>假设物理层、数据链路层和网络层都是独立的进程，它们通过来回传递消计算机操作系统网络接口卡息进行通信</p>
+<p>机器A希望用一个可靠的、面向连接的服务向机器B发送一个长数据流。</p>
+<p>假设机器不会崩溃。</p>
+<p>假设有一个现成的代码，其中过程to_physical_layer发送一帧，from_physical_layer接收一帧。这些过程负责计算和附加校验和，并检查校验和是否正确(这部分工作通常由硬件完成)，</p>
+<p>一些声明</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/9049da7c-07fd-4097-bad3-fb7ae791795d-14970684.jpg" alt="5.png"></p>
+<h2 id="3-3-1-一个乌托邦式的单工协议"><a href="#3-3-1-一个乌托邦式的单工协议" class="headerlink" title="3.3.1 一个乌托邦式的单工协议"></a>3.3.1 一个乌托邦式的单工协议</h2><p>无差错的channel，完美的接收者，源源不断的发送</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/151cad89-7dc2-4d79-bf04-894b4e041746-14970684.jpg" alt="5.png"></p>
+<p>就几行，基本就是网络层交互，缓存和物理层交互。没啥可说的。</p>
+<h2 id="3-3-2-无错信道上的单工停等协议"><a href="#3-3-2-无错信道上的单工停等协议" class="headerlink" title="3.3.2 无错信道上的单工停等协议"></a>3.3.2 无错信道上的单工停等协议</h2><p>现在我们将处理这样的问题：发送方以高于接收方能处理到达帧的速度发送帧，导致接收方被淹没。这种情形实际上很容易出现，因此协议是否能够防止它非常重要。然而， 我们仍然假设通信信道不会出错，并且数据流量还是单工的。</p>
+<p>也就是考虑flow control，仍然是完美的信道</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/95337317-38fe-42fc-84cf-c35083227c60-14970684.jpg" alt="5.png"></p>
+<p>多了个发送和等待确认帧的过程。其他的没啥区别</p>
+<h2 id="3-3-3-有错信道的单工停等协议"><a href="#3-3-3-有错信道的单工停等协议" class="headerlink" title="3.3.3 有错信道的单工停等协议"></a>3.3.3 有错信道的单工停等协议</h2><p>序号简化</p>
+<p>一位序号(0或者1)就足以解决问题。在任何一个时刻，接收方期望下一个特定的序号。当包含正确序号的帧到来时，它被接受下来并且被传递给网络层。然后，接收方期待的下一个的序号模2増1(即0变成1，1变成0)。任何一个到达的帧，如果包含了错误序号都将作为重复帧而遭到拒绝。不过，最后一个有效的确认要被重复，以便发送方最终发现已经被接收的那个帧。</p>
+<p>自动重复请求(ARQ, Automatic Repeat request)<br>如果在一个协议中，发送方在前移到下一个数据之前必须等待一个肯定确认，这样的协议称为自动重复请求(ARQ, Automatic Repeat request)或带有重传的肯定确认(PAR, Positive Acknowledgement with Retransmission)</p>
+<p>重传机制的肯定确认协议<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/f4ac1906-8cbd-48ed-a5c0-13056601693b-14970684.jpg" alt="5.png"></p>
+<p>上面这个是没考虑差错控制的，考虑差错控制的肯定确认协议如下：<br>Sender:<br> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">从网络层获取一个分组放入buffer</span><br><span class="line">发送buffer中的数据，新启动定时器</span><br><span class="line">label1:</span><br><span class="line">wait_for_event()</span><br><span class="line"><span class="keyword">switch</span> (event) {</span><br><span class="line"><span class="keyword">case</span> 收到了坏帧(校验和错):</span><br><span class="line">     重发缓冲在buffer里的数据，重新启动定时器</span><br><span class="line">     <span class="comment">//这里的"重新"和"新"都是指从头开始启动计时器</span></span><br><span class="line"><span class="keyword">case</span> 定时器超时：</span><br><span class="line">     重发缓冲在buffer里的数据，新启动定时器</span><br><span class="line"><span class="keyword">case</span> 收到校验和正确的帧：</span><br><span class="line">     <span class="keyword">if</span>（ack序号正确） {</span><br><span class="line">        关闭旧定时器</span><br><span class="line">        从网络层获取下一个分组放入buffer</span><br><span class="line">        发送buffer中的数据，新启动定时器</span><br><span class="line">     } <span class="keyword">else</span> </span><br><span class="line">         重发缓冲在buffer里的数据，重新启动定时器</span><br><span class="line">}</span><br><span class="line"><span class="keyword">goto</span> label1</span><br></pre></td></tr></table></figure></p>
+<p> Reciver:<br> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">frame_expected=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) {</span><br><span class="line">   wait_for_event()</span><br><span class="line">   <span class="keyword">switch</span>(event) {</span><br><span class="line">   <span class="keyword">case</span> 坏帧：</span><br><span class="line">      do_nothing</span><br><span class="line">   <span class="keyword">case</span> 收到校验和正确的数据帧:</span><br><span class="line">      <span class="keyword">if</span>（序号==frame_expected） {</span><br><span class="line">         向网络层上交分组</span><br><span class="line">         回ACK（序号为frame_expected)</span><br><span class="line">         inc(frame_expected)</span><br><span class="line">      }  <span class="keyword">else</span> {</span><br><span class="line">         回ACK（序号为frame_expected<span class="number">-1</span>)</span><br><span class="line">      }</span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-4-滑动窗口协议"><a href="#3-4-滑动窗口协议" class="headerlink" title="3.4 滑动窗口协议"></a>3.4 滑动窗口协议</h1><p>Sliding Window!</p>
+<ul>
+<li>PiggyBacking<ul>
+<li>当到达一个数据帧时，接收方并不是立即发送一个单独的控制帧，而是抑制自己并开始等待，直到网络层传递给它下一个要发送的数据包。然后，确认信息被附加在往外发送的数据帧上(使用帧头的ack字段)。实际上，确认信息搭了下一个出境数据帧的便车。这种暂时延缓确认以便将确认信息搭载在下一个出境数椐帧上的技术就称为捎带确认(piggybacking)</li>
+</ul>
+</li>
+</ul>
+<p>发送窗口和接收窗口的定义一大段，懒得放了。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/8429a647-650f-4810-9edb-fb70ffc66114-14970684.jpg" alt="5.png"></p>
+<h2 id="3-4-1-1位滑动窗口协议"><a href="#3-4-1-1位滑动窗口协议" class="headerlink" title="3.4.1 1位滑动窗口协议"></a>3.4.1 1位滑动窗口协议</h2><p>用的是捎带确认，双工。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/34ec5693-f7d1-45ee-a02d-c40e5a75e4c9-14970684.jpg" alt="5.png"></p>
+<p>除了捎带以外跟停等没太大区别。</p>
+<h2 id="3-4-2-回退N帧协议-GBN"><a href="#3-4-2-回退N帧协议-GBN" class="headerlink" title="3.4.2 回退N帧协议 GBN"></a>3.4.2 回退N帧协议 GBN</h2><p>这一块ppt跟大爹笔记都挺乱的。</p>
+<p>我随便写写意思意思。</p>
+<ul>
+<li><p><strong>累积确认</strong>：对于采用GBN的接收方，可以采用累积确认的方式。即接收方<strong>不一定</strong>要对收到的数据分组<strong>逐个发送确认</strong>，而是可以在收到几个数据分组后（由具体实现决定），对<strong>按序到达的最后一个数据分组发送确认</strong>。<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex" xmlns="http://www.w3.org/2000/svg" width="6.381ex" height="1.977ex" role="img" focusable="false" viewBox="0 -716 2820.3 873.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="mi" transform="translate(750,0)"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g><g data-mml-node="msub" transform="translate(1510,0)"><g data-mml-node="mi"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mi" transform="translate(836,-150) scale(0.707)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container>表示序号为n之前的所有数据分组都已经被正确接收。</p>
+<blockquote>
+<p>累积确认的一个好处是ACK丢失的影响会变小，有时即便确认分组丢失，发送方也不必进行数据分组重传.</p>
+</blockquote>
+</li>
+<li><p>计时器：因为协议5有多个未被确认的帧，所以逻辑上它需要多个计时器，即每一个未被确认的帧都需要一个计时器</p>
+</li>
+</ul>
+<p>捎带确认，累积确认。不过代码里好像没把累积确认体现出来，只是提了一嘴。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/0447ffc8-00bc-4777-aa73-72be0e2f3c1b-14970684.jpg" alt="5.png"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/88d5dc90-6956-45ba-9198-381ee53d91fe-14970684.jpg" alt="5.png"></p>
+<h2 id="3-4-3-选择重传协议"><a href="#3-4-3-选择重传协议" class="headerlink" title="3.4.3 选择重传协议"></a>3.4.3 选择重传协议</h2><p>由于GBN的<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.373ex" xmlns="http://www.w3.org/2000/svg" width="3.538ex" height="1.918ex" role="img" focusable="false" viewBox="0 -683 1563.7 847.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mi" transform="translate(977,-150) scale(0.707)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g></g></g></g></svg></mjx-container>只能等于1，因此一个数据分组的误码会导致后续多个数据分组不被接收而被丢弃。这会导致发送方对这些数据分组的超时重传，显然这是对通信资源的极大浪费。为了进一步提高性能，可以设法只重传出现误码的数据分组，因此，接收窗口尺寸<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.373ex" xmlns="http://www.w3.org/2000/svg" width="3.538ex" height="1.918ex" role="img" focusable="false" viewBox="0 -683 1563.7 847.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mi" transform="translate(977,-150) scale(0.707)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g></g></g></g></svg></mjx-container><strong>应当大于1</strong>.以便接收方先收下<strong>失序到达但无误码并且序号落在接收窗口内的那些数据分组。</strong>等到所缺分组收齐后再一并送交上层。这就是<strong>选择重传协议</strong></p>
+<blockquote>
+<p><strong>注意</strong>：选择重传协议为了使发送方仅重传出现差错的分组，接收方<strong>不能再采用累积确认</strong>，而需要对每个正确接收到的分组进行逐一确认。</p>
+</blockquote>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/21557385-b9a1-47ec-9597-b1309d8dd911-14970684.jpg" alt="5.png"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/b6b0f4ae-d191-44d6-8be6-4f03a3fe475e-14970684.jpg" alt="5.png"></p>
+<p>其中<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.339ex" xmlns="http://www.w3.org/2000/svg" width="3.45ex" height="1.885ex" role="img" focusable="false" viewBox="0 -683 1524.8 833"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mi" transform="translate(977,-150) scale(0.707)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g></g></g></g></svg></mjx-container>的取数规则<strong>和GBN不同</strong>，而<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.373ex" xmlns="http://www.w3.org/2000/svg" width="14.153ex" height="1.918ex" role="img" focusable="false" viewBox="0 -683 6255.6 847.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(777.8,0)"><path data-c="2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="msub" transform="translate(1833.6,0)"><g data-mml-node="mi"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mi" transform="translate(977,-150) scale(0.707)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g></g><g data-mml-node="mo" transform="translate(3675,0)"><path data-c="2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="msub" transform="translate(4730.8,0)"><g data-mml-node="mi"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mi" transform="translate(977,-150) scale(0.707)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g></g></g></g></svg></mjx-container>。</p>
+<blockquote>
+<p>我上次的笔记这里写错了。检查一下改过来。</p>
+</blockquote>
+<p>接收方只要接收了相应的分组，都会对发送方发送确认分组。但只有在按序接收的情况下，接收窗口才会向后滑动。而发送方只要接收到了确认分组，都会对相应的数据分组进行标记，以表明该分组已经发送成功。但只有在按序标记完的情况下，发送窗口才会向后滑动。</p>
+<p>同时选择重传协议的代码中引入NAK</p>
+<p>当接收方有理由怀疑出现了错误时，它就给发送方返回一个否定确认(NAK)帧。这样的帧实际上是一个重传请求，在NAK中指定了要重传的帧。在两种情况下，接收方要特别注意：接收到一个受损的帧，或者到达的帧并非是自己所期望的(可能出现丢帧错误)。为了避免多次请求重传同一个丢失帧，接收方应该记录下对于某一帧是否已经发送过NAK。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/c46bde07-5c18-4685-980c-00043f2e9316-14970684.jpg" alt="5.png"></p>
+<h2 id="Performance-of-Sliding-Window-Protocols"><a href="#Performance-of-Sliding-Window-Protocols" class="headerlink" title="Performance of  Sliding Window Protocols"></a>Performance of  Sliding Window Protocols</h2><p>PPT中间插的一节</p>
+<p>没啥东西，背公式的。</p>
+<h3 id="Stop-and-wait-without-error"><a href="#Stop-and-wait-without-error" class="headerlink" title="Stop-and-wait   without error"></a>Stop-and-wait   without error</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/aab2d618-e813-4de8-855c-6909a1ef928d-14970684.jpg" alt="5.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/0b417693-5e95-433f-9c3c-af3e6871774f-14970684.jpg" alt="5.png"></p>
+<blockquote>
+<p>所以传播距离较短的时候SW还是蛮牛逼的</p>
+</blockquote>
+<h3 id="Stop-and-wait-with-error"><a href="#Stop-and-wait-with-error" class="headerlink" title="Stop-and-wait   with error"></a>Stop-and-wait   with error</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/bbd1c25c-a27b-475e-a0ce-08f68c51e949-14970684.jpg" alt="5.png"></p>
+<h3 id="Slide-window-without-error"><a href="#Slide-window-without-error" class="headerlink" title="Slide window   without error"></a>Slide window   without error</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/851aa4fe-40d4-4e7d-a1dd-7ed08c827c9b-14970684.jpg" alt="5.png"><br>上面的这是不考虑piggybacking的效率</p>
+<p>考虑Piggybacking:  U=N/(2+2a)</p>
+<h1 id="3-5-数据链路协议实例"><a href="#3-5-数据链路协议实例" class="headerlink" title="3.5 数据链路协议实例"></a>3.5 数据链路协议实例</h1><h2 id="HDLC"><a href="#HDLC" class="headerlink" title="HDLC"></a>HDLC</h2><p>不咋重要。考试知道有这玩意儿就行了</p>
+<h2 id="SLIP"><a href="#SLIP" class="headerlink" title="SLIP"></a>SLIP</h2><p>不咋重要。考试知道有这玩意儿就行了</p>
+<h2 id="PPP"><a href="#PPP" class="headerlink" title="PPP"></a>PPP</h2><p>这个要考，比前两个重要很多。</p>
+<ul>
+<li><p>字节填充 byte stuffing</p>
+</li>
+<li><p>CRC校验 FCS</p>
+</li>
+<li><p>无序号 无流量控制和差错控制</p>
+</li>
+<li><p>提供无连接无确认的服务</p>
+</li>
+<li><p>PPP提供的服务：</p>
+<ul>
+<li>定义设备之间要交换的帧的格式</li>
+<li>定义两个设备怎么协商建立链路和交换数据</li>
+<li>定义如何将网络层的数据封装到数据链路层的帧里</li>
+<li>定义两个设备怎么相互鉴别</li>
+</ul>
+</li>
+<li><p>PPP的三个组成部分</p>
+<ul>
+<li>成帧方法：网络层数据封装到串行链路的方法</li>
+<li>链路控制协议LCP</li>
+<li>网络控制协议NCP</li>
+</ul>
+</li>
+<li><p>PPP子层</p>
+<ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/489bf3b9-2176-4577-9dbc-d5ca70bc4031-14970684.jpg" alt="5.png"></li>
+</ul>
+</li>
+<li><p>PPP帧格式</p>
+<ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/926e61ec-03e2-4a28-94a8-120783212e48-14970684.jpg" alt="5.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/02c7ea40-e475-4558-8c55-ad55920c4473-14970684.jpg" alt="5.png"></li>
+<li>标志字节如果出现在Payload字段，则要用转义字节0x7D去填充；然后将紧跟在后面的那个字节与0x20进行XOR操作，如此转义使得第6位比特反转。例如0x7D0x5E是标志字节0x7E的转义序列。这意味着只需要简单扫描0x7E就能找出帧的开始和结束之处因为这个字节不可能出现在其他地方。接收到一个帧后要去掉填充字节。具体做法是，扫描搜索0x7D，发现后立即除；然后用0x20对紧跟在后面的那个字节进行XOR操作。</li>
+</ul>
+</li>
+<li><p>PPP协议相图</p>
+<ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/fb9f223e-07c7-488d-b23f-d33136c5be42-14970684.jpg" alt="5.png"></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/02/redmoon/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">书评 | 《从红月开始》</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
+                    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '发表神喻',
+                    lang: 'ZH_cn'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'mushroom323';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">mushroom323</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-1-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E8%AE%BE%E8%AE%A1%E9%97%AE%E9%A2%98"><span class="nav-text">3.1 数据链路层的设计问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-1-%E6%8F%90%E4%BE%9B%E7%BB%99%E7%BD%91%E7%BB%9C%E5%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="nav-text">3.1.1 提供给网络层的服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-2-Framing"><span class="nav-text">3.1.2 Framing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Character-Count"><span class="nav-text">Character Count</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Byte-Stuffing"><span class="nav-text">Byte Stuffing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bit-Stuffing"><span class="nav-text">Bit Stuffing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Physical-Layer-Coding-Violations"><span class="nav-text">Physical Layer Coding Violations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-3-Error-Control"><span class="nav-text">3.1.3 Error Control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-4-Flow-Control"><span class="nav-text">3.1.4 Flow Control</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-2-%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B%E5%92%8C%E7%BA%A0%E6%AD%A3"><span class="nav-text">3.2 差错检测和纠正</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-1-%E7%BA%A0%E9%94%99%E7%A0%81"><span class="nav-text">3.2.1 纠错码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%B7%E6%98%8E%E7%A0%81"><span class="nav-text">海明码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-2-%E6%A3%80%E9%94%99%E7%A0%81"><span class="nav-text">3.2.2 检错码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Checksum-%E6%A0%A1%E9%AA%8C%E5%92%8C"><span class="nav-text">Checksum 校验和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRC-%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A0%A1%E9%AA%8C"><span class="nav-text">CRC 循环冗余校验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-3-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="nav-text">3.3 基本数据链路层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-1-%E4%B8%80%E4%B8%AA%E4%B9%8C%E6%89%98%E9%82%A6%E5%BC%8F%E7%9A%84%E5%8D%95%E5%B7%A5%E5%8D%8F%E8%AE%AE"><span class="nav-text">3.3.1 一个乌托邦式的单工协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-2-%E6%97%A0%E9%94%99%E4%BF%A1%E9%81%93%E4%B8%8A%E7%9A%84%E5%8D%95%E5%B7%A5%E5%81%9C%E7%AD%89%E5%8D%8F%E8%AE%AE"><span class="nav-text">3.3.2 无错信道上的单工停等协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-3-%E6%9C%89%E9%94%99%E4%BF%A1%E9%81%93%E7%9A%84%E5%8D%95%E5%B7%A5%E5%81%9C%E7%AD%89%E5%8D%8F%E8%AE%AE"><span class="nav-text">3.3.3 有错信道的单工停等协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-4-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE"><span class="nav-text">3.4 滑动窗口协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-1-1%E4%BD%8D%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE"><span class="nav-text">3.4.1 1位滑动窗口协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-2-%E5%9B%9E%E9%80%80N%E5%B8%A7%E5%8D%8F%E8%AE%AE-GBN"><span class="nav-text">3.4.2 回退N帧协议 GBN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-3-%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E5%8D%8F%E8%AE%AE"><span class="nav-text">3.4.3 选择重传协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance-of-Sliding-Window-Protocols"><span class="nav-text">Performance of  Sliding Window Protocols</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stop-and-wait-without-error"><span class="nav-text">Stop-and-wait   without error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stop-and-wait-with-error"><span class="nav-text">Stop-and-wait   with error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slide-window-without-error"><span class="nav-text">Slide window   without error</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-5-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B"><span class="nav-text">3.5 数据链路协议实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HDLC"><span class="nav-text">HDLC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SLIP"><span class="nav-text">SLIP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PPP"><span class="nav-text">PPP</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
