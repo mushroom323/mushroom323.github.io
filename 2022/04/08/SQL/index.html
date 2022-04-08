@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ZH_cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="mushroom323">
+    
+    <title>
+        
+            SQL的一点语法 |
+        
+        槐序七
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"mushroom323.github.io","root":"/","language":"ZH_cn","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#54DB79","avatar":"https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg","favicon":"https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://api2.mubu.com/v3/document_image/90012e4b-696b-43d5-8adc-e381744d88c3-14970684.jpg","description":"【龙舌兰日落】"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                槐序七
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">SQL的一点语法</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">mushroom323</span>
+                        
+                            <span class="author-label">damn人</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-04-08 10:59:13
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AF%BE%E5%A4%96/">课外</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2k Words</span>
+        </span>
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>sql看了一半发现课设用不上了</p>
+<p>有点死心</p>
+<p>不过还是得说json真nm好使。</p>
+<p>大三估计得正式学数据库，这个就当不知所云的呓语。</p>
+<h1 id="SQL语法"><a href="#SQL语法" class="headerlink" title="SQL语法"></a>SQL语法</h1><h2 id="DLL-数据定义语言"><a href="#DLL-数据定义语言" class="headerlink" title="DLL 数据定义语言"></a>DLL 数据定义语言</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ul>
+<li>create database <database name="">.创建数据库</database></li>
+<li>show database. 显示已有数据库</li>
+<li>create database if not exists <dbname>. 不存在这个名字的数据库就创建</dbname></li>
+<li>create database <dbname> character set uft8. 创建数据库的同时指定字符集</dbname></li>
+<li>show create database <dbname>. 显示指定数据库的创建指令</dbname></li>
+</ul>
+<h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><ul>
+<li>alter database <dbname> character set gbk.更改对应数据库的字符集</dbname></li>
+</ul>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><ul>
+<li>drop database <dbname>. 删除数据库</dbname></li>
+</ul>
+<h3 id="切换数据库"><a href="#切换数据库" class="headerlink" title="切换数据库"></a>切换数据库</h3><ul>
+<li>use <dbname>. 切换数据库</dbname></li>
+</ul>
+<h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><ul>
+<li>create <tbname>(row_1 char(8) not null  unique,row_2 varchar,row_3 int,….,row_n char)   。row_i可以是对应列的名字。 <ul>
+<li>char是不可变字符组。char后补(num)指定这一列的最长长度，不够这个长度会补空格。</li>
+<li>varchar是可变字符组。varchar后补(num)指定这一列的最长长度，不够这个长度不会补空格。</li>
+<li>not null后缀用以确保该列信息必须填写。不持有这个后缀的信息列，不填充信息则会默认为null</li>
+<li>unique后缀用以确保该列中信息唯一，即该列中不能填写相同的信息。</li>
+</ul>
+</tbname></li>
+</ul>
+<h3 id="查询数据表"><a href="#查询数据表" class="headerlink" title="查询数据表"></a>查询数据表</h3><ul>
+<li>show tables 查询数据表列表奥</li>
+<li>desc <tbname> 。查看特定表的结构</tbname></li>
+</ul>
+<h3 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h3><ul>
+<li>drop table <tbname>。删除数据表</tbname></li>
+</ul>
+<h3 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h3><ul>
+<li>alter table <tbname> rename to <newtbname>.修改表名</newtbname></tbname></li>
+<li>alter table <tbname> character set utf8.修改表的字符集</tbname></li>
+<li>alter table <tbname> add <structname> <newtype>。对表添加一种新的字段</newtype></structname></tbname></li>
+<li>alter table <tbname> change <structname> <snewname><newtype>.。修改表内的一个字段名和类型</newtype></snewname></structname></tbname></li>
+<li>alter table <tbname> modify <sname> <newtype>.只修改字段类型</newtype></sname></tbname></li>
+</ul>
+<h2 id="SQL数据类型"><a href="#SQL数据类型" class="headerlink" title="SQL数据类型"></a>SQL数据类型</h2><h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><ul>
+<li>tinyint    -128~127</li>
+<li>smallint    -32768~32767</li>
+<li>mediumint 3byte</li>
+<li>int 4byte</li>
+<li>bigint  8byte</li>
+<li>float 单精度</li>
+<li>double 双精度</li>
+<li>decimal(n,m) 双精度。括号内指定数字位数和小数点后位数。即最多有m位，n个小数点后位数</li>
+</ul>
+<h3 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h3><ul>
+<li>char 0~255 定长</li>
+<li>varchar 0~65535 可变长度</li>
+<li>tinybolb 0~255 存储二进制字符串。也就是说可以通过二进制字符串转换来存图片之类的。/</li>
+<li>bolb 0~25535 存储二进制字符串</li>
+<li>mediumbolb 0~16677215 存储二进制字符串</li>
+<li>longblob 0~4294967295 存储二进制字符串</li>
+<li>tinytext 0~255 文本数据</li>
+<li>text 0~65535 文本数据</li>
+<li>mediumtext 文本数据</li>
+<li>longtext 文本数据</li>
+</ul>
+<h3 id="日期类型"><a href="#日期类型" class="headerlink" title="日期类型"></a>日期类型</h3><ul>
+<li>date 。只能存放年月日。没有时分秒。格式 2021-09-13</li>
+<li>time 。 11：11：23。只有时分秒</li>
+<li>year。2021.只有年份</li>
+<li>date time。 2021-09-13 11：12：13.存放年月日时分秒</li>
+<li>timestamp。20210913 111213.年月日时分秒。但中间没有分隔。时间戳</li>
+</ul>
+<h3 id="字段约束"><a href="#字段约束" class="headerlink" title="字段约束"></a>字段约束</h3><ul>
+<li><p>非空约束。限制此列的值必须提供。</p>
+</li>
+<li><p>唯一约束。此列的值不能重复</p>
+</li>
+<li><p>主键约束。表中记录的唯一标识。可以是一个列，也可以是多个列的组合</p>
+<ul>
+<li><p>创建表的时候定义主键。 create table <tbname>（classid varchar(15) primary key）或者create table <tbname>（classid varchar(15) ,primary key(classid)）</tbname></tbname></p>
+</li>
+<li><p>删除数据表主键约束。alter table <tbname> drop primary key</tbname></p>
+</li>
+<li><p>主键自动增长。create table <tbname>(classid int primary key auto_increment )。自动增长只保证唯一性不保证连续性。</tbname></p>
+</li>
+<li><p>联合主键。create table <tbname>(classid varchar(15),stuid varchar(15),primary key(classid,stuid))</tbname></p>
+</li>
+</ul>
+</li>
+<li><p>外键约束</p>
+</li>
+</ul>
+<h1 id="DML-数据操作语言"><a href="#DML-数据操作语言" class="headerlink" title="DML 数据操作语言"></a>DML 数据操作语言</h1><h2 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h2><ul>
+<li>insert into <tbname>() values() 。tbname后面的括号里用来指定赋值的字段，values里用来赋值。</tbname></li>
+</ul>
+<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><ul>
+<li>从数据表中删除满足需求的数据。delete from <tbname> where <conditions>.<ul>
+<li>conditions里用来指定特定数据。通过对字段的判断来进行条件的选择。如classid=’10010‘或者stu_age&gt;20</li>
+</ul>
+</conditions></tbname></li>
+</ul>
+<h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><ul>
+<li>update <tbname> set <sname>=’…‘  where classid=’…’</sname></tbname></li>
+</ul>
+<h1 id="DQL-数据查询语言"><a href="#DQL-数据查询语言" class="headerlink" title="DQL 数据查询语言"></a>DQL 数据查询语言</h1><p>从数据表中提取满足要求的记录</p>
+<ul>
+<li>select <sname>,<sname>,<sname> from <tbname>  [where conditions] 。sname指定要要查询指定数据的哪些字段。tbname指定表。如果要显示查询到的所有字段，就用*来替代字段名的列表。</tbname></sname></sname></sname></li>
+</ul>
+<h2 id="where子句"><a href="#where子句" class="headerlink" title="where子句"></a>where子句</h2><p>删除修改查询语句后都可以加入where子句，用于筛选满足特定条件的数据进行删除修改查询。</p>
+<ul>
+<li><p>条件。</p>
+<ul>
+<li>=        等于，精确匹配。</li>
+<li>！=    不等于</li>
+<li>&lt;&gt;  小于或者大于，即不等于</li>
+<li>大于小于，大于等于，小于等于和其他语言的语法一致</li>
+<li>betwe and。相当于是区间查询。select * from class class_time between 18 and 20</li>
+</ul>
+</li>
+<li><p>多条件查询。通过多个条件来筛选数据</p>
+<ul>
+<li>and 相当于是&amp;&amp;。where <conditions> and <conditions></conditions></conditions></li>
+<li>or 相当于是||。where <conditions> or <conditions></conditions></conditions></li>
+<li>not  用在between and前，表示区间反转。select * from class class_time not between 18 and 20</li>
+</ul>
+</li>
+</ul>
+<h2 id="LIKE子句"><a href="#LIKE子句" class="headerlink" title="LIKE子句"></a>LIKE子句</h2><p>模糊查询</p>
+<ul>
+<li>select * from <tbname> where <sname>  like <condition><ul>
+<li>如：select * from stus where stu_name  like ‘%o%’           可以把名字中所有含有o的记录显示出来</li>
+<li>在like关键字的表达式中，%表示任意多的字符，_表示任意一个字符</li>
+</ul>
+</condition></sname></tbname></li>
+</ul>
+<h3 id="查询结果处理"><a href="#查询结果处理" class="headerlink" title="查询结果处理"></a>查询结果处理</h3><ul>
+<li><p>计算列和别名。可以对数据表中查询的列，进行一定计算再显示出来。别名是在显示的时候对字段使用其他的名字</p>
+<ul>
+<li>如：select <sname> as <sname4>,2021-<sname2>,<sname3> from <tbname>  [where conditions]   那么第二行给出的数据会是2021-对应栏数值得到的数据。同时第一栏的数据的字段名将用sname4来显示</tbname></sname3></sname2></sname4></sname></li>
+</ul>
+</li>
+<li><p>消除重复行。在查询结果中将数据重复的数据删除。select distinct <sname> from <tbname></tbname></sname></p>
+</li>
+</ul>
+<h3 id="查询结果排序——BY排序"><a href="#查询结果排序——BY排序" class="headerlink" title="查询结果排序——BY排序"></a>查询结果排序——BY排序</h3><ul>
+<li><p>select <sname1> from <tbname> where <conditions> order by <sname2> ,<sname3>,….,<snamen> [asc||desc]</snamen></sname3></sname2></conditions></tbname></sname1></p>
+<ul>
+<li><p>代表根据sname2,sname3…,snamen的内容对查询到的信息进行排序显示，其中越在前的优先级越高。</p>
+</li>
+<li><p>默认是升序排列。后缀的asc代表升序，desc代表降序。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h3><p>聚合函数是指SQL提供的对数据表中的某些列进行运算的函数</p>
+<ul>
+<li><p>count()    统计函数。统计满足条件的指定字段数的记录数，如：</p>
+<ul>
+<li><p>统计学生表中的学生人数</p>
+<ul>
+<li>select count(stu_num) from stus </li>
+</ul>
+</li>
+<li><p>统计学生表中的男生人数</p>
+<ul>
+<li>select count(stu_num) form stus where stu_gender=’男’</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>max()。找出查询信息中的最大值记录</p>
+</li>
+<li><p>min()。最小值</p>
+</li>
+<li><p>sum()。计算和</p>
+</li>
+<li><p>avg()。求平均值。</p>
+</li>
+</ul>
+<h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><blockquote>
+<p>对日期类型添加数据，可以采用字符串赋值，但字符串的形式必须是yyyy-MM-dd hh:mm:ss。用当前日期插入到数据列中，用函数now()或者sysdate()</p>
+<p>获取当前系统时间可以用select now()或者select sysdate()</p>
+</blockquote>
+<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><ul>
+<li><p>concat(sname1,sname2,….) 。把指定的字符串拼接起来。</p>
+<ul>
+<li>如:select concat(stu_name,’-‘,stu_age) from stus</li>
+</ul>
+</li>
+<li><p>upper(sname) 。将对应的字符串都改成大写</p>
+</li>
+<li><p>lower(sname)。将指定字符串都改成小写。</p>
+</li>
+<li><p>substring(sname,n,m)。截取字符串，从对应的字符串的第n位往后截取m位来显示。如果n写start就指代从第一位开始</p>
+</li>
+</ul>
+<h3 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h3><blockquote>
+<p>分组就是对数据表中指定的列进行分组</p>
+</blockquote>
+<ul>
+<li>select by<ul>
+<li>select … from <tbname> group by <sname1> [having <conditions>]   </conditions></sname1></tbname></li>
+<li>根据sname1对tbname进行分组。其中…表示要求选择显示的字段。如果…替换成*，则只会显示每个分组的第一个记录。</li>
+<li>having语句内表示条件，是对分组后的结果进行指定条件的筛查。</li>
+</ul>
+</li>
+</ul>
+<h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><blockquote>
+<p>数据表中的记录比较多，一次性查询过多，则可以分页展示</p>
+</blockquote>
+<ul>
+<li>limit n,m 从第n条开始显示，共显示m条数据。limit语句放在语句末尾。也就是在where，order之类语句之后。<ul>
+<li>如:select stu_name form stus limit 0,3</li>
+</ul>
+</li>
+</ul>
+<h1 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a>关联关系</h1><h2 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h2><ul>
+<li>主键关联。不同表中主键相同即相关联。</li>
+<li>唯一外键。任意一张表中添加一个外键字段来与另外一个表关联。</li>
+</ul>
+<h2 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h2><ul>
+<li>在多的一端设置外键，然后与一的部分进行关联。</li>
+</ul>
+<h2 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h2><ul>
+<li><p>额外创建一个关系表。用来维护多对多的关联。</p>
+</li>
+<li><p>关系表中的字段中有多个外键。分别用来指代不同的多。</p>
+</li>
+</ul>
+<h2 id="外键约束"><a href="#外键约束" class="headerlink" title="外键约束"></a>外键约束</h2>
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/08/GO/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Go的一点语法</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/06/jiwang_3/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">计网数据链路层</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
+                    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '发表神喻',
+                    lang: 'ZH_cn'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'mushroom323';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">mushroom323</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL%E8%AF%AD%E6%B3%95"><span class="nav-text">SQL语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DLL-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80"><span class="nav-text">DLL 数据定义语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">修改数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">切换数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">创建数据表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">查询数据表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">删除数据表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-text">修改数据表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">SQL数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B"><span class="nav-text">数值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B"><span class="nav-text">字符类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E7%B1%BB%E5%9E%8B"><span class="nav-text">日期类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5%E7%BA%A6%E6%9D%9F"><span class="nav-text">字段约束</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DML-%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E8%AF%AD%E8%A8%80"><span class="nav-text">DML 数据操作语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-text">添加数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE"><span class="nav-text">修改数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DQL-%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80"><span class="nav-text">DQL 数据查询语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#where%E5%AD%90%E5%8F%A5"><span class="nav-text">where子句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LIKE%E5%AD%90%E5%8F%A5"><span class="nav-text">LIKE子句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%A4%84%E7%90%86"><span class="nav-text">查询结果处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E6%8E%92%E5%BA%8F%E2%80%94%E2%80%94BY%E6%8E%92%E5%BA%8F"><span class="nav-text">查询结果排序——BY排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="nav-text">日期函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-text">分页查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB"><span class="nav-text">关联关系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E4%B8%80"><span class="nav-text">一对一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E5%A4%9A"><span class="nav-text">一对多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A"><span class="nav-text">多对多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="nav-text">外键约束</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
