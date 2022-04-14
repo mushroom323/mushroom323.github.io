@@ -9,7 +9,7 @@
     
     <title>
         
-            Go的一点语法 |
+            vscode里Go的分文件 |
         
         槐序七
     </title>
@@ -275,7 +275,7 @@ mjx-container[display="true"] + br {
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Go的一点语法</span>
+            <span class="title-hover-animation">vscode里Go的分文件</span>
         </div>
 
         
@@ -293,7 +293,7 @@ mjx-container[display="true"] + br {
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-04-08 10:59:13
+        <i class="fas fa-edit"></i>&nbsp;2022-04-03 00:45:13
     </span>
     
     
@@ -302,7 +302,7 @@ mjx-container[display="true"] + br {
             <ul>
                 
                     <li>
-                        <a href="/tags/%E8%AF%BE%E5%A4%96/">课外</a>&nbsp;
+                        <a href="/tags/Go/">Go</a>&nbsp;
                     </li>
                 
             </ul>
@@ -312,7 +312,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.3k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>480 Words</span>
         </span>
     
     
@@ -325,167 +325,27 @@ mjx-container[display="true"] + br {
         
 
         <div class="article-content markdown-body">
-            <p>不全，看文档的时候顺便写的笔记。</p>
-<p>interface开始就没记了。后面go语言网络编程语法更是不知所云。</p>
-<p>要不是项目有现成的代码抄我没准真的把文档看完。</p>
-<p>感谢前人大爹了属于是。</p>
-<h1 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h1><h2 id="Go基础"><a href="#Go基础" class="headerlink" title="Go基础"></a>Go基础</h2><h3 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h3><ul>
-<li><p>完整声明</p>
-<ul>
-<li>var variableName type</li>
-<li>var vname1,vname2,vname3 type</li>
-<li>var variableName type = value</li>
-<li>var vname1,vname2,vname3 type = v1,v2,v3</li>
-</ul>
-</li>
-<li><p>忽略类型</p>
-<ul>
-<li>var vname1,vname2,vname3 = v1,v2,v3</li>
-</ul>
-</li>
-<li><p>极简。只能用在函数内部</p>
-<ul>
-<li>vname1,vname2,vname3 := v1,v2,v3</li>
-</ul>
-</li>
-<li><p>声明了变量未使用会报错</p>
-</li>
-</ul>
-<h3 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h3><ul>
-<li><p>支持复数。</p>
-<ul>
-<li>complex128</li>
-<li>complex64</li>
-<li>形式为RE+IMi</li>
-</ul>
-</li>
-<li><p>支持Raw字符串，即字符串在代码中的形式就是打印的形式，没有字符转义，换行也会原样输出。形式是用``框起来</p>
-</li>
-<li><p>错误类型。package的包里有一个errors。看那个包。</p>
-</li>
-<li><p>数组</p>
-<ul>
-<li>var arr [n]type</li>
-<li>a := [n]type{….}</li>
-</ul>
-</li>
-<li><p>切片slice</p>
-<ul>
-<li><p>var fslice []type</p>
-</li>
-<li><p>slice := []byte {…..}</p>
-</li>
-<li><p>slice可以通过从已有数组里切割出来</p>
-<ul>
-<li>slice := arr[2:5]</li>
-</ul>
-</li>
-<li><p>slice是引用类型。如果改变了slice里的值，那么引用的位置的值也会改变。</p>
-<ul>
-<li>就是说slice切了数组出来，改了slice，之前的数组里的元素也会变</li>
-</ul>
-</li>
-<li><p>slice的几个内置函数</p>
-<ul>
-<li>len。获取slice的长度</li>
-<li>cap。获取slice的最大容量</li>
-<li>append。往slice里追加一个或者多个元素。然后返回一个类型一样的slice<ul>
-<li>如果长度已经抵达了最大容量，append会申请新的内存-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Go的1.2版本后可以指定slice的容量。这样可以避免在切割后，访问到了不想令其访问的原数组部分。</p>
-<ul>
-<li>slice := arr[2:4:7]<ul>
-<li>其中7就是容量</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>map。字典类型。特点是不一定要用int类型来做key。可以是其他类型。也就是哈希表。</p>
-<ul>
-<li>格式为map[keyType]valueType</li>
-<li>删除map中的元素<ul>
-<li>delete(mapname,”vname”)<ul>
-<li>删除名为vname的元素</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>make和new</p>
-<ul>
-<li>内建函数<code>new</code>本质上说跟其它语言中的同名函数功能一样：<code>new(T)</code>分配了零值填充的<code>T</code>类型的内存空间，并且返回其地址，即一个<code>*T</code>类型的值。用Go的术语说，它返回了一个指针，指向新分配的类型<code>T</code>的零值。有一点非常重要：</li>
-<li>内建函数<code>make(T, args)</code>与<code>new(T)</code>有着不同的功能，make只能创建<code>slice</code>、<code>map</code>和<code>channel</code>，并且返回一个有初始值(非零)的<code>T</code>类型，而不是<code>*T</code>。本质来讲，导致这三个类型有所不同的原因是指向数据结构的引用在使用前必须被初始化。例如，一个<code>slice</code>，是一个包含指向数据（内部<code>array</code>）的指针、长度和容量的三项描述符；在这些项目被初始化之前，<code>slice</code>为<code>nil</code>。对于<code>slice</code>、<code>map</code>和<code>channel</code>来说，<code>make</code>初始化了内部的数据结构，填充适当的值。</li>
-</ul>
-</li>
-</ul>
-<h2 id="流程和函数"><a href="#流程和函数" class="headerlink" title="流程和函数"></a>流程和函数</h2><h3 id="流程语句"><a href="#流程语句" class="headerlink" title="流程语句"></a>流程语句</h3><ul>
-<li><p>if不需要括号了</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x &gt; <span class="number">10</span> {</span><br><span class="line">    fmt.Println(<span class="string">"x is greater than 10"</span>)</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">    fmt.Println(<span class="string">"x is less than 10"</span>)</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+            <p>vscode里走c和c++的分文件倒是方便，只要引入和头别写的太弱智基本都能分。</p>
+<p>go不太行，不知道是我的问题还是go的遗留问题。</p>
+<p>主要是go分文件这一块，只要是一个文件夹里的，开头写个</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>同时if可以在条件判断语句里声明一个变量。同时这个变量只在条件逻辑块内起作用</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算获取值x,然后根据x返回的大小，判断是否大于10。</span></span><br><span class="line"><span class="keyword">if</span> x := computedValue(); x &gt; <span class="number">10</span> {</span><br><span class="line">    fmt.Println(<span class="string">"x is greater than 10"</span>)</span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">    fmt.Println(<span class="string">"x is less than 10"</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//这个地方如果这样调用就编译出错了，因为x是条件里面的变量</span></span><br><span class="line">fmt.Println(x)</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>for也不需要括号了</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    sum := <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> index:=<span class="number">0</span>; index &lt; <span class="number">10</span> ; index++ {</span><br><span class="line">        sum += index</span><br><span class="line">    }</span><br><span class="line">    fmt.Println(<span class="string">"sum is equal to "</span>, sum)</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 输出：sum is equal to 45</span></span><br></pre></td></tr></table></figure>
+<p>那放在vscode里头都算你是一个项目的了。当然你直接run还是不太行，但起码你写代码的时候该有的提示都会有，也不至于给你报一万个波浪线错误，一天到晚undefined。</p>
+<p>当然有时候放一个文件夹里，补了个package的开头，还是报一大堆undefined的事情也不新鲜，我的经验是往vscode命令行打个</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> export GO111MODULE=auto  </span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>go里的循环可以省略到只剩条件语句。也就是直接变成了while</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum := <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> sum &lt; <span class="number">1000</span> {</span><br><span class="line">    sum += sum</span><br><span class="line">}</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>range函数</p>
-<ul>
-<li><p>针对于slice和map。用来读取slice和map的数据。</p>
-</li>
-<li><p>返回值两个。元素的序号和元素的内容</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> k,v:=<span class="keyword">range</span> <span class="keyword">map</span> {</span><br><span class="line">    fmt.Println(<span class="string">"map's key:"</span>,k)</span><br><span class="line">    fmt.Println(<span class="string">"map's val:"</span>,v)</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>如果还不行，回你的项目文件夹跑一个</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> init mod &lt;filename&gt;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>说实话我也不知道这个啥原理。很牛逼</p>
-</blockquote>
-<ul>
-<li><p>如果不需要序号元素的话可以省略</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _, v := <span class="keyword">range</span> <span class="keyword">map</span>{</span><br><span class="line">    fmt.Println(<span class="string">"map's val:"</span>, v)</span><br><span class="line">}</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>switch。</p>
-<ul>
-<li>go的switch自带break。如果要强制往下执行就在每句句尾加一个fallthrough</li>
-</ul>
-</li>
-</ul>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
-<li><p>可以返回多个返回值</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//返回 A+B 和 A*B</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SumAndProduct</span><span class="params">(A, B <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>)</span></span> {</span><br><span class="line">    <span class="keyword">return</span> A+B, A*B</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">    x := <span class="number">3</span></span><br><span class="line">    y := <span class="number">4</span></span><br><span class="line"></span><br><span class="line">    xPLUSy, xTIMESy := SumAndProduct(x, y)</span><br><span class="line"></span><br><span class="line">    fmt.Printf(<span class="string">"%d + %d = %d\n"</span>, x, y, xPLUSy)</span><br><span class="line">    fmt.Printf(<span class="string">"%d * %d = %d\n"</span>, x, y, xTIMESy)</span><br><span class="line">}</span><br></pre></td></tr></table></figure></li>
-<li><p>defer语句</p>
-<blockquote>
-<p>Go语言中有种不错的设计，即延迟（defer）语句，你可以在函数中添加多个defer语句。当函数执行到最后时，这些defer语句会按照逆序执行，最后该函数返回。特别是当你在进行一些打开资源的操作时，遇到错误需要提前返回，在返回前你需要关闭相应的资源，不然很容易造成资源泄露等问题。</p>
-</blockquote>
-<ul>
-<li>代码如下</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ReadWrite</span><span class="params">()</span> <span class="title">bool</span></span> {</span><br><span class="line">    file.Open(<span class="string">"file"</span>)</span><br><span class="line">    <span class="keyword">defer</span> file.Close()</span><br><span class="line">    <span class="keyword">if</span> failureX {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> failureY {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如果有很多调用<code>defer</code>，那么<code>defer</code>是采用后进先出模式，所以如下代码会输出<code>4 3 2 1 0</code></li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ {</span><br><span class="line">    <span class="keyword">defer</span> fmt.Printf(<span class="string">"%d "</span>, i)</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>可以用ype来定义函数的类型</li>
-</ul>
+<p>那应该就行了。反正我这就行了。</p>
+<p>你要是不信我去csdn上搜上一阵，那我估计你也搜不出啥好用的。csdn上的最高赞给的方法是丢到GOPATH里，问题是GOPATH已经不是这个版本的东西。go 1.1之后好像就开始用go mod做版本管理了。把这个讲的比较清楚那估计得回头看go的开发文档了。</p>
+<p>好了，写代码不报错那分文件也就成功了一半了。</p>
+<p>剩下的就是咋跑代码了。毕竟用vscode直接跑大概率是跑不起来了。这一点跟c和c++又不太一样。</p>
+<p>反正我是直接</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> run .\</span><br></pre></td></tr></table></figure>
+<p>意思是一个文件夹下的全部编译然后开跑。</p>
+<p>比较需要注意的是，vscode这必须得直接打开放代码的文件夹，毕竟vscode的命令行默认是从根目录开始的，也就是你打开的文件夹。</p>
+<p>总的来说就是没有一点依据的个人经验。我也不知道我在说啥。</p>
 
         </div>
 
@@ -497,13 +357,13 @@ mjx-container[display="true"] + br {
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/12/night._1/"
+                           href="/2022/04/06/jiwang_3/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">深夜emo_1</span>
+                                <span class="post-nav-title-item">计网数据链路层</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -513,10 +373,10 @@ mjx-container[display="true"] + br {
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/08/SQL/"
+                           href="/2022/04/02/redmoon/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">SQL的一点语法</span>
+                                <span class="post-nav-title-item">书评 | 《从红月开始》</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -711,7 +571,7 @@ mjx-container[display="true"] + br {
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Go"><span class="nav-text">Go</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Go%E5%9F%BA%E7%A1%80"><span class="nav-text">Go基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="nav-text">变量定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="nav-text">变量类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0"><span class="nav-text">流程和函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E8%AF%AD%E5%8F%A5"><span class="nav-text">流程语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-text">函数</span></a></li></ol></li></ol></li></ol>
+        
     </div>
 </div>
         </aside>

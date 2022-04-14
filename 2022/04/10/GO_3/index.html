@@ -9,7 +9,7 @@
     
     <title>
         
-            深夜emo_1 |
+            Go搭一个弱智本地服务器 |
         
         槐序七
     </title>
@@ -275,7 +275,7 @@ mjx-container[display="true"] + br {
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">深夜emo_1</span>
+            <span class="title-hover-animation">Go搭一个弱智本地服务器</span>
         </div>
 
         
@@ -293,7 +293,7 @@ mjx-container[display="true"] + br {
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-04-12 01:15:23
+        <i class="fas fa-edit"></i>&nbsp;2022-04-10 10:59:13
     </span>
     
     
@@ -302,7 +302,7 @@ mjx-container[display="true"] + br {
             <ul>
                 
                     <li>
-                        <a href="/tags/%E8%84%91%E5%AD%90%E6%9C%89%E7%97%85/">脑子有病</a>&nbsp;
+                        <a href="/tags/Go/">Go</a>&nbsp;
                     </li>
                 
             </ul>
@@ -312,7 +312,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>333 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>803 Words</span>
         </span>
     
     
@@ -325,26 +325,48 @@ mjx-container[display="true"] + br {
         
 
         <div class="article-content markdown-body">
-            <p>以后干活到一点之后就打个深夜tag放点emo屁。</p>
-<p>这算是第一次。</p>
-<p>赶课设的需求代码赶了两个多小时。差不太多。</p>
-<p>前两个小时脑子有病拿个手机一边水群一边赶，屁效率没有完事了还被群嘲。</p>
-<p>确实沾点真傻逼。</p>
-<p>剩下不到一个小时打算rush一下，然后翻一下文档发现需求看错了。</p>
-<p>要求传结构体，我弱智一样写了个string。</p>
-<p>更傻逼了。</p>
-<p>结果算了算传结构体还得写个比较函数，不然排序直接寄。</p>
-<p>结果搜了搜你妈go又没有加权的比较函数，我还得自己写。</p>
-<p>也可能是我自己傻逼没搜到。总之都挺傻逼的。</p>
-<p>一个结构体里六个元素降序比较，嗯写了个暴力比较。我看那一串if和else想着这下傻逼到家了。</p>
-<p>复制粘贴复制粘贴滚了几遍总算把需求弄完了。弄完了不想看，估计出错的bug能垒一座山。</p>
-<p>反正交了。错不错不想管了。错了到时候再改就完事了。</p>
-<p>摆就完事了。</p>
-<p>想了想还真是。</p>
-<p>真傻逼啊。</p>
-<p>反正早八马原等于没课，找点小说再混两小时等昏迷。</p>
-<p>迟早进坟。</p>
+            <p>数据结构课设用的。前后端交互后端不给搭个本地服务器确实没法跑。</p>
+<p>没研究http协议，随便看了下go开发文档里给的http包就开抄了。</p>
+<p>反正只是课设用。写的多弱智都行。</p>
+<p>当然弱智的估计只有我，有的大爹自己把通讯模块写了的也有，不能一概而论。</p>
+<p>看看大爹：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/1cf7eae7-d849-4b30-9b8b-dbff8de87053-14970684.jpg" alt="看看大爹.png"></p>
+<p>随便讲讲代码咋写的。不分析函数了。我自己都看不懂传的参数是在干啥。</p>
+<h1 id="首先把"><a href="#首先把" class="headerlink" title="首先把"></a>首先把</h1><p>首先先把包导入了。不然写个p。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (<span class="string">"net/http"</span>)</span><br></pre></td></tr></table></figure>
+<p>我们组做的web，和前端交互那也就是和http跑协议，所以直接调的http包。</p>
+<h1 id="那就开写被"><a href="#那就开写被" class="headerlink" title="那就开写被"></a>那就开写被</h1><p>先写个StartServer。</p>
+<p>名字叫启动服务主要是有点仪式感。不然代码就写的跟怨妇一样了。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">StartServer</span><span class="params">()</span></span> {</span><br><span class="line">	http.HandleFunc(<span class="string">"/api/"</span>, APIHandler)</span><br><span class="line">	http.Handle(<span class="string">"/"</span>, http.FileServer(http.Dir(<span class="string">"front"</span>)))</span><br><span class="line">	<span class="keyword">go</span> ServerTest()</span><br><span class="line">	err := http.ListenAndServe(<span class="string">":5000"</span>, <span class="literal">nil</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> {</span><br><span class="line">		Log(fmt.Sprintf(<span class="string">"Web 服务启动失败，请检查您的防火墙设置并确保 5000 端口没有被占用"</span>, port))</span><br><span class="line">		os.Exit(<span class="number">1</span>)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
+<p>md的这个go代码做的标识是真敷衍。好丑。</p>
+<p>第二行里的传的第一个参数可以改。爱咋改咋改，反正和APIHandler里的pattern对的上就行。不是很重要。</p>
+<p>第三行的第一个参数就别动了，弱智服务器犯不上改那个。第二个参数是开了前端文件夹传进去了。front是前端文件夹名。</p>
+<p>第四行跑了个服务器测试，晚点贴代码。测不测都行。图个好看。</p>
+<p>第五行监听端口，这里监听的是 5000 。爱改其他的也行。反正都能用。</p>
+<p>六七八九就是个错误检测了。爱检测就检测，不检测也没人说你。</p>
+<p>反正就这几行，大致框架就搭起来了。至于具体交互的就是APIHandler里的事了。</p>
+<h1 id="APIHandler"><a href="#APIHandler" class="headerlink" title="APIHandler"></a>APIHandler</h1><p>看看交互咋写被。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">APIHandler</span><span class="params">(w http.ResponseWriter, req *http.Request)</span></span> {</span><br><span class="line">	w.Header().Set(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>)</span><br><span class="line">	w.Header().Set(<span class="string">"content-type"</span>, <span class="string">"application/json"</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span> req.URL.Path {</span><br><span class="line">	<span class="keyword">case</span> <span class="string">"/api/isServing"</span>: <span class="comment">//判断web服务是否成功启动</span></span><br><span class="line">		w.Write([]<span class="keyword">byte</span>(<span class="string">"true"</span>))</span><br><span class="line">        ....</span><br><span class="line">    ....</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>大致是这样。</p>
+<p>第二行和第三行改了头。不改行不行捏，我觉得行，你可以试试。</p>
+<p>第六行是api名字，前端就指着这个拿东西了。</p>
+<p>不从前端提数据那应该也就这样了。一直writewrite就完事了。挺直接的。</p>
+<p>提数据的话就加一行.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">query := req.URL.Query()</span><br></pre></td></tr></table></figure>
+
+<p>然后拿query给的函数开提数据，query.Get就完事了。</p>
+<h1 id="整个测试函数被"><a href="#整个测试函数被" class="headerlink" title="整个测试函数被"></a>整个测试函数被</h1><p>拿现成的东西就行，都写上面了。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ServerTest</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">for</span> {</span><br><span class="line">		res, err := http.Get(<span class="string">"http://localhost:5000/api/isServing"</span>)</span><br><span class="line">		<span class="keyword">if</span> err == <span class="literal">nil</span> {</span><br><span class="line">			<span class="keyword">defer</span> res.Body.Close()</span><br><span class="line">			body, _ := ioutil.ReadAll(res.Body)</span><br><span class="line">			<span class="keyword">if</span> <span class="keyword">string</span>(body) == <span class="string">"true"</span> {</span><br><span class="line">				fmt.Println(<span class="string">"Web 服务启动成功，请访问 http://localhost:5000 进入系统"</span>)</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>相当于试试 <a class="link" target="_blank" rel="noopener" href="http://localhost:5000/api/isServing">http://localhost:5000/api/isServing<i class="fas fa-external-link-alt"></i></a> 这个api能不能使。能使就告诉你能使。</p>
+<p>用了个defer，害挺高级。不用defer自己最后关也行。 </p>
+<p>前端咋提数据那得看你用啥框架。jQuery和axios不能一概而论。手搭ajax也行。</p>
+<p>反正前端也不是我写的，我管不到。</p>
+<p>看看前端大爹：</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://forksama.github.io/">前端爹<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="没了"><a href="#没了" class="headerlink" title="没了"></a>没了</h1>
         </div>
 
         
@@ -355,13 +377,13 @@ mjx-container[display="true"] + br {
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/14/GO_4/"
+                           href="/2022/04/12/night._1/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Go实现NFA转DFA</span>
+                                <span class="post-nav-title-item">深夜emo_1</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -371,10 +393,10 @@ mjx-container[display="true"] + br {
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/10/GO_3/"
+                           href="/2022/04/08/GO_1/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Go搭一个弱智本地服务器</span>
+                                <span class="post-nav-title-item">Go的基础语法</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -569,7 +591,7 @@ mjx-container[display="true"] + br {
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%8A%8A"><span class="nav-text">首先把</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%82%A3%E5%B0%B1%E5%BC%80%E5%86%99%E8%A2%AB"><span class="nav-text">那就开写被</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#APIHandler"><span class="nav-text">APIHandler</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E4%B8%AA%E6%B5%8B%E8%AF%95%E5%87%BD%E6%95%B0%E8%A2%AB"><span class="nav-text">整个测试函数被</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B2%A1%E4%BA%86"><span class="nav-text">没了</span></a></li></ol>
     </div>
 </div>
         </aside>
