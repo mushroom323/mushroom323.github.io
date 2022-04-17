@@ -174,7 +174,7 @@ mjx-container[display="true"] + br {
                             <a class=""
                                href="/"
                             >
-                                HOME
+                                首页
                             </a>
                         </li>
                     
@@ -182,7 +182,7 @@ mjx-container[display="true"] + br {
                             <a class=""
                                href="/archives"
                             >
-                                ARCHIVES
+                                归档
                             </a>
                         </li>
                     
@@ -190,7 +190,7 @@ mjx-container[display="true"] + br {
                             <a class=""
                                href="/tags"
                             >
-                                TAGS
+                                标签
                             </a>
                         </li>
                     
@@ -198,7 +198,7 @@ mjx-container[display="true"] + br {
                             <a class=""
                                href="/links"
                             >
-                                LINKS
+                                友链
                             </a>
                         </li>
                     
@@ -206,7 +206,7 @@ mjx-container[display="true"] + br {
                             <a class=""
                                href="/about"
                             >
-                                ABOUT
+                                关于
                             </a>
                         </li>
                     
@@ -233,27 +233,27 @@ mjx-container[display="true"] + br {
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/">HOME</a>
+                       href="/">首页</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/archives">ARCHIVES</a>
+                       href="/archives">归档</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/tags">TAGS</a>
+                       href="/tags">标签</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/links">LINKS</a>
+                       href="/links">友链</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/about">ABOUT</a>
+                       href="/about">关于</a>
                 </li>
             
         </ul>
@@ -293,7 +293,7 @@ mjx-container[display="true"] + br {
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-04-06 22:59:13
+        <i class="fas fa-edit"></i>&nbsp;2022-04-17 16:59:13
     </span>
     
     
@@ -312,7 +312,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>4.5k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>5k 字</span>
         </span>
     
     
@@ -325,7 +325,8 @@ mjx-container[display="true"] + br {
         
 
         <div class="article-content markdown-body">
-            <p>笔记来源和物理层一致，教材ppt和大爹。</p>
+            <p>一更，根据作业的范围加了点东西,划了下重点。</p>
+<p>笔记来源和物理层一致，教材ppt和大爹。</p>
 <p>没有一张图是自己截的。</p>
 <h1 id="3-1-数据链路层的设计问题"><a href="#3-1-数据链路层的设计问题" class="headerlink" title="3.1 数据链路层的设计问题"></a>3.1 数据链路层的设计问题</h1><ul>
 <li>数据链路层的<strong>功能</strong><ul>
@@ -358,7 +359,7 @@ mjx-container[display="true"] + br {
 <h3 id="Byte-Stuffing"><a href="#Byte-Stuffing" class="headerlink" title="Byte Stuffing"></a>Byte Stuffing</h3><p>字节填充的标志字节法</p>
 <p>第二种成帧方法考虑到了出错之后的重新同步问题，它让每个用一些特殊的字节作为开始和结朿。这些特殊字节通常都相同，称为标志字节(flag byte)，作为帧的起始和结束分界符，如图3-4(a)中的FLAG所示。两个连续的标志字节代表了一帧的结束和下帧的开始。</p>
 <p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/eecf14af-6303-4a1f-80a0-ab6acf754996-14970684.jpg" alt="5.png"></p>
-<p>问题：发送的信息含有很多控制字符，需要转译的字符大大增加<br>开销：overhead，跟需要发送的数据相比，额外添加的转义字符所占的比例，比如全是需要转译的字符的信息，overhead就是100%。</p>
+<p>问题：发送的信息含有很多控制字符，需要转译的字符大大增加<br><strong>开销：overhead，跟需要发送的数据相比，额外添加的转义字符所占的比例，比如全是需要转译的字符的信息，overhead就是100%。</strong></p>
 <h3 id="Bit-Stuffing"><a href="#Bit-Stuffing" class="headerlink" title="Bit Stuffing"></a>Bit Stuffing</h3><p>比特填充的标志比特法</p>
 <p>每个帧的开头结尾都是一个special bit pattern, 01111110 ，也就是16进制的7EH，当数据内容出现连续的1时，每遇到五个1添加一个0（硬件不管这5个1后面是0还是1），接收方做相反的工作。</p>
 <p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/c7e3cce3-443d-4224-b633-bc6f9cefff4b-16175743.jpg" alt="5.png"></p>
@@ -370,7 +371,7 @@ mjx-container[display="true"] + br {
 <h2 id="3-1-3-Error-Control"><a href="#3-1-3-Error-Control" class="headerlink" title="3.1.3 Error Control"></a>3.1.3 Error Control</h2><p>确保可靠传递的常用方法是向发送方提供一些有关线路另一端状况的反馈信息。通常情况下，协议要求接收方<strong>发回一些特殊的控制帧</strong>，在这些控制帧中，对于它所接收到的帧进行肯定的或者否定的确认</p>
 <p>当发送方发出一帧时，<strong>通常还要启动一个计时器</strong>。该计时器的超时值应该设置得足够长，以便保证在正常情况下该帧能够到达接收方，并且在接收方进行处理后再将确认返回到发送方。一般情况下，在计时器超时前，该帧应该被正确地接收，并且确认帧也被传了回米。这种情况下，计时器被取消。</p>
 <p>然而，如果帧或者确认被丢失，则计时器将被触发，从而警告发送方存在一个潜在的问题。一种显然的解决方案是重新发送该帧。然而，当有的帧被发送了多次之后，可能会出现这样的危险：接收方将两次或者多次接收到同一帧，并且多次将它传递给网络层。为了避免发生这样的情形，一般有必要<strong>给发送出去的帧分配序号</strong>，这样接收方可以根据帧的序号来有效区分原始帧和重传帧。</p>
-<p>一条消息第k次发送成功的概率为p，问期望发送次数<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/96d9ea6e-73f0-4e62-b619-0c8f977725b2-14970684.jpg" alt="5.png"></p>
+<p><strong>一条消息第k次发送成功的概率为p，问期望发送次数</strong><br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/96d9ea6e-73f0-4e62-b619-0c8f977725b2-14970684.jpg" alt="5.png"></p>
 <h2 id="3-1-4-Flow-Control"><a href="#3-1-4-Flow-Control" class="headerlink" title="3.1.4 Flow Control"></a>3.1.4 Flow Control</h2><ul>
 <li><p>两种流量控制</p>
 <ul>
@@ -418,7 +419,14 @@ mjx-container[display="true"] + br {
 <p>这是最多一位出错的基础上的算法。</p>
 <p>突发出错海明能不能纠错呢，ppt上说可以，但没说咋可以，教材没说。</p>
 <p>那就当它不行，我估计不会考海明对多位纠错。</p>
+<p><strong>顺便看道题</strong>：</p>
+<blockquote>
+<p>To provide more reliability than a single parity bit can give, an error-detecting coding scheme uses one parity bit for checking all the odd-numbered bits and a second parity bit for all the even-numbered bits. What is the Hamming distance of this code?<br>这道题默认不加校验码的时候原编码的海明距离是1，也就是仅靠原编码本身不可以检验错误。<br>有了这个条件题目答案才很明显，加了校验码之后编码的海明距离是2。因为最多一位原编码部分不同，和一位校验码部分不同。</p>
+</blockquote>
 <h2 id="3-2-2-检错码"><a href="#3-2-2-检错码" class="headerlink" title="3.2.2 检错码"></a>3.2.2 检错码</h2><h3 id="Checksum-校验和"><a href="#Checksum-校验和" class="headerlink" title="Checksum 校验和"></a>Checksum 校验和</h3><p><strong>校验和（checksum）</strong>这个词通常用来指与信息相关的一组校验位，不管这些校验位是如何计算出来的。一组奇偶校验位是校验和的一个例子。然而，还有其他种类的校验和，强大的校验和基础是对消息中的数据位进行求和计算。校验和通常放置在消息的末尾，作为求和功能的补充。这样一来，通过对整个接收到的码字(包含了数据位和校验和)进行求和计算就能检测出错误。如果计算结果是零，则没有检测出错误。</p>
+<blockquote>
+<p>奇偶校验码即是一位校验和，现在常用的是十六位校验和<br><strong>一个书上没有但作业里有的知识点</strong>：单个位的丢失、插入或修改会导致n位校验和出错的概率是<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.781ex" xmlns="http://www.w3.org/2000/svg" width="2.607ex" height="2.737ex" role="img" focusable="false" viewBox="0 -864.9 1152.2 1209.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(399.3,394) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="msup" transform="translate(220,-345) scale(0.707)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(533,289) scale(0.707)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g><rect width="912.2" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container>。我不知道这个咋算的，记住就行。</p>
+</blockquote>
 <ul>
 <li><strong>交错校验（interleaving）</strong>：<ul>
 <li>我们将为n列中的每列计算校验位，按k行发送全部的数据位，发送次序是从上到下发送每一行，行内数据位通常按从左到右的次序发送。在最后一行，发送n个校验位。</li>
@@ -445,6 +453,7 @@ mjx-container[display="true"] + br {
 <blockquote>
 <p>我哪知道咋证。反正大爹是这么说的。</p>
 </blockquote>
+<p>为啥把CRC校验码放到帧尾：<br>如果放在帧头，则要在发送前扫描帧，计算完CRC后再从帧头开始发送。若放到帧尾，可以一边发一边计算。最后直接将CRC发送出来。</p>
 <h1 id="3-3-基本数据链路层协议"><a href="#3-3-基本数据链路层协议" class="headerlink" title="3.3 基本数据链路层协议"></a>3.3 基本数据链路层协议</h1><p>有请大爹笔记。</p>
 <p>一些假设</p>
 <p>假设物理层、数据链路层和网络层都是独立的进程，它们通过来回传递消计算机操作系统网络接口卡息进行通信</p>
@@ -489,7 +498,7 @@ mjx-container[display="true"] + br {
 <li><p>计时器：因为协议5有多个未被确认的帧，所以逻辑上它需要多个计时器，即每一个未被确认的帧都需要一个计时器</p>
 </li>
 </ul>
-<p>捎带确认，累积确认。不过代码里好像没把累积确认体现出来，只是提了一嘴。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/0447ffc8-00bc-4777-aa73-72be0e2f3c1b-14970684.jpg" alt="5.png"></p>
+<p>捎带确认，累积确认。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/0447ffc8-00bc-4777-aa73-72be0e2f3c1b-14970684.jpg" alt="5.png"></p>
 <p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/88d5dc90-6956-45ba-9198-381ee53d91fe-14970684.jpg" alt="5.png"></p>
 <h2 id="3-4-3-选择重传协议"><a href="#3-4-3-选择重传协议" class="headerlink" title="3.4.3 选择重传协议"></a>3.4.3 选择重传协议</h2><p>由于GBN的<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.373ex" xmlns="http://www.w3.org/2000/svg" width="3.538ex" height="1.918ex" role="img" focusable="false" viewBox="0 -683 1563.7 847.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mi" transform="translate(977,-150) scale(0.707)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g></g></g></g></svg></mjx-container>只能等于1，因此一个数据分组的误码会导致后续多个数据分组不被接收而被丢弃。这会导致发送方对这些数据分组的超时重传，显然这是对通信资源的极大浪费。为了进一步提高性能，可以设法只重传出现误码的数据分组，因此，接收窗口尺寸<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.373ex" xmlns="http://www.w3.org/2000/svg" width="3.538ex" height="1.918ex" role="img" focusable="false" viewBox="0 -683 1563.7 847.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g><g data-mml-node="mi" transform="translate(977,-150) scale(0.707)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g></g></g></g></svg></mjx-container><strong>应当大于1</strong>.以便接收方先收下<strong>失序到达但无误码并且序号落在接收窗口内的那些数据分组。</strong>等到所缺分组收齐后再一并送交上层。这就是<strong>选择重传协议</strong></p>
 <blockquote>
@@ -506,8 +515,12 @@ mjx-container[display="true"] + br {
 <p><strong>在SR协议中，发送端对每一个发送帧都配备了一个ACK辅助计时器。这些辅助计时器通常不是同时启动，因此每次发生超时事件的时候都是只有一个ACK辅助计时器超时，那么这个时候只重发一个帧。</strong></p>
 <p>当接收方有理由怀疑出现了错误时，它就给发送方返回一个否定确认(NAK)帧。这样的帧实际上是一个重传请求，在NAK中指定了要重传的帧。在两种情况下，接收方要特别注意：接收到一个受损的帧，或者到达的帧并非是自己所期望的(可能出现丢帧错误)。为了避免多次请求重传同一个丢失帧，接收方应该记录下对于某一帧是否已经发送过NAK。</p>
 <p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/c46bde07-5c18-4685-980c-00043f2e9316-14970684.jpg" alt="5.png"></p>
+<blockquote>
+<p><strong>注意：SR协议里的MAX_SEQ不可以是偶数</strong>。如果是偶数，因为向零舍入，导致(MAX_SEQ+1)/2 = (MAX_SEQ)/2 = NR_BUF 。而 0%NR_BUF = MAX_SEQ%NR_BUF，也就是说当接收窗口横跨MAX_SEQ和0时，这二者共用同一块缓存。此时可能导致上传网络层的包顺序错误。（即当MAX_SEQ帧丢失，0号帧到达，会直接上传0号帧。</p>
+</blockquote>
 <h2 id="Performance-of-Sliding-Window-Protocols"><a href="#Performance-of-Sliding-Window-Protocols" class="headerlink" title="Performance of  Sliding Window Protocols"></a>Performance of  Sliding Window Protocols</h2><p>PPT中间插的一节</p>
 <p>没啥东西，背公式的。</p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="21.886ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 9673.6 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path></g><g data-mml-node="mo" transform="translate(917.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(1973.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">传</text></g><g data-mml-node="mi" transform="translate(2873.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">播</text></g><g data-mml-node="mi" transform="translate(3773.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">时</text></g><g data-mml-node="mi" transform="translate(4673.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">延</text></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(5573.6,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mi" transform="translate(6073.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">发</text></g><g data-mml-node="mi" transform="translate(6973.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">送</text></g><g data-mml-node="mi" transform="translate(7873.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">时</text></g><g data-mml-node="mi" transform="translate(8773.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">延</text></g></g></g></svg></mjx-container>。知道这个就嗯套就完事了</p>
 <h3 id="Stop-and-wait-without-error"><a href="#Stop-and-wait-without-error" class="headerlink" title="Stop-and-wait   without error"></a>Stop-and-wait   without error</h3><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/aab2d618-e813-4de8-855c-6909a1ef928d-14970684.jpg" alt="5.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/0b417693-5e95-433f-9c3c-af3e6871774f-14970684.jpg" alt="5.png"></p>
 <blockquote>
 <p>所以传播距离较短的时候SW还是蛮牛逼的</p>
@@ -520,6 +533,9 @@ mjx-container[display="true"] + br {
 <h2 id="PPP"><a href="#PPP" class="headerlink" title="PPP"></a>PPP</h2><p>这个要考，比前两个重要很多。</p>
 <ul>
 <li><p>字节填充 byte stuffing</p>
+<blockquote>
+<p>ppp协议使用软件实现，而软件实现字节填充比实现字填充更方便</p>
+</blockquote>
 </li>
 <li><p>CRC校验 FCS</p>
 </li>
@@ -551,11 +567,13 @@ mjx-container[display="true"] + br {
 <ul>
 <li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/926e61ec-03e2-4a28-94a8-120783212e48-14970684.jpg" alt="5.png"></li>
 <li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/02c7ea40-e475-4558-8c55-ad55920c4473-14970684.jpg" alt="5.png"></li>
-<li>标志字节如果出现在Payload字段，则要用转义字节0x7D去填充；然后将紧跟在后面的那个字节与0x20进行XOR操作，如此转义使得第6位比特反转。例如0x7D0x5E是标志字节0x7E的转义序列。这意味着只需要简单扫描0x7E就能找出帧的开始和结束之处因为这个字节不可能出现在其他地方。接收到一个帧后要去掉填充字节。具体做法是，扫描搜索0x7D，发现后立即除；然后用0x20对紧跟在后面的那个字节进行XOR操作。</li>
 </ul>
 </li>
-<li><p>PPP协议相图</p>
+</ul>
+<p><strong>最小开销：</strong>两个标志字节，一个协议字节，两个校验字节，共五个字节<br><strong>最大开销：</strong>两个标志字节，一个地址字节，一个控制字节，两个协议字节，四个字节，共十个字节</p>
 <ul>
+<li>标志字节如果出现在Payload字段，则要用转义字节0x7D去填充；然后将紧跟在后面的那个字节与0x20进行XOR操作，如此转义使得第6位比特反转。例如0x7D0x5E是标志字节0x7E的转义序列。这意味着只需要简单扫描0x7E就能找出帧的开始和结束之处因为这个字节不可能出现在其他地方。接收到一个帧后要去掉填充字节。具体做法是，扫描搜索0x7D，发现后立即除；然后用0x20对紧跟在后面的那个字节进行XOR操作。</li>
+<li>PPP协议相图<ul>
 <li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/fb9f223e-07c7-488d-b23f-d33136c5be42-14970684.jpg" alt="5.png"></li>
 </ul>
 </li>
@@ -568,30 +586,15 @@ mjx-container[display="true"] + br {
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/04/08/SQL/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">SQL的一点语法</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/03/GO_2/"
+                           href="/2022/04/14/GO_4/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">vscode里Go的分文件</span>
-                                <span class="post-nav-item">Next posts</span>
+                                <span class="post-nav-title-item">Go实现NFA转DFA</span>
+                                <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
                               <i class="fas fa-chevron-right"></i>
@@ -607,7 +610,7 @@ mjx-container[display="true"] + br {
                 <div class="comments-container">
     <div id="comment-anchor"></div>
     <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;Comments</i>
+        <i class="fas fa-comments">&nbsp;评论</i>
     </div>
     
 
@@ -704,7 +707,7 @@ mjx-container[display="true"] + br {
         </div>
         
         <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
         </div>
         
         
@@ -807,7 +810,7 @@ mjx-container[display="true"] + br {
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="Search..."
+                       placeholder="搜索..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
