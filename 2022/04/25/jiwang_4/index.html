@@ -312,7 +312,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>9.7k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>9.9k Words</span>
         </span>
     
     
@@ -562,6 +562,7 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <h2 id="Manchester-Encoding-曼彻斯特编码"><a href="#Manchester-Encoding-曼彻斯特编码" class="headerlink" title="Manchester Encoding 曼彻斯特编码"></a>Manchester Encoding 曼彻斯特编码</h2><p>非差分：中间变一下用来对时。起始是高就是1，低就是0<br>差分： 中间变一下对时，起始没跳变就是1，否则是0<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/02f3141f-f3d3-4a33-9392-c50767132d6b-14970684.jpg" alt="55.png"></p>
+<p><strong>曼彻斯特编码2Baud表示一位信息，所以波特率是比特率的两倍</strong></p>
 <h2 id="4-3-2-以太网的MAC子层协议"><a href="#4-3-2-以太网的MAC子层协议" class="headerlink" title="4.3.2 以太网的MAC子层协议"></a>4.3.2 以太网的MAC子层协议</h2><p>MAC格式</p>
 <p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/d8687f81-54b0-49d0-b892-1eebd7d6b40e-14970684.jpg" alt="55.png"></p>
 <ul>
@@ -696,12 +697,15 @@ mjx-container[display="true"] + br {
 <p>发送变快了，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="2.301ex" height="1.536ex" role="img" focusable="false" viewBox="0 -666 1017 679"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>得跟着变小</p>
 </blockquote>
 </li>
+<li>为了延长单帧的发送时间，采用以下两种方案<ul>
 <li>载波扩展<ul>
 <li>在普通帧的后面增加填充位（padding），将帧的长度扩充为512字节（发送方添加，接收方去除</li>
 </ul>
 </li>
 <li>帧突发<ul>
 <li> 允许发送方将多个待发送的帧拼到一起，一次传输；如果仍然小于512字节，则硬件会对其再次填充</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -945,9 +949,15 @@ mjx-container[display="true"] + br {
 </blockquote>
 </li>
 </ul>
-<h2 id="4-8-3-生成树网桥"><a href="#4-8-3-生成树网桥" class="headerlink" title="4.8.3 生成树网桥"></a>4.8.3 生成树网桥</h2><p>生成树用来解决网内循环。</p>
 </li>
 </ul>
+<ul>
+<li>直通式交换(cut-through switching)<ul>
+<li>网桥只要看到MAC地址就可决定如何转发帧，有可能一旦从入境线路输入帧的目的地址字段马上就可转发，此时帧的其余部分还在输入，即在完整接收一帧之前就开始了转发(当然，前提是输出线路可用)。这种设计降低了帧通过网桥的延退，以及网桥必须能缓冲的帧数。这种转发方式称为直通式交换(cut-through switching)或虫孔路由(wormhole routing)，</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-8-3-生成树网桥"><a href="#4-8-3-生成树网桥" class="headerlink" title="4.8.3 生成树网桥"></a>4.8.3 生成树网桥</h2><p>  生成树用来解决网内循环。</p>
 <ul>
 <li><p>生成树算法</p>
 <ul>
@@ -1038,6 +1048,7 @@ mjx-container[display="true"] + br {
 </li>
 <li><p>VLAN感知</p>
 <ul>
+<li>因为存在一些计算机(和交换机)无法感知VLAN，因此第一个VLAN感知的网桥在帧上添加一个VLAN字段，路径上的最后一个网桥把添加的VLAN字段删除。</li>
 <li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/278b58b0-85fa-402e-876b-6f492575931d-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
