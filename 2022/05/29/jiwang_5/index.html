@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="ZH_cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="mushroom323">
+    
+    <title>
+        
+            网络层 |
+        
+        槐序七
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"mushroom323.github.io","root":"/","language":"ZH_cn","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#54DB79","avatar":"https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg","favicon":"https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://api2.mubu.com/v3/document_image/90012e4b-696b-43d5-8adc-e381744d88c3-14970684.jpg","description":"【龙舌兰日落】"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                槐序七
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">网络层</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">mushroom323</span>
+                        
+                            <span class="author-label">damn人</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-05-29 22:59:13
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AE%A1%E7%BD%91/">计网</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>9.7k 字</span>
+        </span>
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <ul>
+<li><strong>本章脉络</strong><ul>
+<li>网络层设计问题<ul>
+<li>问题</li>
+<li>数据报</li>
+<li>虚电路</li>
+</ul>
+</li>
+<li>路由算法<ul>
+<li>最短路由算法</li>
+<li>泛洪算法</li>
+<li>DV算法 距离矢量算法</li>
+<li>LSR算法 链路状态路由</li>
+<li>层次路由</li>
+</ul>
+</li>
+<li>拥塞算法<ul>
+<li>总体原则</li>
+<li>拥塞预防</li>
+<li>拥塞控制</li>
+<li>负载脱落</li>
+</ul>
+</li>
+<li>服务质量</li>
+<li>网络互连</li>
+<li>互联网的网络层<ul>
+<li>IPV4</li>
+<li>ICMP</li>
+<li>IP地址和路由表</li>
+<li>NAT</li>
+<li>ARP、DHCP</li>
+<li>OSPF</li>
+<li>BGP</li>
+<li>IPV6</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>网络层是是处理端到端的最底层。</p>
+<ul>
+<li>网络层需要知道整体的拓扑结构</li>
+<li>避免某些通信线路和路由器过载，导致其他的闲置</li>
+</ul>
+<h1 id="5-1-网络层设计问题"><a href="#5-1-网络层设计问题" class="headerlink" title="5.1 网络层设计问题"></a>5.1 网络层设计问题</h1><h2 id="5-1-3-无连接服务的实现"><a href="#5-1-3-无连接服务的实现" class="headerlink" title="5.1.3 无连接服务的实现"></a>5.1.3 无连接服务的实现</h2><p><strong>采用数据包。</strong></p>
+<p>如果提供的是无连接的服务，那么，所有的数据包都被独立地注入到网络中，并且每个数据包独立路由，不需要提前建立任何设置。在这样的上下文中，数据包通常称为数据报(datagram)，它类似于电报(telegram)，对应的网络称为数据报网络(datagram network)</p>
+<p>无连接服务 路由表<br>每一台路由器都有一个内部表，它指明了针对每一个可能的目标地址应该将数据包送到哪里去。<strong>每个表项由两部分数据组成：目标地址和通往目标地址所使用的出境线路。</strong></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/aa6d68fa-0f30-4349-aea3-daaccd9b249d-14970684.jpg" alt="55.png"></p>
+<p>差错处理和流量控制由用户主机负责。分组交换网只负责送报。</p>
+<h2 id="5-1-4-面向连接的服务"><a href="#5-1-4-面向连接的服务" class="headerlink" title="5.1.4 面向连接的服务"></a>5.1.4 面向连接的服务</h2><p><strong>虚电路(virtual circuit)</strong></p>
+<p>如果使用了面向连接的服务，那么，在发送数据包之前，必须首先建立起一条从源路由器到目标路由器之间的路径。这个连接称为虚电路(VC, virtual circuit)，它类似于电话系统中建立的物理电路，对应的网络称为虚电路网络(virtual-circuit network)。</p>
+<p>面向连接服务 路由表</p>
+<p>当建立一个连接时，<strong>从源机器到目标机器之间的一条路径就被当作这个连接的一部分确定了下来，并且保存在这些中间路由器的表中。</strong>所有需要在这个连接上通过的流量，都使用这条路径，这与电话系统的工作方式完全一致。当连接被释放之后，虚电路也随之消失。在面向连接的服务中，每个数据包包含一个标识符，指明了它属于哪一条虚电路</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/8b3c4751-fd1e-43fc-b32d-0eb3d4ff329f-14970684.jpg" alt="55.png"></p>
+<p>尽管A很容易区分出标识连接1的数据包是来自H1还是来自H3，但是，C无法区分它们。基于这个原因，A给第二个连接的出境流量分配一个不同的连接标识符。这种避免冲突的做法说明了为什么路由器需要具各替换出境数据包中连接标识符的能力</p>
+<p>在有些上下文中，这个过程称为标签交换(label switching)</p>
+<h2 id="5-1-5-虚电路与数据报网络的比较"><a href="#5-1-5-虚电路与数据报网络的比较" class="headerlink" title="5.1.5  虚电路与数据报网络的比较"></a>5.1.5  虚电路与数据报网络的比较</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/9ebc3e54-d3fe-4dda-93ff-2f50b9026a00-14970684.jpg" alt="55.png"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/918a7b40-3a8c-4f5e-a33e-cf34ca7c6427-14970684.jpg" alt="55.png"></p>
+<h1 id="5-2-路由算法"><a href="#5-2-路由算法" class="headerlink" title="5.2 路由算法"></a>5.2 路由算法</h1><p><strong>路由算法</strong><br>路由算法(routing algorithm)是网络层软件的一部分，它负责确定一个入境数据包应该被发送到哪一条输出线路上。<br><strong>如果网络内部使用了数据报</strong>，那么路由器必须针对每一个到达的数据包重新选择路径，因为自上一次选择了路径之后，最佳路径可能已经发生了改变。<br><strong>如果网络内部使用虚电路</strong>，那么只有当建立一条新的虚电路时，才需要做路由决策。此后，数据包只要沿着已经建立的路径向前传递即可。后一种情形有时候也称为会话路由(session routing)</p>
+<p><strong>路由进程和转发进程</strong><br>可以把路由器想象成内部有两个进程。其中一个进程在每个数据包到达的时候对它进行处理，它在路由表中査找该数据包所对应的出境线路。这个进程即为转(forwarding)进程；另一个进程负责生成和更新路由表，这正是路由算法发挥作用的地方。</p>
+<p>路由算法的特性和指标<br>路由算法必须满足某些特性：正确性、简单性、鲁棒（健壮）性、稳定性、公平性和有效性。</p>
+<p>首先必须确定要优化什么性能指标。使数据包的平均延退达到最小是有效发送流量的一种很明显的选择，但是使网络的总吞吐量最大化也是一种不错的选择。</p>
+<p><strong>路由算法分类</strong></p>
+<ul>
+<li>静态/非适应性<ul>
+<li>非自适应算法(nonadaptive algorithm)不会根据当前测量或者估计的流量和拓扑结构，来调整它们的路由决策。相反，从I到J(对所有的I和J)所使用的路由选择预先在离线情況下计算好，并在网络启动时被下载到路由器中的。这个过程有时候也称为静态路由(static routing)。</li>
+</ul>
+</li>
+<li>适应性的<ul>
+<li>自适应算法(adaptive algorithm)则会改变它们的路由决策以便反映出拓扑结构的变化，通常也会反映出流量的变化情况</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-2-1-优化原则"><a href="#5-2-1-优化原则" class="headerlink" title="5.2.1 优化原则"></a>5.2.1 优化原则</h2><p><strong>最优化原则</strong></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/1f996d7b-76c8-4be2-8767-de89bb4c465e-16175743.jpg" alt="5.png"></p>
+<p>如果J在I-&gt;K的最短路径上，显然，J-&gt;K的最短路径也是同样的route</p>
+<p><strong>汇集树</strong></p>
+<p>汇集树(sink tree)<br>从所有的源到一个指定目标的最优路径的集合构成了一棵以目标节点为根的树。这样的树称为汇集树(sink tree)</p>
+<p>汇集树不一定是唯一的；有可能存在具有相同路径长度的其他汇集树。如果我们允许选择所有可能的路径，则树就变成了更一般的结构，称为有向无环图(DAG, Directed Acyclic Graph)</p>
+<p>由于汇集树确实是一棵树，它不包含任何环，所以每个数据包将在有限的跳数内完成传递。</p>
+<p>不同的路由器对当前拓扑结构的了解可能有所不同</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/53388bfe-26af-4be8-af90-44cf4f0e0fb7-14970684.jpg" alt="55.png"></p>
+<h2 id="5-2-2-最短路径算法"><a href="#5-2-2-最短路径算法" class="headerlink" title="5.2.2 最短路径算法"></a>5.2.2 最短路径算法</h2><p>基本想法是构造一张网络图，图中的每个节点代表一个路由器，每条边代表一条通信线路或者链路。</p>
+<p>边权<br>一种测量路径长度的方法是跳数。</p>
+<p>另一种度量是以千米为单位的地理距离，</p>
+<p>除跳数和物理距离之外，还可以用许多其他度量来标示路径的长短。例如，图中每条边用一个标准测试包的平均延迟来标记，这是每小时的测量结果。</p>
+<p>一般情况下，边上面的标记可以作为距离、带宽、平均流量、通信成本、平均延迟等其他因素的一个函数，通过计算得出</p>
+<p>Dijkstra算法（已知拓扑，计算是容易的，难的是构造拓扑）</p>
+<h2 id="5-2-3-泛洪算法"><a href="#5-2-3-泛洪算法" class="headerlink" title="5.2.3 泛洪算法"></a>5.2.3 泛洪算法</h2><p>泛洪(flooding)<br>将每一个入境数据包发送到除了该数据包到达的那条线路以外的每条出境线路。</p>
+<p>问题和解决方法<br>泛洪法会产生大量的重复数据包</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/be298e17-d18c-46d0-a665-9b2d717c218b-14970684.jpg" alt="55.png"></p>
+<p>泛洪算法的特性<br><strong>泛洪途径的鲁棒性非常好。</strong></p>
+<p><strong>泛洪能并发选择每一条可能的路径，因此总能选出最短的那条路径，没有其他算法能够产生一个更短的延迟</strong></p>
+<p>对于广播信息来说，这是一种有效的广播手段</p>
+<h2 id="5-2-4-距离矢量算法"><a href="#5-2-4-距离矢量算法" class="headerlink" title="5.2.4 距离矢量算法"></a>5.2.4 距离矢量算法</h2><ul>
+<li>每个router维护一个表<ul>
+<li>到每个目的地的已知最好的距离</li>
+<li>这里的distance可能是hops的数目，时延ms，etc.</li>
+<li>使用哪条line</li>
+</ul>
+</li>
+<li>这个表会不断的通过跟邻居交换信息来update<ul>
+<li>发送routing信息（distance，destination）<ul>
+<li>周期性的发送</li>
+<li>当表改变的时候</li>
+</ul>
+</li>
+<li>接受routing信息<ul>
+<li>如果收到了一个更好的route，就更新</li>
+<li>refresh已经存在的routes（有个时戳，对应下面那个times out）</li>
+<li>如果某个item times out 了，就删除这一项</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/81ac3919-13d4-4331-b477-4d2d21dd62c3-14970684.jpg" alt="55.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/996797fa-e07e-460a-b1d4-04ce5e090025-14970684.jpg" alt="55.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/2d65ed3a-8e41-410e-a9fe-5a429082ffc6-14970684.jpg" alt="55.png"></p>
+<p><strong>无穷计数问题</strong>：</p>
+<ul>
+<li> 整个网络最佳路径的寻找过程称为收敛(convergence)</li>
+<li>坏消息传播得很慢：没有一个路由器具有个比它所有邻居的最小值还大于1的值。逐渐地，所有的路由器都会趋向无穷大，但是所需交换的次数依赖于代表无穷大的数值。由于这样的原因，明智的做法是将无穷大设置为最长的路径加1。</li>
+<li>并不完全出人意料，这个问题称为无穷计数(count-to-infinity)问题。</li>
+<li>问题的核心在于当X告诉Y它有一条通往某个地方的路径，Y无从知道自己是否已在这条路径上。</li>
+<li>无穷级数问题例</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/fbe79c75-e13d-4461-b62c-f38ed37ff208-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/508be6ce-768c-4e23-bd2c-39ed28ffc05b-14970684.jpg" alt="55.png"></li>
+<li>一般是把无穷设置为16。</li>
+</ul>
+<h2 id="5-2-5-链路状态路由-LS算法、"><a href="#5-2-5-链路状态路由-LS算法、" class="headerlink" title="5.2.5 链路状态路由 LS算法、"></a>5.2.5 链路状态路由 LS算法、</h2><ul>
+<li><p>LS算法中每个路由器要做：</p>
+<ul>
+<li>发现邻居，了解网络地址</li>
+<li>建立distance和cost</li>
+<li>建立一个链路状态数据包（LSP），显示“学”到的信息</li>
+<li>该包发给所有路由器，flooding扩散</li>
+<li>计算自己到其他所有router的距离</li>
+</ul>
+</li>
+<li><p><strong>发现邻居</strong></p>
+<ul>
+<li>发送HELLO包<ul>
+<li> 广播网络发广播报文</li>
+<li> 不是广播网络发unicast HELLO</li>
+</ul>
+</li>
+<li>邻居回一个回复报文告诉他是谁<ul>
+<li>路由ID必须全局唯一</li>
+</ul>
+</li>
+<li>简化拓扑结构<ul>
+<li>当两个或者更多路由是被LAN或者其他多路存取的路由器</li>
+<li>怎么简化拓扑捏，伪结点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>伪结点</strong></p>
+<ul>
+<li> 广播LAN给连接到上面的每一对路由器都提供了连通性。然而直接建模会把LAN视为多个点到点链路，会增大拓扑结构，导致消息浪费。</li>
+<li> 更好的办法是将LAN看作是一个节点。</li>
+<li> <img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/ad4f9b04-f8b1-4eb0-9771-63d1bf04bac4-14970684.jpg" alt="55.png"></li>
+<li> 这个N模拟的是LAN，可以由A、C、F中任何一个担当，如果A担当，那么A内部可以有两个邻接矩阵。</li>
+</ul>
+</li>
+<li><p><strong>构造链路状态数据包</strong></p>
+<ul>
+<li>构建一个包含所有这些信息的数据包。该数据包的内容首先是发送方的标识符，接着是一个序号(Seq)和年龄(Age，后面再介绍)，以及一个邻居列表。对于每个邻居，同时要给出到这个邻居的延迟。</li>
+<li>一种可能的做法是周期性地创建数据包，也就是说，以一定的时间间隔创建链路状态数据包。另一种可能做法是每当发生某些重要的事情时才创建数据包，比如当一条线路断掉或者一个邻居节点停机时，或当它们重新恢复运行时，或当它们的特性发生了一定变化时。</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/2610f303-2c75-4bb8-bb31-e6b88bb48c2b-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+<li><p><strong>分发LSP</strong></p>
+<ul>
+<li>采用可靠扩散。也就是说发出的报文受损会重发。</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/9ba49fa5-c839-499a-b915-4b419ecee0d0-14970684.jpg" alt="55.png"></li>
+<li>可能会出现的几个问题<ul>
+<li>序号绕回。这个采用32位序号，基本用不完。</li>
+<li>路由器崩溃了会丢失所有序号记录表。或者路由器改了routerid。这两个问题都采用age解决。</li>
+<li>age代表LSP的生存时间，每过一秒减一，减完了就不能用了。这样避免了拓扑结构改变结果路由还保存着错误的LSP的情况。</li>
+<li>eg：<img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/9c6212e6-99ea-457b-8262-cadf3ced914d-14970684.jpg" alt="55.png"><ul>
+<li>这里的每行对应于一个刚刚到达的，但是还没有完全处理完毕的链路状态数据包。该表记录了数据包的来源、序号和年龄，以及状态数据。而且，针对B的三条线路(分别到A、C和F)还记录了发送和确认标志。发送标志表明该数据包必须在所指示的线路上发送。确认标志表明它必须在这条线路上得到确认。</li>
+<li>在图5-13中，来自A的链路状态数据包可以直接到达，所以B必须将它发送给C和F，并且按照标志位的指示向A发回确认。类似地，必须把来自F的数据包转发给A和C，并且向F返回确认然而，第三个数据包，即来自E的数据包有所不同。它到达两次，一次经过EAB，另次经过EFB。因此，它只需被发送给C，但是要向A和F确认，正如标志位所示。</li>
+<li>如果一个重复数据包到来时原来的数据包仍然在缓冲区中，那么标志位必须作相应的改变。例如，如果表中第四项被转发出去之前，C的链路状态数据包的一份副本从F到达，那么，这六位将被改变为100011(在C的缓冲区中，而不是C将要发出去的)，以表明该数据包必须向F确认，但是不用转发了。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>计算新的路由</p>
+<ul>
+<li>收集到一整套LSP就建立整个图</li>
+<li>然后迪杰斯特拉，最短路径</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/a96a5f6b-ec04-405f-ae8a-53ac8967b566-16175743.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/2e9fdd3c-9238-434c-a947-ee2a75110d28-16175743.jpg" alt="55.png"></li>
+</ul>
+</li>
+<li><p>DV和LS比较</p>
+<ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/034021dd-dbe5-43d1-b396-e403ca85a9b5-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/b0c5172d-d535-45f1-be8a-d50360c88a82-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/c5e609cc-64c2-47dd-994c-d51cbbf5c1eb-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-2-6-层次路由"><a href="#5-2-6-层次路由" class="headerlink" title="5.2.6 层次路由"></a>5.2.6 层次路由</h2><p>路由分组分层来减小路由表的开销。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/2f719067-2e33-43ff-8b62-fec3b876aed5-14970684.jpg" alt="55.png"></p>
+<h1 id="5-3-拥塞控制算法"><a href="#5-3-拥塞控制算法" class="headerlink" title="5.3 拥塞控制算法"></a>5.3 拥塞控制算法</h1><p>拥塞(congestion)<br>(一部分)网络中存在太多的数据包导致数据包被延迟延迟和丢失，从而降低了传输性能，这种情况称为拥塞(congestion)</p>
+<ul>
+<li>拥塞控制和流量控制<ul>
+<li>拥塞控制和流量控制之间有很大的差异，它们之间的关系非常微妙。拥塞控制的任务是确保网络能够承载所有到达的流量。这是一个全局性的问题，涉及各方面的行为，包括所有的主机和所有的路由器。与此相反，流量控制只与特定的发送方和特定的接收方之间的点到点流量有关。它的任务是确保一个快速的发送方不会持续地以超过接收方接收能力的速率传输数据。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-3-1-拥塞控制的途径"><a href="#5-3-1-拥塞控制的途径" class="headerlink" title="5.3.1 拥塞控制的途径"></a>5.3.1 拥塞控制的途径</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/78c7cc1e-b9e3-4b41-a9bc-52339f4479bd-14970684.jpg" alt="55.png"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/33740d75-db1c-4f09-a56a-72a17d6bc5b8-14970684.jpg" alt="55.png"></p>
+<h2 id="5-3-2-流量感知路由"><a href="#5-3-2-流量感知路由" class="headerlink" title="5.3.2 流量感知路由"></a>5.3.2 流量感知路由</h2><ul>
+<li>最直接的方式是把链路权重设置成一个(固定)链路带宽、传输延迟、(可变)测量负载或平均排队延迟的函数。在所有其他条件都相同的情况下，最小权重的路径更青睐那些轻负载的路径。</li>
+<li>潜在危险<ul>
+<li>这两部分通过链路CF和EI相连。假设东西之间的大部分流量使用链路CF，因此，这个链路负荷超重因而延迟增大。如果把排队延退加入到计算最短路径的权重中，那么链路EI 将变得更具吸引力。当新的路由表被安装好之后，大部分东西方的流量现在改走链路E，由此增加了此链路的负载。因此，在下一次路由更新时，CF将成为最短路径。结果，路由表可能会烈地摇摆不定，从而导致不稳定的路由和许多潜在的问题。</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/10624246-c202-44dc-9592-e33615bb479b-14970684.jpg" alt="55.png"></li>
+<li>Internet路由协议通常不依赖于负载来调整自己的路由。相反，在路由协议外部通过慢慢改变它的输入来调整路由。这种方法就是所谓的流量工程(traffic engineering)</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-3-3-准入控制"><a href="#5-3-3-准入控制" class="headerlink" title="5.3.3 准入控制"></a>5.3.3 准入控制</h2><p>其基本思想非常简单：除非网络可以携带额外的流量而不会变得拥塞，否则不再建立新的虚电路。因此，任何建立新的虚电路的尝试或许会失败.</p>
+<p>描述流量通常采用的描述符是漏桶(leaky bucket)或令牌桶(token bucket)。一个漏桶有两个参数约束了平均速率和瞬时突发流量大小。</p>
+<p>准入控制还可以和流量感知路由相结合，在虚电路建立过程中，考虑绕开流量热点区域的路由。</p>
+<h2 id="5-3-4-流量调节"><a href="#5-3-4-流量调节" class="headerlink" title="5.3.4 流量调节"></a>5.3.4 流量调节</h2><ul>
+<li><p>为了在拥塞到来之前确定，每个路由器连续检测资源，一般检测以下</p>
+<ul>
+<li>输出线路的利用率</li>
+<li>队列长度（最有用</li>
+<li>现在丢包数量</li>
+<li><strong>路由器内部排队数据包的数量 EWMA</strong><ul>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="23.061ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 10192.9 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="TeXAtom" transform="translate(553,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(600,0)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="mi" transform="translate(1066,0)"><path data-c="1D464" d="M580 385Q580 406 599 424T641 443Q659 443 674 425T690 368Q690 339 671 253Q656 197 644 161T609 80T554 12T482 -11Q438 -11 404 5T355 48Q354 47 352 44Q311 -11 252 -11Q226 -11 202 -5T155 14T118 53T104 116Q104 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 293 29 315T52 366T96 418T161 441Q204 441 227 416T250 358Q250 340 217 250T184 111Q184 65 205 46T258 26Q301 26 334 87L339 96V119Q339 122 339 128T340 136T341 143T342 152T345 165T348 182T354 206T362 238T373 281Q402 395 406 404Q419 431 449 431Q468 431 475 421T483 402Q483 389 454 274T422 142Q420 131 420 107V100Q420 85 423 71T442 42T487 26Q558 26 600 148Q609 171 620 213T632 273Q632 306 619 325T593 357T580 385Z"></path></g></g></g><g data-mml-node="mo" transform="translate(2140.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(3196.6,0)"><path data-c="1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path></g><g data-mml-node="msub" transform="translate(3836.6,0)"><g data-mml-node="mi"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="TeXAtom" transform="translate(553,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(485,0)"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g><g data-mml-node="mi" transform="translate(783,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g></g></g><g data-mml-node="mo" transform="translate(5583.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mo" transform="translate(6583.4,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(6972.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(7694.6,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(8694.9,0)"><path data-c="1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path></g><g data-mml-node="mo" transform="translate(9334.9,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mi" transform="translate(9723.9,0)"><path data-c="1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path></g></g></g></svg></mjx-container></li>
+<li>其中d表示良好的排队延退估计。s表示瞬时队列长度的样值。则d可以通过这个式子实时更新。<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="1.448ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 640 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path></g></g></g></svg></mjx-container>是一个系数，一般取0.8.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>路由器要及时把反馈信息给造成拥塞的发送方</strong></p>
+<ul>
+<li><strong>抑制包。choke packet</strong><ul>
+<li>抑制包中的目标地址取自该拥塞数据包。同时，在原来的拥塞数据包上添加一个标记(设置头部中的一位)，因而它在前行的路径上不会产生更多的抑制包。除此以外，数据包的转发过程如同平常一样</li>
+</ul>
+</li>
+<li><strong>显式拥塞控制 ECN</strong><ul>
+<li>路由器可以在它转发的任何数据包上打上标记(设置数据包头的某一个标志位)发出信号，表明它正在经历着拥塞。当网络传递数据包时，接收方可以注意到有个拥塞已经发生，在它发送应答包时顺便告知发送方。然后发送方可以像以前那样紧急刹车降低传输速率。</li>
+</ul>
+</li>
+<li><strong>逐跳后压（TCP和IP中使用）</strong><ul>
+<li>另一种办法是让抑制包在沿途的每一跳都发挥作用，如图5-26(b)中的序列所示。在这里，只要抑制包到达F，则F必须按照要求减慢发给D的数据包流。这样做的结果是要求F为D的数据包流分配更多的缓冲区，因为源主机仍然在全速发送数据，但是F这么做却让D立刻得到缓解，就好像电视广告中的头痛疗法一样。在下一步，抑制包到达E告诉E减慢给F的数据包流。这一行动给E的缓冲区带来更大需求，但是却让F立即得到缓解。最后，抑制包到达A，数据包流才真的减慢下来。</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/de060e48-910c-47ee-bb37-1e883af23abf-14970684.jpg" alt="55.png"></li>
+<li>这种逐跳方案的实际效果是拥塞点上的拥塞现象很快得到了缓解，但是其代价是上游路径需要消耗更多的缓冲区空间。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-3-5-负载脱落"><a href="#5-3-5-负载脱落" class="headerlink" title="5.3.5 负载脱落"></a>5.3.5 负载脱落</h2><p>负载脱落(load shedding)是一种富有想象力的说法，它指当路由器因为米不及处理数据包而面临被这些数据包淹没的危险时，就将它们丢弃。</p>
+<ul>
+<li><p><strong>丢包策略</strong></p>
+<ul>
+<li>葡萄酒 wine<ul>
+<li>对于文件传输，旧的数据包价值要高于新的数据包。因此一般丢新的。</li>
+</ul>
+</li>
+<li>牛奶 milk<ul>
+<li>对于实时媒体流，新的数据包价值超过老的数据包。一般丢旧的。因为一旦错失了播放时间，那这个包就没用了。</li>
+</ul>
+</li>
+<li>包的优先级<ul>
+<li>发送方给比较重要的包打上高优先级的tag</li>
+<li>允许主机超过协议说好的带宽，但是超出的部分标上比较低的优先级</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>RED 随机早期检测</strong></p>
+<ul>
+<li>预测到网络要寄了就丢包。丢包是随机的。因为反正也不知道是哪个源发多了。</li>
+<li>被丢包影响到的源就会放慢传输速度。因此没有显式表示，但是仍然有抑制包类似的作用。</li>
+</ul>
+</li>
+<li><p><strong>RED ECN</strong></p>
+<ul>
+<li>RED 在剩余缓存空间到达临界值（不一定满）的时候就开始扔包，而ECN只在路由器的buffer满了的时候才会丢包。</li>
+<li>ECN 是通常更愿意选择的, 它显示的产生一个拥塞信号 rather than as a loss; 当主机不能接收显示的信号时，RED 就派上用场了。</li>
+</ul>
+</li>
+</ul>
+<h1 id="5-4-服务质量"><a href="#5-4-服务质量" class="headerlink" title="5.4 服务质量"></a>5.4 服务质量</h1><ul>
+<li>可靠性</li>
+<li>时延</li>
+<li>抖动</li>
+<li>带宽</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/5438926c-a200-4b27-a638-60f021159ae5-14970684.jpg" alt="55.png"></li>
+</ul>
+<h2 id="5-4-2-流量整形"><a href="#5-4-2-流量整形" class="headerlink" title="5.4.2 流量整形"></a>5.4.2 流量整形</h2><p>流量整形(traffic shaping)是指调节进入网络的数据流的平均速率和突发性所采用的技术</p>
+<ul>
+<li><p>服务等级约定(SLA, service level agreement)</p>
+<ul>
+<li>有时候客户和服务提供者之间的约定称之为服务等级约定(SLA, service level agreement)，特别是当它由聚合流量组成，并且存在一段比较长期的时间时，比如一个给定客户的全部流量。只要顾客履行了约定中的义务，并且根据商定的合约发送数据包，那么，服务提供者就承诺按时将数据包递交到目的地。</li>
+</ul>
+</li>
+<li><p>流量监管(traffic policing)</p>
+<ul>
+<li>超出约定模式之外的数据包可能会被丢弃，或者被打上低优先级标记。对一个流进行监测称为流量监管(traffic policing)</li>
+</ul>
+</li>
+<li><p><strong>漏桶和令牌桶</strong></p>
+<ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/5ba51702-cbee-4e8d-b310-30f55aa77c97-14970684.jpg" alt="55.png"></li>
+<li><strong>漏桶</strong><ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/591b0f77-e4cd-4b55-95b2-c14c5eb205fb-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+<li><strong>令牌桶</strong><ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/36e5ad90-8ea7-4cb3-a6ab-460c5a82e927-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+<li>二者区别<ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/2704a1f5-d218-4d3b-9c06-74c7f1b5e225-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/44236e27-430f-4937-8000-5f68b3512b88-14970684.jpg" alt="55.png"></p>
+</li>
+</ul>
+<h2 id="5-4-3-包调度"><a href="#5-4-3-包调度" class="headerlink" title="5.4.3 包调度"></a>5.4.3 包调度</h2><p>在同一个流的数据包之间以及在竞争流之间分配路由器资源的算法称为(数据)包调度算法(packet scheduling algorithms)。为不同的流可以预约的潜在资源有以下3种。</p>
+<ul>
+<li><p>带宽</p>
+</li>
+<li><p>缓冲区</p>
+</li>
+<li><p>CPU周期</p>
+</li>
+<li><p>FIFO/FCFS</p>
+<ul>
+<li>先来先服务。先进先出，尾丢弃</li>
+<li>如RED，平均队列长度增大，随即丢弃一个新到达的数据分组</li>
+<li>存在问题<ul>
+<li>存在多个流，一个流很容易干扰其他流量的性能。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>公平队列。</p>
+<ul>
+<li>针对每条输出线路，为每个流设置单独的队列。</li>
+<li>循环所有队列，以包为单位取出来发送。</li>
+<li>问题是给使用较大的数据包的主机比使用较小数据包的主机提供了更多的带宽。</li>
+</ul>
+</li>
+<li><p>循环公平队列。</p>
+<ul>
+<li>这里的诀窍是计算一个虚拟时间，这个时间指每个数据包发送完毕所需要的轮数。每一轮循环从所有有数据待发送的队列中排空一个字节：然后，按照数据包的结时间顺序排队，并以该顺序真正发送数据包</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/7265b44b-f0f4-4950-8002-d759d15b1878-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+<li><p>加权公平队列</p>
+<ul>
+<li>这种修改后的算法称为加权公平队列(WFQ, Weighted Fair Queueing)。设每一轮的字节数是一个流的权重W，我们现在可以给出计算完成时间的公式：</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/6771c3d1-c24a-44e6-9ff6-0b2a8b690778-14970684.jpg" alt="55.png"></li>
+<li>其中A为到达时间，F为完成时间，L；是数据包i的长度。在图5-31(a)中，最下面的队列权重为2，所以你可以看到在图5-31(b)给出的完成时间表中，它的数据包被发送得更快。</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/f3ef39af-726c-464d-9908-830dff299446-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+<h1 id="5-5-网络互联"><a href="#5-5-网络互联" class="headerlink" title="5.5 网络互联"></a>5.5 网络互联</h1><h2 id="5-5-2-何以连接网络"><a href="#5-5-2-何以连接网络" class="headerlink" title="5.5.2 何以连接网络"></a>5.5.2 何以连接网络</h2><p>两种基本选择<br>连接不同网络的方式有两种基本选择：第一，我们可以制造这样的设备，它能将每种网络的数据包翻译或转换成每个其他类别网络的数据包；第二，像出色的计算机科学家那样，尝试在不同网络的上面增加一个间接层，并且构造一个公共层来解决这个问题。</p>
+<p>路由器和交换机<br>在路由器上，数据包被从帧中提取出来，数据包中的网络地址被用来决定把它转发到哪里；而在交换机(或网桥) 上，整个帧是根据其MAC地址传送的。交换机不必了解正在被交换的数据包所采用的网络层协议，同样路由器也不必了解交换机所采用的链路层协议。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/2315876e-739b-4b9a-8fa2-b9c3a4eaa697-14970684.jpg" alt="55.png"><br>今天，网桥主要用来连接链路层的同类网络，路由器用来连接网络层不同的网络。</p>
+<h2 id="5-5-3-隧道"><a href="#5-5-3-隧道" class="headerlink" title="5.5.3 隧道"></a>5.5.3 隧道</h2><p>包裹包。用来途径不同类型的网络。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/82dd92c4-1df3-4a2e-9e9b-b79fed0bb610-14970684.jpg" alt="55.png"></p>
+<h2 id="5-5-4-互联网路由"><a href="#5-5-4-互联网路由" class="headerlink" title="5.5.4 互联网路由"></a>5.5.4 互联网路由</h2><p>内部网关协议(IGP)/外部网关协议(EGP)/边界网关协议(BGP)<br>所有这些因素导致了两级路由算法。在每个网络中，使用一个域内(intradomain)或者内部网关协议(interior gateway protocol)进行路由(“网关”是”路由器”的旧称)。这可能是我们已经描述过的一种链路状态协议。为了让数据包跨越构成互联网的网络，就需要用到域间(interdomain)或外部网关协议(exterior gateway protocol)。网络可能全部使用不同的域内协议，但它们必须使用相同的域间协议。在Internet上，域间路由协议称为边界网关协议(BGP, Border Gaterway Protocol)。</p>
+<h2 id="5-5-5-最大传输单元MTU"><a href="#5-5-5-最大传输单元MTU" class="headerlink" title="5.5.5 最大传输单元MTU"></a>5.5.5 最大传输单元MTU</h2><p>源端通常不知道数据包通过网络到达接收方的路径，因此它当然不知道到达接收方的数据包尺寸有多小。这个数据包尺寸称为路径最大传输单元(MTU, Path Maximum Transmission Unit)即使源端知道路径MTU，数据包在无连接网络中也是独立路由的，比如Internet。这种路由意味着路径可能会突然改变，因而意外地更改路径MTU。</p>
+<ul>
+<li><p><strong>透明分段/非透明分段</strong></p>
+<ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/f33dd9bb-81b0-471e-a694-b3eb2371bd1b-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/194690ef-75f4-40b1-9321-531f4da9fd8f-14970684.jpg" alt="55.png"></li>
+<li>分段不利于性能，因为除了增加头开销，数据包的丢失概率也增加了；任何个段的丢失都将导致整个数据包的丢失；而且对主机而言，分比不分带来了更大的突发</li>
+<li><strong>IP实现的非透明分段</strong><ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/08d2f023-e16b-4aea-9e91-7d48d4bc8cad-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/ff4ef6ff-885e-4c17-9760-7be8a054293e-16175743.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>路径MTU发现</strong></p>
+<ul>
+<li>每个IP数据包发出时在它的头设置一个比特，指示不允许对该数据包实施分段操作。如果一个路由器接收的数据包太大，它就生成一个报错数据包并发送给源端，然后丢弃该数据包，如图5-44所示。当源端收到报错数据包，它就使用报错数据包携带的信息重新将出错数据包分段，每个段足够小到报错路由器能处理。如果沿着路径前进又遇到一个MTU更小的路由器，那么重复上述过程。</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/70d56b87-5409-481d-afd8-964f4ce00b6a-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+<h1 id="5-6-Internet的网络层"><a href="#5-6-Internet的网络层" class="headerlink" title="5.6 Internet的网络层"></a>5.6 Internet的网络层</h1><p>就是ip。</p>
+<p>Internet的网络层<br>在网络层，可以把 Internet看作是一种相互关联的网络或自治域(自治系统)集合。</p>
+<p>IP的任务是提供一种尽力而为(best-effort)地把数据包从源端传输到接收方的方法(即不提供任何保证)，无须考虑这些机器是否在同一个网络，也不必关心它们之间是否还有其他网络。</p>
+<h2 id="5-6-1-IPv4协议"><a href="#5-6-1-IPv4协议" class="headerlink" title="5.6.1 IPv4协议"></a>5.6.1 IPv4协议</h2><p>每个IP数据报包含两部分，一个头和一个正文，正文部分也称之为有效净荷。头由一个20字节的定长部分和一个可选的变长部分组成</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/43b3da7e-fd3e-4fd9-844d-e520f6e87814-14970684.jpg" alt="55.png"></p>
+<p>全都要记下来。</p>
+<ul>
+<li><strong>版本(version)字段</strong><ul>
+<li>版本(Version)字段记录了数据报属于协议哪个版本。</li>
+</ul>
+</li>
+<li><strong>IHL字段</strong><ul>
+<li>由于头的长度不固定，所以头的IHL字段指明了头到底有多长(以32位字长度为单位)。IHL的最小值为5，这表明头没有可选项。该4位字段的最大值为15，把头的长度限制为最大60字节，因此选项(Options)字段最多为40字节。</li>
+<li>IHL部分，每个1代表四个字节。比如说IHL是5，那就代表头有20个字节。</li>
+</ul>
+</li>
+<li><strong>区分服务</strong><ul>
+<li>该字段最初称为服务类型(Type of service)。它曾经并且仍然用来区分不同的服务种类。</li>
+<li>现在，前6位用来标记数据包的服务类别，我们在本章前面描述过的加速服务和确保服务：后2位用来携带显式拥塞通知信息，比如数据包是否经历了拥塞，我们在本章的拥塞控制部分描述了显式拥塞通知。</li>
+</ul>
+</li>
+<li><strong>总长度</strong><ul>
+<li>总长度(Total length)字段包含了该数据报中的所有内容，即头和数据。最大长度是65535个字节。</li>
+</ul>
+</li>
+<li><strong>标识字节</strong><ul>
+<li>标识(Identification)字段的用途是让目标主机确定一个新到达的分段属于哪一个数据报。同一个数据报的所有段包含同样的标识值。</li>
+</ul>
+</li>
+<li><strong>DF标志</strong><ul>
+<li>为1代表不分段。不允许路由器对其分割。</li>
+</ul>
+</li>
+<li><strong>MF标志</strong><ul>
+<li>为1代表允许分段。分段的时候，除了最后一个段，其他的这个标志位均为1.</li>
+</ul>
+</li>
+<li><strong>分段偏移量(fragment offset)字段</strong><ul>
+<li>分段偏移量(Fragment offset)字段指明了该段在当前数据报中的位置。除了数据报的最后一个段以外，其他所有段的长度必须是8字节的倍数。偏移部分的1代表八个字节。比如偏移部分是1，就代表从8bytes的位置开始。</li>
+<li>eg</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/a14695b6-d991-41f3-9614-977aee56d520-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+<li><strong>生存期字段</strong><ul>
+<li>数据包生存期计数器。跳计数器，每跳一次减一。减到0就丢弃然后给源主机传一个报警包。</li>
+</ul>
+</li>
+<li><strong>协议字段</strong><ul>
+<li>代表交给哪个进程。TCP或者UDP或者其他的。</li>
+</ul>
+</li>
+<li><strong>头校验和</strong><ul>
+<li>校验算法的执行过程是这样的：当数据到达时，所有的16位(半字)累加起来，然后再取结果的补码。该算法的目的是到达数据包的头校验和计算结果应该为0。这样的校验和对于检测数据包穿过网络时是否发生错误非常有用。请注意，在每一跳必须重新计算头校验和字段，因为至少有个字段总是不断在改变(即生存期字段)，</li>
+</ul>
+</li>
+<li><strong>源地址和目的地址</strong><ul>
+<li>源地址(Source address)字段和目标地址(Destination address)字段表示源网络接和日标网络接口的P地址。</li>
+</ul>
+</li>
+<li><strong>选项字段</strong><ul>
+<li>选项(Options)字段的设计意图是提供一种途径，允许后续版本协议包含一些原设计中没有出现的信息，以便实验人员尝试新的想法、避免为那些不常使用的信息分配头字段。</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/6f980ace-3f71-494a-b776-2def6dab28ea-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-6-2-IP地址"><a href="#5-6-2-IP地址" class="headerlink" title="5.6.2 IP地址"></a>5.6.2 IP地址</h2><ul>
+<li><p><strong>IP和MAC比较</strong></p>
+<ul>
+<li>一个IP地址并不真正指向一台主机，而是指向一个网络接口，所以如果一台主机在两个网络上，它必须有两个IP地址。然而，大多数主机都连在一个网络，因而只有一个IP地址。与此相反，路由器有多个接口，从而有多个IP地址</li>
+<li></li>
+</ul>
+</li>
+<li><p>IP地址分为两部分。网络号（标志网络）和主机号（标志主机）。</p>
+</li>
+<li><p><strong>五类IP地址</strong></p>
+<ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/6ae95bc1-da7a-4bb1-950b-f1c008a1cfcd-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/89dc31d2-d352-496f-9405-05a3ccad8890-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/1ce09edd-3d86-490b-bcec-824fd358704a-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/9d662bf5-7414-4daf-bb5a-5bb42398ff55-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/17fd9470-758e-4736-8057-1cb2e07f9dd0-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/709fd0d8-0524-45bb-ad94-634d81b7374c-14970684.jpg" alt="55.png"><ul>
+<li>注意A的0号和127号不可用，所以A类有128个网络号，但是可用的只有126个。因为全0代表本地网络，全1代表回环。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>特殊IP地址</strong></p>
+<ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/742c3cf1-df96-4309-8b4d-6623a17c07f6-14970684.jpg" alt="55.png"></li>
+<li>全0：本机地址，我不知道我自己的地址，就全写0，一段时间之后，网上的服务器会给分配一个地址<ul>
+<li>有时候全0也可以代表默认路由，也就是直连互联网。这根据掩码区别。</li>
+</ul>
+</li>
+<li>network 全0：本网络的地址</li>
+<li>全1：本地网络的广播</li>
+<li>network+全1：远程的某个网络的广播</li>
+<li>127+其他的任何东西：比如127.0.0.1，指的是本机的地址。</li>
+<li>本地的计算机还是有路由表的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="子网"><a href="#子网" class="headerlink" title="子网"></a>子网</h3><p>从主机号借用若干个比特作为子网号。而主机号也就相应减少了若干比特。</p>
+<ul>
+<li><p><strong>子网掩码</strong></p>
+<ul>
+<li>地址中主机部分的剩余位数可以有所变化。这意味着，块的大小必须是2的幂。按照惯例，网络地址的书写格式是前缀IP地址后跟一个斜线，斜线后是网络部分的位长度。在我们的例子中，如果前包含28个地址，所以留下了24位用于网络部分，写成128.208.0.0/24。</li>
+<li>因为前缀长度仅从IP地址无法推断出来，路由协议必须把前缀携带给路由器。有时候，前缀很简单地由长度描述，比如”/16”，读音为”slash 16”。前缀长度相当于网络部分中16的二进制掩码。以这种格式书写时称为子网掩码(subnet mask)，它可以与ー个IP地址进行AND操作，以便提取出该IP地址的网络部分。在我们的例子中，子网掩码为255.255.255.0。</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/62636bd7-7a05-4eef-a18d-628da51779cc-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+<li><p><strong>子网划分</strong></p>
+<ul>
+<li>有点像指令地址的划分，但又不是平均分的。</li>
+<li>它是先一分为2，然后把其中一份再一分为2…..这样，根据<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.464ex" xmlns="http://www.w3.org/2000/svg" width="3.838ex" height="2.034ex" role="img" focusable="false" viewBox="0 -694 1696.6 899"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g><g data-mml-node="mi" transform="translate(298,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="msub" transform="translate(783,0)"><g data-mml-node="mi"><path data-c="1D454" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path></g><g data-mml-node="mn" transform="translate(510,-150) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg></mjx-container>(需要的地址数目)向上取整，来决定怎么划分。</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/c66baac3-cf48-4ea7-a5b2-7dfcfac61df8-14970684.jpg" alt="55.png"></li>
+<li><strong>子网划分设计原则</strong></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/7596ae55-3438-4c42-9f6e-87f6441f77b4-14970684.jpg" alt="55.png"></li>
+<li>eg</li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/9304dd16-2395-4437-8042-be52ce82b62e-14970684.jpg" alt="55.png"></li>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/3cfc998d-0a82-4d16-bf43-0377207fbfec-16175743.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="CIDR"><a href="#CIDR" class="headerlink" title="CIDR"></a>CIDR</h3><p>Route aggregation：路由聚合</p>
+<p>多条路由汇聚成一条路由，跟子网划分是完全相反的一个过程。使得路由表长度减少。</p>
+<p>而且还比子网划分要简单，就找出来这几个路由的前面多少位是一样的就行了</p>
+<ul>
+<li><strong>最长前缀匹配原则</strong><ul>
+<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/d30be0e5-df30-448c-a3cb-3d9100e6940c-14970684.jpg" alt="55.png"></li>
+<li>考虑到最长前缀匹配原则，所以允许前缀重叠。</li>
+</ul>
+</li>
+</ul>
+<h3 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h3><p>简单来说就是NAT盒子给内网的每个主机分配一个IP地址，但分配的这些IP地址仅作为私有化而不允许出现在网络上，所以数据包离开或者抵达内网时要执行一个地址转换。</p>
+<p>NAT分配的IP地址扩大了主机号而占用了网络号，在互联网上是非法的，但是在网内部是可以使用的，极大的扩充了IPv4可以有的主机数量。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/261e2c2c-a1ae-4183-a8ef-c244299c199f-14970684.jpg" alt="55.png"></p>
+<p>NAT存在的问题<br>第一，NAT违反了IP的结构模型。IP的结构模型声明每个P地址均唯一标识了世界上的一台机器。</p>
+<p>第二，NAT打破了Internet的端-端的连接模型，即任何一个主机可在任何时间给任何一台其他主机发送数据包。</p>
+<p>第三，NAT将Internet从一个无连接网络改变成一个面向连接网络特有的形式。</p>
+<p>第四，NAT违反了最基本的协议分层规则：第k层不应该对第k+1层在本层的有效载荷字段中放什么作任何假设</p>
+<p>第五，Internet上的进程并不一定必须使用TCP或者UDP</p>
+<p>第六，有些应用以规定的方式使用多个TCP/IP连接或者UDP端口。例如，标准的文件传输协议(FTP, File Transfer Protocol)在数据包正文插入IP地址，接收方正文中提取出这些地址，并使用它们。由于NAT对这些地址安排一无所知，它不可能重写这些IP地址，或者说明情况。</p>
+<p>最后，由于 TCP Source port字段16位长，所以，至多只有65536台机器可以被映射到同一个IP地址上。</p>
+<p>NAT表项分为静态和动态。</p>
+<p>动态会删除已经关闭或者长久没用的NAT表项。</p>
+<p><strong>NAT的映射表保存在路由器里。如果内网的路由器寄了那就寄了。收不了应答报文，因为找不到人。</strong></p>
+<h2 id="5-6-3-IPv6"><a href="#5-6-3-IPv6" class="headerlink" title="5.6.3 IPv6"></a>5.6.3 IPv6</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/d50f475f-8cfd-41eb-b423-b7c53d39b354-14970684.jpg" alt="55.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/ace37752-6b64-4609-bd72-cc78c9f666b4-14970684.jpg" alt="55.png"></p>
+<p><strong>IHL字段没有了</strong>，因为IPv6头有固定的长度。协议(Protocol)字段也被拿掉了，因为下一个头(Next header)字段指明了最后的P头后面跟的是什么(比如UDP或者TCP段)。</p>
+<p><strong>所有与分段有关的字段都被去掉了</strong>，因为IPv6采用了另一种方法来实现分段。当主机发送了一个非常大的IPv6数据包时，如果路由器不能转发这么大的数据包，它并不对该数据包进行分段，而是向发送主机返回一条报错消息。</p>
+<p><strong>校验和(Checksum)字段也被去掉了</strong>，因为计算校验和会极大地降低性能。</p>
+<p><strong>区分服务</strong>(Differentiated services，最初称为流量类别)字段的用途主要是区分数据包的服务类别，这些数据包具有不同的实时传递需求。它主要被用在服务质量的区分服务体系中，使用方式与IPv4数据包的同名字段一样。此外，最低2位用来发送显式拥塞指示也与IPv4的方式相同。</p>
+<p>**流标签(Flow label)**字段为源端和接收方提供了一种建立伪连接的方式，即源端和接收方把一组具有同样需求并希望得到网络同等对待的数据包打上标记</p>
+<p>**有效载荷长度(Payload length)**字段指明了紧跟在图5-56中40个字节头之后还有多少字节数。</p>
+<p><strong>IPv6头得以简化的原因在于它可以有额外的(可选)扩展头。</strong>该字段指明了当前头之后还有哪种扩展头(当前已经定义了6种扩展头)，如果有的话。如果当前的头是最后一个IP头，那么下一个头字段指定了该数据包将被传递给哪个传输协议处理(比如TCP、UDP)。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/c3b22fd9-5d50-426a-912a-9e1b77fa22c7-14970684.jpg" alt="55.png"></p>
+<p><strong>跳数限制(Hop limit)</strong><br>实际上，它与IPv4 中的TTL(Time to live)字段是一样的，也就是说，在每一跳上该字段中的值都要被路由器递减。</p>
+<p>IPv6地址<br>16个字节被分成8组来书写，每一组4个十六进制数字，组之间用冒号隔开<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/ca351b0e-bcda-4f9f-a53b-a959ef327e3d-14970684.jpg" alt="55.png"></p>
+<h2 id="5-6-4-Internet控制协议"><a href="#5-6-4-Internet控制协议" class="headerlink" title="5.6.4 Internet控制协议"></a>5.6.4 Internet控制协议</h2><h3 id="ICMP"><a href="#ICMP" class="headerlink" title="ICMP"></a>ICMP</h3><p>ICMP被封装在一个IP数据包中。</p>
+<p>ICMP分两类，即ICMP差错报文和ICMP询问报文。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/acb61405-c202-477a-9ea3-fb00f24223b4-14970684.jpg" alt="55.png"><br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/d702838a-34ec-4f8a-8adf-ff4387c5036d-14970684.jpg" alt="55.png"></p>
+<p>ICMP的校验和对整个ICMP报文进行校验。和IP报文不同。</p>
+<ul>
+<li>ICMP的应用<ul>
+<li>traceroute。</li>
+<li>主机分片</li>
+<li>目的不可达</li>
+<li>路由重定向</li>
+</ul>
+</li>
+</ul>
+<h3 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h3><p>用来通过IP地址获取MAC地址。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/da50882c-429a-4759-aa25-1d8304ba2bab-14970684.jpg" alt="55.png"></p>
+<ul>
+<li><p>ARP缓存</p>
+<ul>
+<li>包含了已经ARP得到的内容。同时ARP缓存中的表项要在超时后丢弃。</li>
+</ul>
+</li>
+<li><p>免费ARP</p>
+<ul>
+<li>主机把自己的地址配置完了，就广播个地址映射去找有没有和自己地址重合了的。如果没应答就ok，有应答就说明多个主机被分配了一个IP地址。</li>
+</ul>
+</li>
+<li><p>直接交付和间接交付</p>
+<ul>
+<li>如果主机想知道其他网络里主机的地址，那就把ARP丢给默认网关，也就是默认路由器。路由器就把请求给IP软件，IP软件再去丢到对应网络里开查。这就是间接交付。</li>
+</ul>
+</li>
+<li><p>ARP代理。一个网络上的主机发数据包给另一个网络上的主机，就会用到ARP代理。</p>
+</li>
+</ul>
+<h3 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h3><p>四个阶段。</p>
+<ul>
+<li><p>客户端发申请</p>
+</li>
+<li><p>DHCP服务器回一个IP地址</p>
+</li>
+<li><p>客户端给个offer要求拥有这个IP地址</p>
+</li>
+<li><p>DHCP服务器给个确认报文</p>
+</li>
+<li><p>DHCP中继。DHCP服务器和客户端不在一个网络上，这个时候就要过中继。</p>
+</li>
+</ul>
+<h2 id="OSPF内部网关协议"><a href="#OSPF内部网关协议" class="headerlink" title="OSPF内部网关协议"></a>OSPF内部网关协议</h2><h2 id="BGP外部网关协议"><a href="#BGP外部网关协议" class="headerlink" title="BGP外部网关协议"></a>BGP外部网关协议</h2>
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/25/jiwang_4/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">计网介质访问控制子层</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script 
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script >
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
+                    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '发表神喻',
+                    lang: 'ZH_cn'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'mushroom323';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('false') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">mushroom323</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#5-1-%E7%BD%91%E7%BB%9C%E5%B1%82%E8%AE%BE%E8%AE%A1%E9%97%AE%E9%A2%98"><span class="nav-text">5.1 网络层设计问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-3-%E6%97%A0%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">5.1.3 无连接服务的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-4-%E9%9D%A2%E5%90%91%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="nav-text">5.1.4 面向连接的服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-5-%E8%99%9A%E7%94%B5%E8%B7%AF%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%BD%91%E7%BB%9C%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-text">5.1.5  虚电路与数据报网络的比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-2-%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="nav-text">5.2 路由算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-1-%E4%BC%98%E5%8C%96%E5%8E%9F%E5%88%99"><span class="nav-text">5.2.1 优化原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-2-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95"><span class="nav-text">5.2.2 最短路径算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-3-%E6%B3%9B%E6%B4%AA%E7%AE%97%E6%B3%95"><span class="nav-text">5.2.3 泛洪算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-4-%E8%B7%9D%E7%A6%BB%E7%9F%A2%E9%87%8F%E7%AE%97%E6%B3%95"><span class="nav-text">5.2.4 距离矢量算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-5-%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1-LS%E7%AE%97%E6%B3%95%E3%80%81"><span class="nav-text">5.2.5 链路状态路由 LS算法、</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-6-%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1"><span class="nav-text">5.2.6 层次路由</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-3-%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95"><span class="nav-text">5.3 拥塞控制算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-1-%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%9A%84%E9%80%94%E5%BE%84"><span class="nav-text">5.3.1 拥塞控制的途径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-2-%E6%B5%81%E9%87%8F%E6%84%9F%E7%9F%A5%E8%B7%AF%E7%94%B1"><span class="nav-text">5.3.2 流量感知路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-3-%E5%87%86%E5%85%A5%E6%8E%A7%E5%88%B6"><span class="nav-text">5.3.3 准入控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-4-%E6%B5%81%E9%87%8F%E8%B0%83%E8%8A%82"><span class="nav-text">5.3.4 流量调节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-5-%E8%B4%9F%E8%BD%BD%E8%84%B1%E8%90%BD"><span class="nav-text">5.3.5 负载脱落</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-4-%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F"><span class="nav-text">5.4 服务质量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-2-%E6%B5%81%E9%87%8F%E6%95%B4%E5%BD%A2"><span class="nav-text">5.4.2 流量整形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-3-%E5%8C%85%E8%B0%83%E5%BA%A6"><span class="nav-text">5.4.3 包调度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-5-%E7%BD%91%E7%BB%9C%E4%BA%92%E8%81%94"><span class="nav-text">5.5 网络互联</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-2-%E4%BD%95%E4%BB%A5%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C"><span class="nav-text">5.5.2 何以连接网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-3-%E9%9A%A7%E9%81%93"><span class="nav-text">5.5.3 隧道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-4-%E4%BA%92%E8%81%94%E7%BD%91%E8%B7%AF%E7%94%B1"><span class="nav-text">5.5.4 互联网路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-5-%E6%9C%80%E5%A4%A7%E4%BC%A0%E8%BE%93%E5%8D%95%E5%85%83MTU"><span class="nav-text">5.5.5 最大传输单元MTU</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-6-Internet%E7%9A%84%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-text">5.6 Internet的网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-1-IPv4%E5%8D%8F%E8%AE%AE"><span class="nav-text">5.6.1 IPv4协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-2-IP%E5%9C%B0%E5%9D%80"><span class="nav-text">5.6.2 IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%BD%91"><span class="nav-text">子网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CIDR"><span class="nav-text">CIDR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NAT"><span class="nav-text">NAT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-3-IPv6"><span class="nav-text">5.6.3 IPv6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-4-Internet%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE"><span class="nav-text">5.6.4 Internet控制协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP"><span class="nav-text">ICMP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP"><span class="nav-text">ARP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DHCP"><span class="nav-text">DHCP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF%E5%86%85%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE"><span class="nav-text">OSPF内部网关协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BGP%E5%A4%96%E9%83%A8%E7%BD%91%E5%85%B3%E5%8D%8F%E8%AE%AE"><span class="nav-text">BGP外部网关协议</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
