@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="ZH_cn">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="mushroom323">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    形式语言与自动机前半期 |
     
-    <title>
-        
-            形式语言与自动机前半期 |
-        
-        槐序七
-    </title>
+    Hexo
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
     
+  
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png">
-    
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"mushroom323.github.io","root":"/","language":"ZH_cn","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#54DB79","avatar":"https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg","favicon":"https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://api2.mubu.com/v3/document_image/90012e4b-696b-43d5-8adc-e381744d88c3-14970684.jpg","description":"【龙舌兰日落】"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.3"};
-    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
-  </script>
+  
+  
+<script src="/js/pace.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -140,192 +141,46 @@ mjx-container[display="true"] + br {
 }
 </style></head>
 
-
 <body>
-<div class="progress-bar-container">
+  <main class="content">
+    <section class="outer">
+  <article id="post-automata_1" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  形式语言与自动机前半期
+</h1>
+
+
+
+    </header>
     
 
     
-</div>
-
-
-<main class="page-container">
-
-    
-
-    <div class="page-main-content">
-
-        <div class="page-main-content-top">
-            <header class="header-wrapper">
-
-    <div class="header-content">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                槐序七
-            </a>
-        </div>
-
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                HOME
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                ARCHIVES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags"
-                            >
-                                TAGS
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/links"
-                            >
-                                LINKS
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about"
-                            >
-                                ABOUT
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
+    <div class="article-meta">
+      <a href="/2022/04/19/automata_1/" class="article-date">
+  <time datetime="2022-04-19T02:01:37.000Z" itemprop="datePublished">2022-04-19</time>
+</a>
+      
     </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/">HOME</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags">TAGS</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/links">LINKS</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about">ABOUT</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">形式语言与自动机前半期</span>
-        </div>
-
-        
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">mushroom323</span>
-                        
-                            <span class="author-label">damn人</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-04-19 10:01:37
-    </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E8%AF%BE%E7%A8%8B/">课程</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
     
-        <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>4k Words</span>
-        </span>
-    
-    
-    
-</div>
+<div class="tocbot"></div>
 
-                    </div>
-                </div>
-            </div>
-        
+    
 
-        <div class="article-content markdown-body">
-            <p>整理到第三章结尾，期中考试前。</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>整理到第三章结尾，期中考试前。</p>
 <p>随便写写。</p>
 <p>第一章没有。</p>
 <p>没标粗那就不是重点，速通的话不用看。</p>
@@ -751,319 +606,169 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 
-        </div>
-
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/04/25/jiwang_4/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">计网介质访问控制子层</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
-                           href="/2022/04/17/jiwang_3/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">计网数据链路层</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
-
-        
-            <div class="comment-container">
-                <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;Comments</i>
+      
     </div>
-    
+    <footer class="article-footer">
+      <a data-url="https://mushroom323.github.io/2022/04/19/automata_1/" data-id="cl65agzjg000l6ktb31034vl8" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a></li></ul>
 
-        
-            
-    <div class="valine-container">
-        <script 
-                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
-        <div id="vcomments"></div>
-        <script >
-            function loadValine() {
-                new Valine({
-                    el: '#vcomments',
-                    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
-                    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
-                    meta: ['nick', 'mail', 'link'],
-                    avatar: 'wavatar',
-                    enableQQ: true,
-                    placeholder: '发表神喻',
-                    lang: 'ZH_cn'.toLowerCase()
-                });
+    </footer>
 
-                function getAuthor(language) {
-                    switch (language) {
-                        case 'en':
-                            return 'Author';
-                        case 'zh-CN':
-                            return '博主';
-                        default:
-                            return 'Master';
-                    }
-                }
+  </div>
 
-                // Add "Author" identify
-                const getValineDomTimer = setInterval(() => {
-                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
-                    if (vcards.length > 0) {
-                        let author = 'mushroom323';
-
-                        if (author) {
-                            for (let vcard of vcards) {
-                                const vnick_dom = vcard.querySelector('.vhead .vnick');
-                                const vnick = vnick_dom.innerHTML;
-                                if (vnick === author) {
-                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
-                                }
-                            }
-                        }
-                        clearInterval(getValineDomTimer);
-                    } else {
-                        clearInterval(getValineDomTimer);
-                    }
-                }, 2000);
-            }
-
-            if ('false') {
-                const loadValineTimeout = setTimeout(() => {
-                    loadValine();
-                    clearTimeout(loadValineTimeout);
-                }, 1000);
-            } else {
-                window.addEventListener('DOMContentLoaded', loadValine);
-            }
-        </script>
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2022/04/25/jiwang_4/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      计网介质访问控制子层
+      
     </div>
+  </a>
+  
+  
+  <a href="/2022/04/17/jiwang_3/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">计网数据链路层</div>
+  </a>
+  
+</nav>
 
+  
 
+  
+  
+  
+  
 
-        
-    
-</div>
-
-            </div>
-        
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
     </div>
-</div>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2020</span>
-              -
-            
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">mushroom323</a>
-        </div>
-        
-        <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
-        </div>
-        
-        
-    </div>
+    <ul class="list-inline">
+      <li>Hexo &copy; 2022</li>
+      
+        <li></li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
 </footer>
-
-        </div>
-    </div>
-
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
     
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fas fa-comment"></i>
-            </li>
-        
-    </ul>
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
 </div>
-
-        </div>
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fas fa-arrows-alt-h"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-    </ul>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
 </div>
-
-    </div>
-
-    
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%AF%AD%E8%A8%80%E5%8F%8A%E6%96%87%E6%B3%95"><span class="nav-text">第二章 语言及文法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E8%AF%AD%E8%A8%80"><span class="nav-text">第一节 语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E6%96%87%E6%B3%95"><span class="nav-text">第二节 文法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chomsky%E6%96%87%E6%B3%95%E4%BD%93%E7%B3%BB%EF%BC%9A"><span class="nav-text">Chomsky文法体系：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E5%AF%BC%E4%B8%8E%E5%8F%A5%E5%9E%8B"><span class="nav-text">推导与句型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chomsky%E6%96%87%E6%B3%95%E4%BD%93%E7%B3%BB%E5%88%86%E7%B1%BB"><span class="nav-text">Chomsky文法体系分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E5%8F%B3%E7%BA%BF%E6%80%A7%E6%96%87%E6%B3%95"><span class="nav-text">第三章 有限自动机与右线性文法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">第一节 有限自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DFA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%AE%9A%E4%B9%89"><span class="nav-text">DFA的形式定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E4%B8%8D%E7%A1%AE%E5%AE%9A%E7%9A%84%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BANFA"><span class="nav-text">第二节 不确定的有限自动机NFA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-NFA%E5%92%8CDFA%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-text">第三节 NFA和DFA的等价性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NFA%E6%9E%84%E9%80%A0DFA-%E5%AD%90%E9%9B%86%E6%9E%84%E9%80%A0%E6%B3%95"><span class="nav-text">NFA构造DFA 子集构造法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E8%8A%82-%E6%9C%89-varepsilon-%E8%BD%AC%E6%8D%A2%E7%9A%84NFA"><span class="nav-text">第四节 有转换的NFA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#varepsilon-%E9%97%AD%E5%8C%85%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">闭包的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E-varepsilon-NFA%E6%9E%84%E9%80%A0%E7%AD%89%E4%BB%B7%E7%9A%84%E6%97%A0-varepsilon-NFA"><span class="nav-text">从NFA构造等价的无NFA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E8%8A%82-%E6%AD%A3%E5%88%99%E9%9B%86%E5%92%8C%E6%AD%A3%E5%88%99%E5%BC%8F"><span class="nav-text">第五节 正则集和正则式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3%E7%BA%BF%E6%80%A7%E6%96%87%E6%B3%95%E5%AF%BC%E5%87%BA%E6%AD%A3%E5%88%99%E5%BC%8F"><span class="nav-text">右线性文法导出正则式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E8%8A%82-%E6%AD%A3%E5%88%99%E9%9B%86%E5%92%8C%E5%8F%B3%E7%BA%BF%E6%80%A7%E6%96%87%E6%B3%95"><span class="nav-text">第六节 正则集和右线性文法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E8%8A%82-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">第七节 正则表达式与有限自动机的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DFA%E6%9E%84%E9%80%A0%E7%AD%89%E4%BB%B7%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">DFA构造等价的正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%9E%84%E9%80%A0%E7%AD%89%E4%BB%B7%E7%9A%84-varepsilon-NFA"><span class="nav-text">从正则表达式构造等价的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3%E7%BA%BF%E6%80%A7%E6%96%87%E6%B3%95-rightarrow-%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">右线性文法  有限自动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BA-rightarrow-%E5%8F%B3%E7%BA%BF%E6%80%A7%E6%96%87%E6%B3%95"><span class="nav-text">有限自动机 右线性文法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E8%8A%82-%E5%8F%B3%E7%BA%BF%E6%80%A7%E8%AF%AD%E8%A8%80%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-text">第九节 右线性语言的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BADFA%E7%9A%84%E5%8C%96%E7%AE%80"><span class="nav-text">确定有限自动机DFA的化简</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80%E7%9A%84Pumping%E5%BC%95%E7%90%86"><span class="nav-text">针对正则语言的Pumping引理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%B5%E6%B5%A6%E5%BC%95%E7%90%86%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">泵浦引理的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3%E7%BA%BF%E6%80%A7%E8%AF%AD%E8%A8%80%E7%9A%84%E5%B0%81%E9%97%AD%E6%80%A7"><span class="nav-text">右线性语言的封闭性</span></a></li></ol></li></ol></li></ol>
-    </div>
 </div>
-        </aside>
-    
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="Search..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
 
-    
 
-</main>
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
 
-<script src="/js/utils.js"></script>
 
-<script src="/js/main.js"></script>
-
-<script src="/js/header-shrink.js"></script>
-
-<script src="/js/back2top.js"></script>
-
-<script src="/js/dark-light-toggle.js"></script>
+<script src="/js/tocbot.min.js"></script>
 
 
-
-    
-<script src="/js/local-search.js"></script>
-
-
-
-
-    
-<script src="/js/code-copy.js"></script>
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
 
 
 
-
-    
-<script src="/js/lazyload.js"></script>
-
-
-
-<div class="post-scripts">
-    
-        
-<script src="/js/left-side-toggle.js"></script>
-
-<script src="/js/libs/anime.min.js"></script>
-
-<script src="/js/toc.js"></script>
-
-    
-</div>
-
-
+<script src="/js/ocean.js"></script>
 
 </body>
+
 </html>

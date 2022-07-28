@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="ZH_cn">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="mushroom323">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    Go实现的一个前缀树 |
     
-    <title>
-        
-            Go实现的一个前缀树 |
-        
-        槐序七
-    </title>
+    Hexo
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
     
+  
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png">
-    
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"mushroom323.github.io","root":"/","language":"ZH_cn","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#54DB79","avatar":"https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg","favicon":"https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://api2.mubu.com/v3/document_image/90012e4b-696b-43d5-8adc-e381744d88c3-14970684.jpg","description":"【龙舌兰日落】"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.3"};
-    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
-  </script>
+  
+  
+<script src="/js/pace.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -140,508 +141,210 @@ mjx-container[display="true"] + br {
 }
 </style></head>
 
-
 <body>
-<div class="progress-bar-container">
+  <main class="content">
+    <section class="outer">
+  <article id="post-GO_5" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  Go实现的一个前缀树
+</h1>
+
+
+
+    </header>
     
 
     
-</div>
-
-
-<main class="page-container">
-
-    
-
-    <div class="page-main-content">
-
-        <div class="page-main-content-top">
-            <header class="header-wrapper">
-
-    <div class="header-content">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                槐序七
-            </a>
-        </div>
-
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                HOME
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                ARCHIVES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags"
-                            >
-                                TAGS
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/links"
-                            >
-                                LINKS
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about"
-                            >
-                                ABOUT
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
+    <div class="article-meta">
+      <a href="/2022/06/10/GO_5/" class="article-date">
+  <time datetime="2022-06-09T17:01:37.000Z" itemprop="datePublished">2022-06-10</time>
+</a>
+      
     </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/">HOME</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags">TAGS</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/links">LINKS</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about">ABOUT</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">Go实现的一个前缀树</span>
-        </div>
-
-        
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">mushroom323</span>
-                        
-                            <span class="author-label">damn人</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-06-10 01:01:37
-    </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Go/">Go</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
     
-        <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>879 Words</span>
-        </span>
     
-    
-    
-</div>
 
-                    </div>
-                </div>
-            </div>
-        
-
-        <div class="article-content markdown-body">
-            <p>用go实现的一个前缀树，在数据结构课设交代码的前一天晚上rush掉的。</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>用go实现的一个前缀树，在数据结构课设交代码的前一天晚上rush掉的。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">// 字典树：</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	1. 单词结尾表示：需要使用一个 bool 类型，辨识当前节点是否是结尾字符</span></span><br><span class="line"><span class="comment">		叶子结点是 单词结尾</span></span><br><span class="line"><span class="comment">		非叶子节点 也可能是单词的结尾</span></span><br><span class="line"><span class="comment">	2. 实现功能</span></span><br><span class="line"><span class="comment">		增加单词</span></span><br><span class="line"><span class="comment">		搜索单词</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// 定义树的节点</span></span><br><span class="line"><span class="keyword">type</span> Node <span class="keyword">struct</span> {</span><br><span class="line">	<span class="comment">//  	若干个子节点: 字符(中文操作)： 节点</span></span><br><span class="line">	Children <span class="keyword">map</span>[<span class="keyword">rune</span>]*Node</span><br><span class="line">	<span class="comment">// 		标识节点是否是一个单词最后的一个字符</span></span><br><span class="line">	isWord <span class="keyword">bool</span></span><br><span class="line">	<span class="comment">//		标识对应的id</span></span><br><span class="line">	id <span class="keyword">int</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给子节点 列表添加新的节点</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(n *Node)</span> <span class="title">Add</span><span class="params">(c <span class="keyword">rune</span>)</span></span> {</span><br><span class="line">	<span class="comment">// 构造节点：  nil 类型 map 不可直接使用添加元素等</span></span><br><span class="line">	node := Node{</span><br><span class="line">		Children: <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">rune</span>]*Node, <span class="number">0</span>),</span><br><span class="line">	}</span><br><span class="line">	n.Children[c] = &amp;node</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置节点的 isword</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(n *Node)</span> <span class="title">SetIsword</span><span class="params">(flag <span class="keyword">bool</span>)</span></span> {</span><br><span class="line">	n.isWord = flag</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置节点的 id</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(n *Node)</span> <span class="title">SetID</span><span class="params">(id <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	n.id = id</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 整棵树的根节点</span></span><br><span class="line"><span class="keyword">type</span> Trie <span class="keyword">struct</span> {</span><br><span class="line">	<span class="comment">// 字典树的根节点</span></span><br><span class="line">	Root *Node</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化根节点为 "/" </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span> <span class="title">Init</span><span class="params">()</span> *<span class="title">Trie</span></span> {</span><br><span class="line">	t.Root = &amp;Node{</span><br><span class="line">		<span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">rune</span>]*Node, <span class="number">0</span>),</span><br><span class="line">		<span class="literal">false</span>,</span><br><span class="line">		<span class="number">-1</span>,</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> t</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 外部调用初始化一个 字典树</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">New</span><span class="params">()</span> *<span class="title">Trie</span></span> { </span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">new</span>(Trie).Init() </span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加名称</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span> <span class="title">Add</span><span class="params">(word <span class="keyword">string</span>, id <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	<span class="comment">// 转换为 rune</span></span><br><span class="line">	w := []<span class="keyword">rune</span>(word)</span><br><span class="line">	<span class="comment">// 找到每一个节点</span></span><br><span class="line">	cur := t.Root</span><br><span class="line">	<span class="comment">// 遍历 word的每一个字符</span></span><br><span class="line">	<span class="keyword">for</span> _, c := <span class="keyword">range</span> w {</span><br><span class="line">		<span class="comment">// 1. 查找子节点中是否包含当前字符</span></span><br><span class="line">		<span class="comment">// 如果不包含, 添加一下</span></span><br><span class="line">		<span class="keyword">if</span> _, ok := cur.Children[c]; !ok {</span><br><span class="line">			<span class="comment">// 添加新节点</span></span><br><span class="line">			cur.Add(c)</span><br><span class="line">		}</span><br><span class="line">		<span class="comment">// cur 指向下一个子节点</span></span><br><span class="line">		cur = cur.Children[c]</span><br><span class="line">	}</span><br><span class="line">	<span class="comment">// 将最后一个节点字符的 尾设置为 true</span></span><br><span class="line">	cur.SetIsword(<span class="literal">true</span>)</span><br><span class="line">	cur.SetID(id)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询字符串前缀</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span> <span class="title">SearchPre</span><span class="params">(word <span class="keyword">string</span>)</span> <span class="params">(*Node,<span class="keyword">bool</span>)</span></span> {</span><br><span class="line">	w := []<span class="keyword">rune</span>(word)</span><br><span class="line">	cur := t.Root</span><br><span class="line">	<span class="keyword">var</span> c <span class="keyword">rune</span></span><br><span class="line">	<span class="keyword">for</span> _,c = <span class="keyword">range</span> w {</span><br><span class="line">		<span class="comment">// 1. 查找子节点中是否包含当前字符</span></span><br><span class="line">		<span class="keyword">if</span> _, ok :=  cur.Children[c]; !ok {</span><br><span class="line">			<span class="keyword">return</span> cur, <span class="literal">false</span></span><br><span class="line">		}</span><br><span class="line">		<span class="comment">// cur 指向下一个子节点</span></span><br><span class="line">		cur = cur.Children[c]</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> cur,<span class="literal">true</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//递归添加以pre_str为前缀的字符串到ret集合 </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AddStr</span><span class="params">(root *Node, pre_str <span class="keyword">string</span>, ret *[]<span class="keyword">string</span>)</span></span> {</span><br><span class="line">	<span class="keyword">for</span> i,index := <span class="keyword">range</span> root.Children {</span><br><span class="line">		AddStr(index, pre_str + <span class="keyword">string</span>(i), ret)</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (root.isWord) {</span><br><span class="line">		*ret = <span class="built_in">append</span>(*ret, pre_str)</span><br><span class="line">		<span class="comment">//fmt.Println(*ret)</span></span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//递归添加以pre_str为前缀的id到id集合 </span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AddID</span><span class="params">(root *Node, pre_str <span class="keyword">string</span>, id *[]<span class="keyword">int</span>)</span></span> {</span><br><span class="line">	<span class="keyword">for</span> i,index := <span class="keyword">range</span> root.Children {</span><br><span class="line">		AddID(index, pre_str + <span class="keyword">string</span>(i), id)</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (root.isWord) {</span><br><span class="line">		*id = <span class="built_in">append</span>(*id, root.id)</span><br><span class="line">		<span class="comment">//fmt.Println(*ret)</span></span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//返回所有前缀为str的字符串 以及对应id</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span> <span class="title">GetStrPre</span><span class="params">(word <span class="keyword">string</span>)</span> <span class="params">([]<span class="keyword">string</span>,[]<span class="keyword">int</span>)</span></span>{</span><br><span class="line">	<span class="keyword">var</span> ret []<span class="keyword">string</span></span><br><span class="line">	<span class="keyword">var</span> id []<span class="keyword">int</span></span><br><span class="line">	<span class="keyword">var</span> find_node *Node</span><br><span class="line">	<span class="keyword">var</span> ok <span class="keyword">bool</span> = <span class="literal">false</span></span><br><span class="line">	find_node,ok = t.SearchPre(word)</span><br><span class="line">	<span class="keyword">if</span> (ok) {</span><br><span class="line">		AddStr(find_node,word,&amp;ret)</span><br><span class="line">		AddID(find_node,word,&amp;id)</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ret,id</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否包含指定的名称</span></span><br><span class="line"><span class="comment">// 不仅能找到名称，并且名称的结尾必须是 isWord = true 才说明有这个名称</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t *Trie)</span> <span class="title">Contains</span><span class="params">(word <span class="keyword">string</span>)</span> <span class="title">bool</span></span> {</span><br><span class="line">	<span class="comment">// 转换为 字符</span></span><br><span class="line">	w := []<span class="keyword">rune</span>(word)</span><br><span class="line">	<span class="comment">// 找到每一个节点</span></span><br><span class="line">	cur := t.Root</span><br><span class="line">	<span class="comment">// 遍历 word的每一个字符</span></span><br><span class="line">	<span class="keyword">for</span> _, c := <span class="keyword">range</span> w {</span><br><span class="line">		<span class="comment">// 1. 查找子节点中是否包含当前字符</span></span><br><span class="line">		<span class="keyword">if</span> _, ok :=  cur.Children[c]; !ok {</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">		}</span><br><span class="line">		<span class="comment">// cur 指向下一个子节点</span></span><br><span class="line">		cur = cur.Children[c]</span><br><span class="line">	}</span><br><span class="line">	<span class="comment">// 判断最后一个单词是否是 单词末尾 cur.isWord == true,</span></span><br><span class="line">	<span class="comment">// 直接缩写为 cur.isWord</span></span><br><span class="line">	<span class="keyword">return</span> cur.isWord</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="comment">// 创建字典树</span></span><br><span class="line">	t := New()</span><br><span class="line">	<span class="comment">// 编写测试</span></span><br><span class="line">	t.Add(<span class="string">"一万"</span>,<span class="number">1</span>)</span><br><span class="line">	t.Add(<span class="string">"一万一"</span>,<span class="number">2</span>)</span><br><span class="line">	t.Add(<span class="string">"计算机组成原理"</span>,<span class="number">3</span>)</span><br><span class="line">	t.Add(<span class="string">"计算机组成原理"</span>,<span class="number">4</span>)</span><br><span class="line">	t.Add(<span class="string">"bigger"</span>,<span class="number">5</span>)</span><br><span class="line">	t.Add(<span class="string">"dog"</span>,<span class="number">6</span>)</span><br><span class="line">	t.Add(<span class="string">"door"</span>,<span class="number">7</span>)</span><br><span class="line">	<span class="comment">// 测试</span></span><br><span class="line">	fmt.Println(t.Contains(<span class="string">"一"</span>))</span><br><span class="line">	fmt.Println(t.Contains(<span class="string">"一万一"</span>))</span><br><span class="line">	fmt.Println(t.Contains(<span class="string">"bigger"</span>))</span><br><span class="line">	fmt.Println(t.Contains(<span class="string">"biggerr"</span>))</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="string">"以下是别的测试"</span>)</span><br><span class="line">	<span class="keyword">var</span> ret []<span class="keyword">string</span></span><br><span class="line">	<span class="keyword">var</span> id []<span class="keyword">int</span></span><br><span class="line">	ret,id = t.GetStrPre(<span class="string">"计算机"</span>)</span><br><span class="line">	fmt.Println(ret)</span><br><span class="line">	fmt.Println(id)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-        </div>
-
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/07/29/zongjie/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">大二下总结</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
-                           href="/2022/05/29/jiwang_5/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">网络层</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
-
-        
-            <div class="comment-container">
-                <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;Comments</i>
+      
     </div>
-    
+    <footer class="article-footer">
+      <a data-url="https://mushroom323.github.io/2022/06/10/GO_5/" data-id="cl65agzjb00086ktbfh7qe18c" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li></ul>
 
-        
-            
-    <div class="valine-container">
-        <script 
-                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
-        <div id="vcomments"></div>
-        <script >
-            function loadValine() {
-                new Valine({
-                    el: '#vcomments',
-                    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
-                    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
-                    meta: ['nick', 'mail', 'link'],
-                    avatar: 'wavatar',
-                    enableQQ: true,
-                    placeholder: '发表神喻',
-                    lang: 'ZH_cn'.toLowerCase()
-                });
+    </footer>
 
-                function getAuthor(language) {
-                    switch (language) {
-                        case 'en':
-                            return 'Author';
-                        case 'zh-CN':
-                            return '博主';
-                        default:
-                            return 'Master';
-                    }
-                }
+  </div>
 
-                // Add "Author" identify
-                const getValineDomTimer = setInterval(() => {
-                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
-                    if (vcards.length > 0) {
-                        let author = 'mushroom323';
-
-                        if (author) {
-                            for (let vcard of vcards) {
-                                const vnick_dom = vcard.querySelector('.vhead .vnick');
-                                const vnick = vnick_dom.innerHTML;
-                                if (vnick === author) {
-                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
-                                }
-                            }
-                        }
-                        clearInterval(getValineDomTimer);
-                    } else {
-                        clearInterval(getValineDomTimer);
-                    }
-                }, 2000);
-            }
-
-            if ('false') {
-                const loadValineTimeout = setTimeout(() => {
-                    loadValine();
-                    clearTimeout(loadValineTimeout);
-                }, 1000);
-            } else {
-                window.addEventListener('DOMContentLoaded', loadValine);
-            }
-        </script>
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2022/07/29/zongjie/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      大二下总结
+      
     </div>
+  </a>
+  
+  
+  <a href="/2022/05/29/jiwang_5/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">网络层</div>
+  </a>
+  
+</nav>
 
+  
 
+  
+  
+  
+  
 
-        
-    
-</div>
-
-            </div>
-        
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
     </div>
-</div>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2020</span>
-              -
-            
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">mushroom323</a>
-        </div>
-        
-        <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
-        </div>
-        
-        
-    </div>
+    <ul class="list-inline">
+      <li>Hexo &copy; 2022</li>
+      
+        <li></li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
 </footer>
-
-        </div>
-    </div>
-
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
     
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fas fa-comment"></i>
-            </li>
-        
-    </ul>
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
 </div>
-
-        </div>
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fas fa-arrows-alt-h"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-    </ul>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
 </div>
-
-    </div>
-
-    
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        
-    </div>
 </div>
-        </aside>
-    
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="Search..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
 
-    
 
-</main>
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
 
-<script src="/js/utils.js"></script>
 
-<script src="/js/main.js"></script>
-
-<script src="/js/header-shrink.js"></script>
-
-<script src="/js/back2top.js"></script>
-
-<script src="/js/dark-light-toggle.js"></script>
+<script src="/js/tocbot.min.js"></script>
 
 
-
-    
-<script src="/js/local-search.js"></script>
-
-
-
-
-    
-<script src="/js/code-copy.js"></script>
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
 
 
 
-
-    
-<script src="/js/lazyload.js"></script>
-
-
-
-<div class="post-scripts">
-    
-        
-<script src="/js/left-side-toggle.js"></script>
-
-<script src="/js/libs/anime.min.js"></script>
-
-<script src="/js/toc.js"></script>
-
-    
-</div>
-
-
+<script src="/js/ocean.js"></script>
 
 </body>
+
 </html>

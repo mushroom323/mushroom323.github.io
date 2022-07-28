@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="ZH_cn">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="mushroom323">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    vscode里Go的分文件 |
     
-    <title>
-        
-            vscode里Go的分文件 |
-        
-        槐序七
-    </title>
+    Hexo
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
     
+  
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png">
-    
-<link rel="stylesheet" href="/css/font-awesome.min.css">
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"mushroom323.github.io","root":"/","language":"ZH_cn","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#54DB79","avatar":"https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg","favicon":"https://i.loli.net/2021/10/29/MgL6qSXfAwhbcsi.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"https://api2.mubu.com/v3/document_image/90012e4b-696b-43d5-8adc-e381744d88c3-14970684.jpg","description":"【龙舌兰日落】"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.3"};
-    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
-  </script>
+  
+  
+<script src="/js/pace.min.js"></script>
+
 <meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -140,192 +141,44 @@ mjx-container[display="true"] + br {
 }
 </style></head>
 
-
 <body>
-<div class="progress-bar-container">
+  <main class="content">
+    <section class="outer">
+  <article id="post-GO_2" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  vscode里Go的分文件
+</h1>
+
+
+
+    </header>
     
 
     
-</div>
-
-
-<main class="page-container">
-
-    
-
-    <div class="page-main-content">
-
-        <div class="page-main-content-top">
-            <header class="header-wrapper">
-
-    <div class="header-content">
-        <div class="left">
-            
-            <a class="logo-title" href="/">
-                槐序七
-            </a>
-        </div>
-
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                HOME
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                ARCHIVES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags"
-                            >
-                                TAGS
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/links"
-                            >
-                                LINKS
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about"
-                            >
-                                ABOUT
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
+    <div class="article-meta">
+      <a href="/2022/04/03/GO_2/" class="article-date">
+  <time datetime="2022-04-02T16:45:13.000Z" itemprop="datePublished">2022-04-03</time>
+</a>
+      
     </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/">HOME</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags">TAGS</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/links">LINKS</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about">ABOUT</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">vscode里Go的分文件</span>
-        </div>
-
-        
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="https://api2.mubu.com/v3/document_image/bb722783-4a5c-4821-9104-0498fdb41c94-14970684.jpg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">mushroom323</span>
-                        
-                            <span class="author-label">damn人</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-04-03 00:45:13
-    </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Go/">Go</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
     
-        <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>480 Words</span>
-        </span>
     
-    
-    
-</div>
 
-                    </div>
-                </div>
-            </div>
-        
-
-        <div class="article-content markdown-body">
-            <p>vscode里走c和c++的分文件倒是方便，只要引入和头别写的太弱智基本都能分。</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>vscode里走c和c++的分文件倒是方便，只要引入和头别写的太弱智基本都能分。</p>
 <p>go不太行，不知道是我的问题还是go的遗留问题。</p>
 <p>主要是go分文件这一块，只要是一个文件夹里的，开头写个</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br></pre></td></tr></table></figure>
@@ -347,319 +200,169 @@ mjx-container[display="true"] + br {
 <p>比较需要注意的是，vscode这必须得直接打开放代码的文件夹，毕竟vscode的命令行默认是从根目录开始的，也就是你打开的文件夹。</p>
 <p>总的来说就是没有一点依据的个人经验。我也不知道我在说啥。</p>
 
-        </div>
-
-        
-
-        
-            <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/04/08/SQL/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">SQL的一点语法</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
-                           href="/2022/04/01/jiwang_2/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">计网物理层</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                
-            </div>
-        
-
-        
-            <div class="comment-container">
-                <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;Comments</i>
+      
     </div>
-    
+    <footer class="article-footer">
+      <a data-url="https://mushroom323.github.io/2022/04/03/GO_2/" data-id="cl65agzj300016ktb4zgi0u5u" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/" rel="tag">Go</a></li></ul>
 
-        
-            
-    <div class="valine-container">
-        <script 
-                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
-        <div id="vcomments"></div>
-        <script >
-            function loadValine() {
-                new Valine({
-                    el: '#vcomments',
-                    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
-                    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
-                    meta: ['nick', 'mail', 'link'],
-                    avatar: 'wavatar',
-                    enableQQ: true,
-                    placeholder: '发表神喻',
-                    lang: 'ZH_cn'.toLowerCase()
-                });
+    </footer>
 
-                function getAuthor(language) {
-                    switch (language) {
-                        case 'en':
-                            return 'Author';
-                        case 'zh-CN':
-                            return '博主';
-                        default:
-                            return 'Master';
-                    }
-                }
+  </div>
 
-                // Add "Author" identify
-                const getValineDomTimer = setInterval(() => {
-                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
-                    if (vcards.length > 0) {
-                        let author = 'mushroom323';
-
-                        if (author) {
-                            for (let vcard of vcards) {
-                                const vnick_dom = vcard.querySelector('.vhead .vnick');
-                                const vnick = vnick_dom.innerHTML;
-                                if (vnick === author) {
-                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
-                                }
-                            }
-                        }
-                        clearInterval(getValineDomTimer);
-                    } else {
-                        clearInterval(getValineDomTimer);
-                    }
-                }, 2000);
-            }
-
-            if ('false') {
-                const loadValineTimeout = setTimeout(() => {
-                    loadValine();
-                    clearTimeout(loadValineTimeout);
-                }, 1000);
-            } else {
-                window.addEventListener('DOMContentLoaded', loadValine);
-            }
-        </script>
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2022/04/08/SQL/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      SQL的一点语法
+      
     </div>
+  </a>
+  
+  
+  <a href="/2022/04/01/jiwang_2/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">计网物理层</div>
+  </a>
+  
+</nav>
 
+  
 
+  
+  
+  
+  
 
-        
-    
-</div>
-
-            </div>
-        
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
     </div>
-</div>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            <footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-              <span>2020</span>
-              -
-            
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">mushroom323</a>
-        </div>
-        
-        <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
-        </div>
-        
-        
-    </div>
+    <ul class="list-inline">
+      <li>Hexo &copy; 2022</li>
+      
+        <li></li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
 </footer>
-
-        </div>
-    </div>
-
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
     
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fas fa-comment"></i>
-            </li>
-        
-    </ul>
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">Gallery</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
 </div>
-
-        </div>
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-expand-width flex-center">
-            <i class="fas fa-arrows-alt-h"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="arrow-up fas fa-arrow-up"></i>
-                <span class="percent"></span>
-            </li>
-        
-    </ul>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
 </div>
-
-    </div>
-
-    
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        
-    </div>
 </div>
-        </aside>
-    
-
-    <div class="image-viewer-container">
-    <img src="">
-</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="Search..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="popup-btn-close">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
 
-    
 
-</main>
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
 
-<script src="/js/utils.js"></script>
 
-<script src="/js/main.js"></script>
-
-<script src="/js/header-shrink.js"></script>
-
-<script src="/js/back2top.js"></script>
-
-<script src="/js/dark-light-toggle.js"></script>
+<script src="/js/tocbot.min.js"></script>
 
 
-
-    
-<script src="/js/local-search.js"></script>
-
-
-
-
-    
-<script src="/js/code-copy.js"></script>
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
 
 
 
-
-    
-<script src="/js/lazyload.js"></script>
-
-
-
-<div class="post-scripts">
-    
-        
-<script src="/js/left-side-toggle.js"></script>
-
-<script src="/js/libs/anime.min.js"></script>
-
-<script src="/js/toc.js"></script>
-
-    
-</div>
-
-
+<script src="/js/ocean.js"></script>
 
 </body>
+
 </html>
