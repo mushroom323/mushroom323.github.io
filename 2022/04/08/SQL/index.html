@@ -448,33 +448,24 @@ mjx-container[display="true"] + br {
 
   
   
-  
-<div class="gitalk" id="gitalk-container"></div>
+<div class="vcomments" id="vcomments"></div>
 
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
 
-
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
-
-<script type="text/javascript">
-  var gitalk = new Gitalk({
-    clientID: '',
-    clientSecret: '',
-    repo: '',
-    owner: '',
-    admin: [''],
-    // id: location.pathname,      // Ensure uniqueness and length less than 50
-    id: md5(location.pathname),
-    distractionFreeMode: false,  // Facebook-like distraction free mode
-    pagerDirection: 'last'
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
+    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
+    notify: 'false',
+    verify: 'true',
+    avatar: 'mp',
+    pageSize: '10',
+    placeholder: '发表神谕'
   })
-
-  gitalk.render('gitalk-container')
 </script>
 
+  
   
 
 </article>
