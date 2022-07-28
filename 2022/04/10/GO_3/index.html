@@ -185,7 +185,7 @@ mjx-container[display="true"] + br {
 <p>反正只是课设用。写的多弱智都行。</p>
 <p>当然弱智的估计只有我，有的大爹自己把通讯模块写了的也有，不能一概而论。</p>
 <p>看看大爹：</p>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/1cf7eae7-d849-4b30-9b8b-dbff8de87053-14970684.jpg" alt="看看大爹.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/1cf7eae7-d849-4b30-9b8b-dbff8de87053-14970684.jpg" alt="看看大爹.png"></p>
 <p>随便讲讲代码咋写的。不分析函数了。我自己都看不懂传的参数是在干啥。</p>
 <h1 id="首先把"><a href="#首先把" class="headerlink" title="首先把"></a>首先把</h1><p>首先先把包导入了。不然写个p。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (<span class="string">"net/http"</span>)</span><br></pre></td></tr></table></figure>
@@ -215,17 +215,17 @@ mjx-container[display="true"] + br {
 <h1 id="整个测试函数被"><a href="#整个测试函数被" class="headerlink" title="整个测试函数被"></a>整个测试函数被</h1><p>拿现成的东西就行，都写上面了。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ServerTest</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">for</span> {</span><br><span class="line">		res, err := http.Get(<span class="string">"http://localhost:5000/api/isServing"</span>)</span><br><span class="line">		<span class="keyword">if</span> err == <span class="literal">nil</span> {</span><br><span class="line">			<span class="keyword">defer</span> res.Body.Close()</span><br><span class="line">			body, _ := ioutil.ReadAll(res.Body)</span><br><span class="line">			<span class="keyword">if</span> <span class="keyword">string</span>(body) == <span class="string">"true"</span> {</span><br><span class="line">				fmt.Println(<span class="string">"Web 服务启动成功，请访问 http://localhost:5000 进入系统"</span>)</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
-<p>相当于试试 <a class="link" target="_blank" rel="noopener" href="http://localhost:5000/api/isServing">http://localhost:5000/api/isServing<i class="fas fa-external-link-alt"></i></a> 这个api能不能使。能使就告诉你能使。</p>
+<p>相当于试试 <a target="_blank" rel="noopener" href="http://localhost:5000/api/isServing">http://localhost:5000/api/isServing</a> 这个api能不能使。能使就告诉你能使。</p>
 <p>用了个defer，害挺高级。不用defer自己最后关也行。 </p>
 <p>前端咋提数据那得看你用啥框架。jQuery和axios不能一概而论。手搭ajax也行。</p>
 <p>反正前端也不是我写的，我管不到。</p>
 <p>看看前端大爹：</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://forksama.github.io/">前端爹<i class="fas fa-external-link-alt"></i></a></p>
+<p><a target="_blank" rel="noopener" href="https://forksama.github.io/">前端爹</a></p>
 <h1 id="没了"><a href="#没了" class="headerlink" title="没了"></a>没了</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2022/04/10/GO_3/" data-id="cl65agzj600036ktbacs6hyok" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2022/04/10/GO_3/" data-id="cl65b7xf400075ktbgbv3hsuz" class="article-share-link">
         Share
       </a>
       
@@ -261,6 +261,32 @@ mjx-container[display="true"] + br {
   
   
   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
   
 
 </article>

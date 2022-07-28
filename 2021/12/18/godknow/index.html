@@ -1240,7 +1240,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2021/12/18/godknow/" data-id="cl65agzjh000m6ktb2lsk9683" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2021/12/18/godknow/" data-id="cl65b7xfc000m5ktb4cxm45ky" class="article-share-link">
         Share
       </a>
       
@@ -1276,6 +1276,32 @@ mjx-container[display="true"] + br {
   
   
   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
   
 
 </article>

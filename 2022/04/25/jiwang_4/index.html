@@ -203,7 +203,7 @@ mjx-container[display="true"] + br {
 <h1 id="4-1-信道分配问题"><a href="#4-1-信道分配问题" class="headerlink" title="4.1 信道分配问题"></a>4.1 信道分配问题</h1><p>分两种，静态划分和动态划分</p>
 <h2 id="4-1-1-静态划分信道"><a href="#4-1-1-静态划分信道" class="headerlink" title="4.1.1 静态划分信道"></a>4.1.1 静态划分信道</h2><p><strong>M/M/1 System</strong></p>
 <p>懒得打表达式了直接放图。</p>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/f3907eb4-e811-4742-a6fa-0dc94689c4d1-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/f3907eb4-e811-4742-a6fa-0dc94689c4d1-14970684.jpg" alt="55.png"></p>
 <ul>
 <li>在时间T内到达的帧数K满足泊松分布，如图中左式。</li>
 <li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.027ex" xmlns="http://www.w3.org/2000/svg" width="1.319ex" height="1.597ex" role="img" focusable="false" viewBox="0 -694 583 706"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D706" d="M166 673Q166 685 183 694H202Q292 691 316 644Q322 629 373 486T474 207T524 67Q531 47 537 34T546 15T551 6T555 2T556 -2T550 -11H482Q457 3 450 18T399 152L354 277L340 262Q327 246 293 207T236 141Q211 112 174 69Q123 9 111 -1T83 -12Q47 -12 47 20Q47 37 61 52T199 187Q229 216 266 252T321 306L338 322Q338 323 288 462T234 612Q214 657 183 657Q166 657 166 673Z"></path></g></g></g></svg></mjx-container>:表示到达的平均速率，单位frams/sec</li>
@@ -214,7 +214,7 @@ mjx-container[display="true"] + br {
 </blockquote>
 </li>
 </ul>
-<p>将单个信道分成N个独立的子信道，每个子信道的容量为C/N bps。现在，每个子信道的平均到达率变成N。重新计算T，我们得到：<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/ba171bd6-7c7a-44cb-8cea-b49af028c66b-14970684.jpg" alt="55.png"><br>如果所有帧都能很神奇地排在一个大的中心队列，那么划分信道后单个信道的平均延迟比不分的情况差N倍。</p>
+<p>将单个信道分成N个独立的子信道，每个子信道的容量为C/N bps。现在，每个子信道的平均到达率变成N。重新计算T，我们得到：<br><img src="https://api2.mubu.com/v3/document_image/ba171bd6-7c7a-44cb-8cea-b49af028c66b-14970684.jpg" alt="55.png"><br>如果所有帧都能很神奇地排在一个大的中心队列，那么划分信道后单个信道的平均延迟比不分的情况差N倍。</p>
 <p>也就是信道越多平均延迟越大。</p>
 <h2 id="4-2-2-动态划分信道"><a href="#4-2-2-动态划分信道" class="headerlink" title="4.2.2 动态划分信道"></a>4.2.2 动态划分信道</h2><ul>
 <li><p>Controlled multiple access 。 受控多路访问</p>
@@ -257,12 +257,12 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <h3 id="PURE-ALOHA"><a href="#PURE-ALOHA" class="headerlink" title="PURE ALOHA"></a>PURE ALOHA</h3><p>一眼纯真。</p>
-<p>纯ALOHA里，帧完全随机传输。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/909a40a4-0bb8-4cc3-b31d-32cc847f772f-14970684.jpg" alt="55.png"></p>
-<p>冲突危险期是 2T，因为他前面的那段时间T也不能有，否则部分冲突。看图：<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/fbc8a1a7-9c9e-4654-b3aa-63c4308c7ed5-14970684.jpg" alt="55.png"></p>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/da54bc8e-40ce-4cbe-8d0e-0f138310f6d5-14970684.jpg" alt="55.png"></p>
-<p><strong>纯ALOHA效率分析</strong>：<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/573c5edb-c567-4c96-8324-7a13a1d14bae-14970684.jpg" alt="55.png"><br>发送成功概率是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.375ex" xmlns="http://www.w3.org/2000/svg" width="10.001ex" height="2.324ex" role="img" focusable="false" viewBox="0 -861.5 4420.6 1027.1"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mn" transform="translate(675,-150) scale(0.707)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g><g data-mml-node="mo" transform="translate(1356.3,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msup" transform="translate(2412.1,0)"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="TeXAtom" transform="translate(499,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(778,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(1278,0)"><path data-c="1D43A" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path></g></g></g></g></g></svg></mjx-container></p>
+<p>纯ALOHA里，帧完全随机传输。<br><img src="https://api2.mubu.com/v3/document_image/909a40a4-0bb8-4cc3-b31d-32cc847f772f-14970684.jpg" alt="55.png"></p>
+<p>冲突危险期是 2T，因为他前面的那段时间T也不能有，否则部分冲突。看图：<br><img src="https://api2.mubu.com/v3/document_image/fbc8a1a7-9c9e-4654-b3aa-63c4308c7ed5-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/da54bc8e-40ce-4cbe-8d0e-0f138310f6d5-14970684.jpg" alt="55.png"></p>
+<p><strong>纯ALOHA效率分析</strong>：<br><img src="https://api2.mubu.com/v3/document_image/573c5edb-c567-4c96-8324-7a13a1d14bae-14970684.jpg" alt="55.png"><br>发送成功概率是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.375ex" xmlns="http://www.w3.org/2000/svg" width="10.001ex" height="2.324ex" role="img" focusable="false" viewBox="0 -861.5 4420.6 1027.1"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mn" transform="translate(675,-150) scale(0.707)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g><g data-mml-node="mo" transform="translate(1356.3,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msup" transform="translate(2412.1,0)"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="TeXAtom" transform="translate(499,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(778,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(1278,0)"><path data-c="1D43A" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path></g></g></g></g></g></svg></mjx-container></p>
 <p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.375ex" xmlns="http://www.w3.org/2000/svg" width="20.8ex" height="2.324ex" role="img" focusable="false" viewBox="0 -861.5 9193.6 1027.1"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D446" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g><g data-mml-node="mo" transform="translate(922.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(1978.6,0)"><path data-c="1D43A" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path></g><g data-mml-node="mo" transform="translate(2986.8,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="msub" transform="translate(3987,0)"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mn" transform="translate(675,-150) scale(0.707)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g><g data-mml-node="mo" transform="translate(5343.3,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(6399.1,0)"><path data-c="1D43A" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path></g><g data-mml-node="msup" transform="translate(7185.1,0)"><g data-mml-node="mi"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="TeXAtom" transform="translate(499,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(778,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(1278,0)"><path data-c="1D43A" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"></path></g></g></g></g></g></svg></mjx-container></p>
-<p>G = 0.5是S最大为18.4%<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/63228293-4945-4fae-95ab-e90510ea24ff-14970684.jpg" alt="55.png"></p>
+<p>G = 0.5是S最大为18.4%<br><img src="https://api2.mubu.com/v3/document_image/63228293-4945-4fae-95ab-e90510ea24ff-14970684.jpg" alt="55.png"></p>
 <h3 id="SLOT-ALOHA"><a href="#SLOT-ALOHA" class="headerlink" title="SLOT ALOHA"></a>SLOT ALOHA</h3><p>分槽。</p>
 <ul>
 <li>基本思想：<ul>
@@ -270,8 +270,8 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 <li>效率分析：<ul>
-<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/5af3b9d3-e12d-47dd-86ad-d4401a76fc92-14970684.jpg" alt="55.png"></li>
-<li>每帧的传输次数期望E：<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/dd8d8f32-9e8b-4721-a0fa-375a12d7cd5d-14970684.jpg" alt="55.png"><br>所以，E随G呈指数增长的。结果是信道负载的微小增长也会极大地降低信道的性能。</li>
+<li><img src="https://api2.mubu.com/v3/document_image/5af3b9d3-e12d-47dd-86ad-d4401a76fc92-14970684.jpg" alt="55.png"></li>
+<li>每帧的传输次数期望E：<br><img src="https://api2.mubu.com/v3/document_image/dd8d8f32-9e8b-4721-a0fa-375a12d7cd5d-14970684.jpg" alt="55.png"><br>所以，E随G呈指数增长的。结果是信道负载的微小增长也会极大地降低信道的性能。</li>
 </ul>
 </li>
 </ul>
@@ -288,7 +288,7 @@ mjx-container[display="true"] + br {
 <h3 id="CSMA-Collision-Reasons"><a href="#CSMA-Collision-Reasons" class="headerlink" title="CSMA Collision Reasons"></a>CSMA Collision Reasons</h3><p>一点很关键但放在这里莫名其妙的知识。</p>
 <p>ppt神秘莫测。</p>
 <p>CAMA/CD有三个状态：竞争，传输，或者空闲。</p>
-<p>给个1-p协议的例子方便理解，AB都是检测到空闲就开始发送：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="1.17ex" height="1.005ex" role="img" focusable="false" viewBox="0 -431 517 444"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>是从信道最左边到信道最右边需要的传输时间。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/490cbd03-ac80-4620-b5ea-15e785e77746-14970684.jpg" alt="55.png"><br>这里考虑的是最极限的情况，A的帧传输到B门口，B才开始发帧，这时离A发送过了<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="1.17ex" height="1.005ex" role="img" focusable="false" viewBox="0 -431 517 444"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>。<br>然后碰撞信息从B门口回到A门口有又需要<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="1.17ex" height="1.005ex" role="img" focusable="false" viewBox="0 -431 517 444"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>。<br>所以说竞争时间 = <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="2.301ex" height="1.536ex" role="img" focusable="false" viewBox="0 -666 1017 679"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>，如果<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="2.301ex" height="1.536ex" role="img" focusable="false" viewBox="0 -666 1017 679"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>内发送方都没有检测到碰撞信息，那就说明真没碰撞，发送成功了。</p>
+<p>给个1-p协议的例子方便理解，AB都是检测到空闲就开始发送：<br><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="1.17ex" height="1.005ex" role="img" focusable="false" viewBox="0 -431 517 444"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>是从信道最左边到信道最右边需要的传输时间。<br><img src="https://api2.mubu.com/v3/document_image/490cbd03-ac80-4620-b5ea-15e785e77746-14970684.jpg" alt="55.png"><br>这里考虑的是最极限的情况，A的帧传输到B门口，B才开始发帧，这时离A发送过了<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="1.17ex" height="1.005ex" role="img" focusable="false" viewBox="0 -431 517 444"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>。<br>然后碰撞信息从B门口回到A门口有又需要<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="1.17ex" height="1.005ex" role="img" focusable="false" viewBox="0 -431 517 444"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>。<br>所以说竞争时间 = <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="2.301ex" height="1.536ex" role="img" focusable="false" viewBox="0 -666 1017 679"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>，如果<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.029ex" xmlns="http://www.w3.org/2000/svg" width="2.301ex" height="1.536ex" role="img" focusable="false" viewBox="0 -666 1017 679"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D70F" d="M39 284Q18 284 18 294Q18 301 45 338T99 398Q134 425 164 429Q170 431 332 431Q492 431 497 429Q517 424 517 402Q517 388 508 376T485 360Q479 358 389 358T299 356Q298 355 283 274T251 109T233 20Q228 5 215 -4T186 -13Q153 -13 153 20V30L203 192Q214 228 227 272T248 336L254 357Q254 358 208 358Q206 358 197 358T183 359Q105 359 61 295Q56 287 53 286T39 284Z"></path></g></g></g></svg></mjx-container>内发送方都没有检测到碰撞信息，那就说明真没碰撞，发送成功了。</p>
 <h3 id="1-persistent-CSMA（1-坚持载波检测多路访问"><a href="#1-persistent-CSMA（1-坚持载波检测多路访问" class="headerlink" title="1-persistent CSMA（1-坚持载波检测多路访问"></a>1-persistent CSMA（1-坚持载波检测多路访问</h3><p>当一个站有数据要发送时，它首先侦听信道，确定当时是否有其他站正在传输数据；如果信道空闲，它就发送数据。否则，如果信道忙，该站等待直至信道变成空闲；然后，站发送一帧。如果发生冲突，该站等待段随机的时间，然后再从头开始上述过程。<strong>这样的协议之所以称为1-坚持，是因为当站发现信道空闲时，它传输数据的概率为1。</strong></p>
 <p><strong>低延迟，低吞吐率</strong></p>
 <blockquote>
@@ -300,13 +300,13 @@ mjx-container[display="true"] + br {
 <p>高延迟是因为帧准备好了还得等一段随机事件，高负载高吞吐是因为随机事件后两个帧很难碰到一起，发送成功率高。</p>
 </blockquote>
 <h3 id="P-persistent-CSMA-（P坚持"><a href="#P-persistent-CSMA-（P坚持" class="headerlink" title="P-persistent CSMA （P坚持"></a>P-persistent CSMA （P坚持</h3><p>它适用于分时间槽的信道，其工作方式如下所述。当一个站准备好要发送的数据时，它就侦听信道。<strong>如果信道是空闲的， 则它按照概率p发送数据；而以概率q=1-p，将此次发送推迟到下一个时间槽。</strong>如果下个时间槽信道也是空闲的，则它还是以概率p发送数据，或者以概率q再次推迟发送。</p>
-<p>看个比较图<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/2baa6526-1db5-43e9-a4de-2d1a3b2ec39c-14970684.jpg" alt="55.png"></p>
+<p>看个比较图<br><img src="https://api2.mubu.com/v3/document_image/2baa6526-1db5-43e9-a4de-2d1a3b2ec39c-14970684.jpg" alt="55.png"></p>
 <h2 id="4-2-3-无冲突协议"><a href="#4-2-3-无冲突协议" class="headerlink" title="4.2.3 无冲突协议"></a>4.2.3 无冲突协议</h2><h3 id="Token-Ring-令牌环"><a href="#Token-Ring-令牌环" class="headerlink" title="Token Ring 令牌环"></a>Token Ring 令牌环</h3><p><strong>就是个令牌，谁拿到谁发数据。要找个站点记得把令牌取下来，不然就一直转。</strong></p>
 <p>通过传递一个称为令牌(token)的短消息，该令牌同样也是以预定义的顺序从一个站传到下一个站。令牌代表了发送权限。如果站有个等待传输的帧队列，当它接收到令牌就可以发送帧，然后再把令牌传递到下一站。如果它没有排队的帧要传，则它只是简单地把令牌传递下去。</p>
 <p>帧也按令牌方向传输。这样，它们将绕着环循环，到达任何一个目标站。然而，为了阻止帧陷入无限循环(像令牌一样)，一些站必须将它们从环上取下来。这个站或许是最初发送帧的原始站，在帧经历了一个完整的环游后将它取下来，或者是帧的指定接收站。</p>
 <p>发送帧后，每个站必须等待所有N个站(包括其自身)把令牌发给各自的邻居，以及其他N-1个站发送完一帧(如果它们有帧需要发送)</p>
 <p><strong>并不需要一个物理环来实现令牌传递</strong></p>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/a51945d1-d44b-4422-869b-c1ebf41b19d3-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/a51945d1-d44b-4422-869b-c1ebf41b19d3-14970684.jpg" alt="55.png"></p>
 <h2 id="4-2-4-Limited-Contention-Protocols-有限竞争协议"><a href="#4-2-4-Limited-Contention-Protocols-有限竞争协议" class="headerlink" title="4.2.4 Limited-Contention Protocols 有限竞争协议"></a>4.2.4 Limited-Contention Protocols 有限竞争协议</h2><p>在负载较轻的情况下，竞争方法(即纯ALOHA或者分槽ALOHA)更为理想，因为它的延迟较短(冲突很少发生)。随着负载的增加，竞争方法变得越来越缺乏吸引力，因为信道仲裁所需要的开销变得越来越大。而对于无冲突协议，则结论刚好相反。在低负载情况下，它们有相对高的延迟，但是随着负载的增加，信道的效率反而得到提高(因为开销是固定的)。</p>
 <blockquote>
 <p>低负载竞争好使，高负载无竞争好使。</p>
@@ -325,7 +325,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/5578f2f4-2bb4-4129-add9-b2d6f98a811c-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/5578f2f4-2bb4-4129-add9-b2d6f98a811c-14970684.jpg" alt="55.png"></p>
 <ul>
 <li>隐藏终端问题(hidden station problem)<ul>
 <li>因为冲突将导致带宽的浪费。由于竞争者离得太远而导致站无法检测到潜在的竞争者，这个问题称为隐藏终端问题(hidden station problem)<blockquote>
@@ -353,7 +353,7 @@ mjx-container[display="true"] + br {
 <blockquote>
 <p>总结一下就是听到RTS的沉默一段时间，听到CTS或者都听到的一直沉默。</p>
 </blockquote>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/558f2e45-1f2d-438f-8af6-1d3020defb0d-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/558f2e45-1f2d-438f-8af6-1d3020defb0d-14970684.jpg" alt="55.png"></p>
 <h1 id="4-3-以太网"><a href="#4-3-以太网" class="headerlink" title="4.3 以太网"></a>4.3 以太网</h1><p>不知道咋学，不知道咋考。</p>
 <h2 id="Ethernet-Cabling-以太网电缆"><a href="#Ethernet-Cabling-以太网电缆" class="headerlink" title="Ethernet Cabling 以太网电缆"></a>Ethernet Cabling 以太网电缆</h2><p>以太网电缆有三种：</p>
 <ul>
@@ -361,7 +361,7 @@ mjx-container[display="true"] + br {
 <li>10Base2 细同轴电缆</li>
 <li>10Base-T 双绞线</li>
 </ul>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/8e1754a2-bb6d-4bd7-9030-35c64bf154a5-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/8e1754a2-bb6d-4bd7-9030-35c64bf154a5-14970684.jpg" alt="55.png"></p>
 <h3 id="10Base5-Thick-Ethernet"><a href="#10Base5-Thick-Ethernet" class="headerlink" title="10Base5: Thick Ethernet"></a>10Base5: Thick Ethernet</h3><p>有些懒得翻译。直接放ppt原文。</p>
 <ul>
 <li><p>cable 电缆</p>
@@ -403,7 +403,7 @@ mjx-container[display="true"] + br {
 </ul>
 <h3 id="10BaseT"><a href="#10BaseT" class="headerlink" title="10BaseT"></a>10BaseT</h3><p>排场略大于细缆。</p>
 <p>ppt蛮多中文，直接放了</p>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/b2ee4442-c2de-4ca1-ac01-e728f22c9dc0-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/b2ee4442-c2de-4ca1-ac01-e728f22c9dc0-14970684.jpg" alt="55.png"></p>
 <ul>
 <li><p><strong>使用集线器（Hub）来扩大局域网</strong></p>
 </li>
@@ -416,10 +416,10 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
-<h2 id="Manchester-Encoding-曼彻斯特编码"><a href="#Manchester-Encoding-曼彻斯特编码" class="headerlink" title="Manchester Encoding 曼彻斯特编码"></a>Manchester Encoding 曼彻斯特编码</h2><p>非差分：中间变一下用来对时。起始是高就是1，低就是0<br>差分： 中间变一下对时，起始没跳变就是1，否则是0<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/02f3141f-f3d3-4a33-9392-c50767132d6b-14970684.jpg" alt="55.png"></p>
+<h2 id="Manchester-Encoding-曼彻斯特编码"><a href="#Manchester-Encoding-曼彻斯特编码" class="headerlink" title="Manchester Encoding 曼彻斯特编码"></a>Manchester Encoding 曼彻斯特编码</h2><p>非差分：中间变一下用来对时。起始是高就是1，低就是0<br>差分： 中间变一下对时，起始没跳变就是1，否则是0<br><img src="https://api2.mubu.com/v3/document_image/02f3141f-f3d3-4a33-9392-c50767132d6b-14970684.jpg" alt="55.png"></p>
 <p><strong>曼彻斯特编码2Baud表示一位信息，所以波特率是比特率的两倍</strong></p>
 <h2 id="4-3-2-以太网的MAC子层协议"><a href="#4-3-2-以太网的MAC子层协议" class="headerlink" title="4.3.2 以太网的MAC子层协议"></a>4.3.2 以太网的MAC子层协议</h2><p>MAC格式</p>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/d8687f81-54b0-49d0-b892-1eebd7d6b40e-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/d8687f81-54b0-49d0-b892-1eebd7d6b40e-14970684.jpg" alt="55.png"></p>
 <ul>
 <li><p>目标地址</p>
 <ul>
@@ -449,11 +449,11 @@ mjx-container[display="true"] + br {
 </li>
 <li><p><strong>无效的MAC帧</strong></p>
 <ul>
-<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/9f9504c8-ce5d-4485-af9e-23caacfa3c00-14970684.jpg" alt="55.png"></li>
+<li><img src="https://api2.mubu.com/v3/document_image/9f9504c8-ce5d-4485-af9e-23caacfa3c00-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 </ul>
-<h2 id="4-3-3-以太网性能"><a href="#4-3-3-以太网性能" class="headerlink" title="4.3.3 以太网性能"></a>4.3.3 以太网性能</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/6634acdb-6410-4f12-b698-3c34c682f61a-14970684.jpg" alt="55.png"><br>上面这张纯证明，可看可不看。<br>下面这张要记住。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/7fcecb6f-028a-4b01-ac89-45c1ac0e2493-14970684.jpg" alt="55.png"><br>ppt上只有结论：<br><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.172ex" xmlns="http://www.w3.org/2000/svg" width="25.303ex" height="5.208ex" role="img" focusable="false" viewBox="0 -1342 11184 2302"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">信</text></g><g data-mml-node="mi" transform="translate(900,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">道</text></g><g data-mml-node="mi" transform="translate(1800,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">效</text></g><g data-mml-node="mi" transform="translate(2700,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">率</text></g><g data-mml-node="mo" transform="translate(3877.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(4933.6,0)"><g data-mml-node="mn" transform="translate(2875.2,676)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mrow" transform="translate(220,-710)"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(2222.4,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="mi" transform="translate(2981.4,0)"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mi" transform="translate(3662.4,0)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(4128.4,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mi" transform="translate(4628.4,0)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g><g data-mml-node="mi" transform="translate(5061.4,0)"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g></g><rect width="6010.4" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container><br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/b51c8e12-36f0-4518-b751-4b275dea431c-14970684.jpg" alt="55.png"></p>
+<h2 id="4-3-3-以太网性能"><a href="#4-3-3-以太网性能" class="headerlink" title="4.3.3 以太网性能"></a>4.3.3 以太网性能</h2><p><img src="https://api2.mubu.com/v3/document_image/6634acdb-6410-4f12-b698-3c34c682f61a-14970684.jpg" alt="55.png"><br>上面这张纯证明，可看可不看。<br>下面这张要记住。<br><img src="https://api2.mubu.com/v3/document_image/7fcecb6f-028a-4b01-ac89-45c1ac0e2493-14970684.jpg" alt="55.png"><br>ppt上只有结论：<br><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.172ex" xmlns="http://www.w3.org/2000/svg" width="25.303ex" height="5.208ex" role="img" focusable="false" viewBox="0 -1342 11184 2302"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">信</text></g><g data-mml-node="mi" transform="translate(900,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">道</text></g><g data-mml-node="mi" transform="translate(1800,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">效</text></g><g data-mml-node="mi" transform="translate(2700,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">率</text></g><g data-mml-node="mo" transform="translate(3877.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mfrac" transform="translate(4933.6,0)"><g data-mml-node="mn" transform="translate(2875.2,676)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mrow" transform="translate(220,-710)"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(2222.4,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="mi" transform="translate(2981.4,0)"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mi" transform="translate(3662.4,0)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(4128.4,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mi" transform="translate(4628.4,0)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path></g><g data-mml-node="mi" transform="translate(5061.4,0)"><path data-c="1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path></g></g><rect width="6010.4" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container><br><img src="https://api2.mubu.com/v3/document_image/b51c8e12-36f0-4518-b751-4b275dea431c-14970684.jpg" alt="55.png"></p>
 <h2 id="4-3-交换式以太网"><a href="#4-3-交换式以太网" class="headerlink" title="4.3. 交换式以太网"></a>4.3. 交换式以太网</h2><ul>
 <li>High-speed backplan 高速背板</li>
 <li>Collision domain 冲突域<ul>
@@ -574,8 +574,8 @@ mjx-container[display="true"] + br {
 <p>ppt还有一页是讲以太网为啥这么好使。</p>
 <p>应该不考，跳了。</p>
 <p>反正就是可靠便宜兼容性强那点东西</p>
-<h2 id="4-3-7-10-Gigabit-Ethernet-万兆以太网、"><a href="#4-3-7-10-Gigabit-Ethernet-万兆以太网、" class="headerlink" title="4.3.7 10 Gigabit Ethernet 万兆以太网、"></a>4.3.7 10 Gigabit Ethernet 万兆以太网、</h2><p>用途<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/795d6117-9ac1-4df3-a569-3cdc6787488d-14970684.jpg" alt="55.png"></p>
-<p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/61f0b10e-3e48-4683-978d-c2c6b6cc4bd2-14970684.jpg" alt="55.png"></p>
+<h2 id="4-3-7-10-Gigabit-Ethernet-万兆以太网、"><a href="#4-3-7-10-Gigabit-Ethernet-万兆以太网、" class="headerlink" title="4.3.7 10 Gigabit Ethernet 万兆以太网、"></a>4.3.7 10 Gigabit Ethernet 万兆以太网、</h2><p>用途<br><img src="https://api2.mubu.com/v3/document_image/795d6117-9ac1-4df3-a569-3cdc6787488d-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/61f0b10e-3e48-4683-978d-c2c6b6cc4bd2-14970684.jpg" alt="55.png"></p>
 <h1 id="4-4-无线局域网"><a href="#4-4-无线局域网" class="headerlink" title="4.4 无线局域网"></a>4.4 无线局域网</h1><h2 id="4-4-1-802-11体系结构和协议栈"><a href="#4-4-1-802-11体系结构和协议栈" class="headerlink" title="4.4.1 802.11体系结构和协议栈"></a>4.4.1 802.11体系结构和协议栈</h2><ul>
 <li><p>结构</p>
 <ul>
@@ -586,14 +586,14 @@ mjx-container[display="true"] + br {
 <li>基本服务集(BSS)<ul>
 <li>无线主机</li>
 <li>接入点(AP):基站</li>
-<li>ad hoc mode:只允许主机访问<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/14e97154-130b-46cc-804e-a4a3a0aa7bb4-14970684.jpg" alt="55.png"></li>
+<li>ad hoc mode:只允许主机访问<br><img src="https://api2.mubu.com/v3/document_image/14e97154-130b-46cc-804e-a4a3a0aa7bb4-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>802.11协议栈</p>
 <ul>
-<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/2eb0c5fd-2023-488c-ad20-2c7ac97933cc-14970684.jpg" alt="55.png"></li>
+<li><img src="https://api2.mubu.com/v3/document_image/2eb0c5fd-2023-488c-ad20-2c7ac97933cc-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 </ul>
@@ -607,7 +607,7 @@ mjx-container[display="true"] + br {
 <li>等待信道空闲，检测并等待DIFS（DIFS是一段很短的时间</li>
 <li><strong>随机后退（Random backoff(0~15 time slots)）</strong>，然后倒计数空闲时间槽，当有帧在发送时暂停该计数器；当计数器递减到0该站就发送自己的帧。</li>
 <li>如果帧发送成功，目标站立即发送一个短确认。</li>
-<li>如果没有收到确认，则可推断出传输发生了错误，无论是冲突或是其他什么错。在这种情况下，发送方要加倍后退选择的时间槽数，再重新试图发送。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/10e3c8db-4a02-45ed-99fe-cb6aaa6861e2-14970684.jpg" alt="55.png"></li>
+<li>如果没有收到确认，则可推断出传输发生了错误，无论是冲突或是其他什么错。在这种情况下，发送方要加倍后退选择的时间槽数，再重新试图发送。<br><img src="https://api2.mubu.com/v3/document_image/10e3c8db-4a02-45ed-99fe-cb6aaa6861e2-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 <li><p>和以太网的区别：和以太网相比，这里有两个主要区别。</p>
@@ -634,7 +634,7 @@ mjx-container[display="true"] + br {
 <ul>
 <li>可选的RTS/CTS机制使用NAV来防止隐藏终端在同一时间发送。</li>
 <li>协议开始于当A决定向B发送数据时。A首先给B发送一个RTS帧，请求对方允许自己发送一个帧给它。如果B接收到这个请求，它就以CTS帧作为应答，表明信道被清除可以发送。一且收到CTS帧，A就发送数据帧，并启动一个ACK计时器。当正确的数据帧到达后，B用一个ACK帧回复A，完成此次交流。如果A的ACK计时器超时前，ACK没有返回，则可视为发生了一个冲突，经过一次后退整个协议重新开始运行。</li>
-<li>现在让我们从C和D的角度来看这次数据交流。C在A的范围内，因此它可能会收到RTS帧。如果收到了，它就意识到很快有人要发送数据。从RTS请求帧提供的信息，可以估算出数据序列将需要传多长时间，包括最后的ACK。因此，它采取了有利于所有人的做法，停止传输任何东西，直到此次数据交换完成。它通过更新自己的NAV记录表明信道正忙，如图4-27所示。D无法听到RTS，但它确实听到了CTS，所以它也更新自己的NAV。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/a4f3bf44-7d63-4fc9-9733-4f7482899099-14970684.jpg" alt="55.png"></li>
+<li>现在让我们从C和D的角度来看这次数据交流。C在A的范围内，因此它可能会收到RTS帧。如果收到了，它就意识到很快有人要发送数据。从RTS请求帧提供的信息，可以估算出数据序列将需要传多长时间，包括最后的ACK。因此，它采取了有利于所有人的做法，停止传输任何东西，直到此次数据交换完成。它通过更新自己的NAV记录表明信道正忙，如图4-27所示。D无法听到RTS，但它确实听到了CTS，所以它也更新自己的NAV。<br><img src="https://api2.mubu.com/v3/document_image/a4f3bf44-7d63-4fc9-9733-4f7482899099-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 <li><p>802.11和MACA的区别</p>
@@ -645,7 +645,7 @@ mjx-container[display="true"] + br {
 <li><p><strong>802.11的可靠性实现</strong></p>
 <ul>
 <li>降低传输速率</li>
-<li>发送短帧（碎片帧<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/a7b85060-5325-4f20-a253-0077ebf01470-14970684.jpg" alt="55.png"></li>
+<li>发送短帧（碎片帧<br><img src="https://api2.mubu.com/v3/document_image/a7b85060-5325-4f20-a253-0077ebf01470-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 </ul>
@@ -675,7 +675,7 @@ mjx-container[display="true"] + br {
 <li>高优先级帧</li>
 </ul>
 </li>
-<li>AIFS4 低优先级帧。后台流量一类<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/fb1f6bfb-bac1-4d4e-83b1-df831a02b9c5-14970684.jpg" alt="55.png"></li>
+<li>AIFS4 低优先级帧。后台流量一类<br><img src="https://api2.mubu.com/v3/document_image/fb1f6bfb-bac1-4d4e-83b1-df831a02b9c5-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 <li><p><strong>QOS:TXOP</strong></p>
@@ -707,7 +707,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
-<h2 id="4-4-4-802-11帧结构"><a href="#4-4-4-802-11帧结构" class="headerlink" title="4.4.4 802.11帧结构"></a>4.4.4 802.11帧结构</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/f8b3db15-3dcb-48f3-b627-80f215e53b34-14970684.jpg" alt="55.png"></p>
+<h2 id="4-4-4-802-11帧结构"><a href="#4-4-4-802-11帧结构" class="headerlink" title="4.4.4 802.11帧结构"></a>4.4.4 802.11帧结构</h2><p><img src="https://api2.mubu.com/v3/document_image/f8b3db15-3dcb-48f3-b627-80f215e53b34-14970684.jpg" alt="55.png"></p>
 <p><strong>数据帧的第二个字段为持续时间(Duration)字段</strong>，它通告本帧和其确认将会占用信道多长时间，按微秒计时。该字段会出现在所有帧中，包括控制帧，其他站使用该字段来管理各自的NAV机制。</p>
 <p>接下来是地址字段。<strong>发往AP或者从AP接收的帧都具有3个地址</strong>，这些地址都是标准的IEEE802格式。<strong>第一个地址是接收方地址，第二个地址是发送方地址。</strong>很显然，这两个地址是必不可少的，那么第三个地址是做什么用的呢?请记住，当帧在一个客户端和网络中另一点之间传输时，AP只是一个简单的中继点。<strong>这网络中的另一点也许是一个远程客户端，或许是Internet接入点。第三个地址就指明了这个远程端点</strong></p>
 <blockquote>
@@ -738,7 +738,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 <li>LLC的位置和协议格式<ul>
-<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/b5a8020d-cd0a-44d1-bc1b-61d11cbec7a3-14970684.jpg" alt="55.png"></li>
+<li><img src="https://api2.mubu.com/v3/document_image/b5a8020d-cd0a-44d1-bc1b-61d11cbec7a3-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 </ul>
@@ -758,8 +758,8 @@ mjx-container[display="true"] + br {
 <li>可靠</li>
 <li>安全</li>
 </ul>
-<h2 id="4-8-2-看看网桥"><a href="#4-8-2-看看网桥" class="headerlink" title="4.8.2 看看网桥"></a>4.8.2 看看网桥</h2><p> <img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/7fbf3984-5663-49f3-8c1e-117531597d68-14970684.jpg" alt="55.png"></p>
-<p> <img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/ffa8a2ef-41d0-4ed3-b71f-98e3b718fe0a-14970684.jpg" alt="55.png"></p>
+<h2 id="4-8-2-看看网桥"><a href="#4-8-2-看看网桥" class="headerlink" title="4.8.2 看看网桥"></a>4.8.2 看看网桥</h2><p> <img src="https://api2.mubu.com/v3/document_image/7fbf3984-5663-49f3-8c1e-117531597d68-14970684.jpg" alt="55.png"></p>
+<p> <img src="https://api2.mubu.com/v3/document_image/ffa8a2ef-41d0-4ed3-b71f-98e3b718fe0a-14970684.jpg" alt="55.png"></p>
 <h3 id="自学习网桥（透明）-Learning-Bridge"><a href="#自学习网桥（透明）-Learning-Bridge" class="headerlink" title="自学习网桥（透明） Learning Bridge"></a>自学习网桥（透明） Learning Bridge</h3><ul>
 <li><p>混杂模式运行</p>
 <ul>
@@ -828,12 +828,12 @@ mjx-container[display="true"] + br {
 </li>
 <li><p>从根通过B2或B3都可到达B4，最短路径均为两跳。为了打破这种平局，选择一条经过具有最低标识符的网桥的路径，因此到达B4的路径通过B2。 </p>
 </li>
-<li><p>为了找到这些最短路径，网桥在它们的配置消息中还包括与根的距离。每个网桥记住它找到的到根的最短路径。然后，网桥关闭那些不属于最短路径一部分的端口。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/4ae8c412-bebc-4176-b811-7d8d366bc504-14970684.jpg" alt="55.png"></p>
+<li><p>为了找到这些最短路径，网桥在它们的配置消息中还包括与根的距离。每个网桥记住它找到的到根的最短路径。然后，网桥关闭那些不属于最短路径一部分的端口。<br><img src="https://api2.mubu.com/v3/document_image/4ae8c412-bebc-4176-b811-7d8d366bc504-14970684.jpg" alt="55.png"></p>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="4-8-4-中继器／集线器／网桥／交换机／路由器和网关"><a href="#4-8-4-中继器／集线器／网桥／交换机／路由器和网关" class="headerlink" title="4.8.4 中继器／集线器／网桥／交换机／路由器和网关"></a>4.8.4 中继器／集线器／网桥／交换机／路由器和网关</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/da38f6bb-9471-436f-ac4d-973519468fad-14970684.jpg" alt="55.png"></p>
+<h2 id="4-8-4-中继器／集线器／网桥／交换机／路由器和网关"><a href="#4-8-4-中继器／集线器／网桥／交换机／路由器和网关" class="headerlink" title="4.8.4 中继器／集线器／网桥／交换机／路由器和网关"></a>4.8.4 中继器／集线器／网桥／交换机／路由器和网关</h2><p><img src="https://api2.mubu.com/v3/document_image/da38f6bb-9471-436f-ac4d-973519468fad-14970684.jpg" alt="55.png"></p>
 <ul>
 <li><p>中继器</p>
 <ul>
@@ -864,7 +864,7 @@ mjx-container[display="true"] + br {
 </ul>
 </li>
 </ul>
-<p><strong>下面这个比较重要</strong><br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/d9d053b0-1fca-4e10-b997-a2c29fd8623c-14970684.jpg" alt="55.png"></p>
+<p><strong>下面这个比较重要</strong><br><img src="https://api2.mubu.com/v3/document_image/d9d053b0-1fca-4e10-b997-a2c29fd8623c-14970684.jpg" alt="55.png"></p>
 <ul>
 <li><p>路由器</p>
 <ul>
@@ -893,19 +893,19 @@ mjx-container[display="true"] + br {
 <ul>
 <li><p>VLAN和配置表</p>
 <ul>
-<li>为了使VLAN正常地运行，网桥必须建立配置表。这些配置表指明了通过哪些端口可以访问到哪些VLAN。当一帧到来时，比如说来自灰色VLAN，那么这帧必须被转发到所有标记为G的端口。这一条规则对于网桥不知道目的地位置的普通流量(即单播)以及组播和广播流量都适用。注意，一个端口可以标记为多种VLAN颜色。<br><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/81695a40-9c3c-44f5-9f8a-0598ff94e74d-14970684.jpg" alt="55.png"></li>
+<li>为了使VLAN正常地运行，网桥必须建立配置表。这些配置表指明了通过哪些端口可以访问到哪些VLAN。当一帧到来时，比如说来自灰色VLAN，那么这帧必须被转发到所有标记为G的端口。这一条规则对于网桥不知道目的地位置的普通流量(即单播)以及组播和广播流量都适用。注意，一个端口可以标记为多种VLAN颜色。<br><img src="https://api2.mubu.com/v3/document_image/81695a40-9c3c-44f5-9f8a-0598ff94e74d-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 <li><p>VLAN帧格式</p>
 <ul>
 <li>VLAN段四字节，所以这时最长帧是1522字节</li>
-<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/c342ec74-1c89-4b57-8085-7c5ebc1aed96-14970684.jpg" alt="55.png"></li>
+<li><img src="https://api2.mubu.com/v3/document_image/c342ec74-1c89-4b57-8085-7c5ebc1aed96-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 <li><p>VLAN感知</p>
 <ul>
 <li>因为存在一些计算机(和交换机)无法感知VLAN，因此第一个VLAN感知的网桥在帧上添加一个VLAN字段，路径上的最后一个网桥把添加的VLAN字段删除。</li>
-<li><img lazyload="" src="/images/loading.svg" data-src="https://api2.mubu.com/v3/document_image/278b58b0-85fa-402e-876b-6f492575931d-14970684.jpg" alt="55.png"></li>
+<li><img src="https://api2.mubu.com/v3/document_image/278b58b0-85fa-402e-876b-6f492575931d-14970684.jpg" alt="55.png"></li>
 </ul>
 </li>
 </ul>
@@ -913,7 +913,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2022/04/25/jiwang_4/" data-id="cl65agzjk000w6ktb7ufk9583" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2022/04/25/jiwang_4/" data-id="cl65b7xff000w5ktbechyatxs" class="article-share-link">
         Share
       </a>
       
@@ -949,6 +949,32 @@ mjx-container[display="true"] + br {
   
   
   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
   
 
 </article>
