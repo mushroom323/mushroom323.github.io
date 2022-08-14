@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    FPGA_1 |
+    
+    Mushroom&#39;s blog
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/images/M.svg">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-FPGA_1" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  FPGA_1
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/08/13/FPGA_1/" class="article-date">
+  <time datetime="2022-08-13T02:59:13.000Z" itemprop="datePublished">2022-08-13</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>FPGA是什么。</p>
+<p>我怎么知道。</p>
+<span id="more"></span>
+
+<h1 id="FPGA中流水线并行"><a href="#FPGA中流水线并行" class="headerlink" title="FPGA中流水线并行"></a>FPGA中流水线并行</h1><blockquote>
+<p>FPGA中流水线并行指的是什么，与GPU，CPU有什么本质区别</p>
+</blockquote>
+<h2 id="简单地说"><a href="#简单地说" class="headerlink" title="简单地说"></a>简单地说</h2><p>处理一个数据包有10个步骤，FPGA可以搭建一个10级流水线，流水线的不同级在处理不同的数据包，每个数据包流经10级之后处理完成。每个处理完成的数据包可以马上输出。而GPU的数据并行方法是做10个计算单元，每个计算单元也在处理不同的数据包，但是所有的计算单元必须按照统一的步调，做相同的事情（SIMD）。这就要求10个数据包必须同进同出。当任务是逐个而非成批到达的时候，流水线并行比数据并行可实现更低的延迟。因此对流水式计算的任务，FPGA比GPU天生有延迟方面的优势。</p>
+<h2 id="详细表述"><a href="#详细表述" class="headerlink" title="详细表述"></a>详细表述</h2><p>以下内容来自：<br>source:  <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/372518433">CPU，GPU和FPGA的计算体系结构比较</a></p>
+<p>source:  <a href="source:https://zhuanlan.zhihu.com/p/497036659">怎么理解SIMD和SIMT</a></p>
+<h3 id="CPU架构"><a href="#CPU架构" class="headerlink" title="CPU架构"></a>CPU架构</h3><p>当没有依赖关系时，标量流水线型CPU内核可以按每个时钟周期（IPC）最多一条指令的速率执行分为几级的指令。为了提高性能，现代CPU内核是具有复杂机制的多线程超标量处理器，这些机制用于查找指令级并行性并在每个时钟周期执行多个乱序指令。他们一次获取许多指令，找到这些指令的依赖图，利用复杂的分支预测机制，然后并行执行这些指令（就IPC而言，通常是标量处理器性能的10倍）。</p>
+<p>如下图，CPU流水线与超量流水线的简化示意图：<br><img src="https://api2.mubu.com/v3/document_image/783cc4b7-087d-401a-a967-5508a663700c-14970684.jpg" alt="5.png"></p>
+<ul>
+<li>由于直接使用CPU运行不需要把数据卸载到协处理器（如GPU和FPGA），因此数据传输开销是最小的，减小了数据处理的等待时间。</li>
+<li>同时，由于大部分软件的算法本质上都是串行的，不需要并行流水线，因此直接采用CPU也可以达到高性能。</li>
+<li>对于可以矢量并行化的算法部分，现代CPU支持单指令，多数据（SIMD）指令，例如英特尔®高级矢量扩展512。</li>
+<li>因此，CPU适合各种工作负载。即使对于大量并行工作负载，对于具有高分支散度或高指令级并行度的算法，CPU的性能也要优于加速器，尤其是在数据大小与计算比很高的情况下。</li>
+</ul>
+<p>CPU优势：</p>
+<ul>
+<li>无序超标量执行</li>
+<li>复杂的控制可提取巨大的指令级并行度</li>
+<li>准确的分支预测</li>
+<li>顺序代码上的自动并行</li>
+<li>大量受支持的指令</li>
+<li>与卸载加速相比，延迟更短</li>
+<li>顺序执行代码可简化开发过程</li>
+</ul>
+<h3 id="GPU架构"><a href="#GPU架构" class="headerlink" title="GPU架构"></a>GPU架构</h3><p>GPU是由大规模并行，更小，更专业的内核构成的处理器，而这些处理器通常比高性能CPU中的内核更强大。GPU体系结构针对所有内核的总吞吐量进行了优化，从而不再强调各个线程的延迟和性能。GPU体系结构有效地处理矢量数据（数字数组），通常称为<strong>矢量体系结构</strong>。</p>
+<p>GPU专用于计算的硅空间更多，而用于缓存和控制的硅空间则更少。结果，GPU硬件探索了较少的指令级并行性，并依靠软件提供的并行性来实现性能和效率。</p>
+<p>GPU是有序处理器，不支持复杂的分支预测。相反，它们具有过多的算术逻辑单元（ALU）和深层流水线。通过大型独立数据的多线程执行来实现性能，这将分摊更简单的控制和更小的缓存的成本。</p>
+<p>GPU采用单指令多线程（SIMT）执行模型，其中多线程和SIMD一起使用。在SIMT模型中，多个线程（工作项或SIMD通道操作序列）在同一SIMD指令流中以锁步方式进行处理。多个SIMD指令流映射到单个执行单元（EU），并且当一个流停止时，GPU EU可以在这些SIMD指令流之间进行上下文切换。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/a4d4b9e3-3125-4e90-8af3-06f203028dd1-14970684.jpg" alt="5.png"></p>
+<p>上图显示了CPU和GPU之间的区别。EU是GPU上处理的基本单位。每个EU可以处理多个SIMD指令流。在相同的硅空间中，GPU比CPU具有更多的内核/ EU。GPU是按层次结构组织的。多个EU组合在一起，形成具有共享本地内存和同步机制（又名子切片或流式多处理器，以紫色概述）的计算单元。计算单元组合形成GPU。</p>
+<p>GPU优势：</p>
+<ul>
+<li>大规模并行，多达数千个小型高效SIMD内核/ EU</li>
+<li>高效执行数据并行代码</li>
+<li>高动态随机存取存储器（DRAM）带宽</li>
+</ul>
+<h3 id="FPGA架构"><a href="#FPGA架构" class="headerlink" title="FPGA架构"></a>FPGA架构</h3><p>与可以通过软件编程的固定架构的CPU和GPU不同，FPGA是可重新配置的，其计算引擎由用户定义。当编写针对FPGA的软件时，已编译的指令成为硬件组件，这些组件在空间上排列在FPGA架构上，并且这些组件都可以并行执行。因此，FPGA体系结构有时被称为<strong>空间体系结构</strong>。</p>
+<p>FPGA是由大量小型处理单元组成的阵列，其中包含多达数百万个可编程的1位自适应逻辑模块（每个模块都可以像一个位的ALU一样工作），多达数万个可配置的存储块以及成千上万个数学引擎，称为数字信号处理（DSP）块，支持可变精度浮点和定点运算。所有这些资源都是通过可根据需要激活的可编程导线网格连接的。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/424812f8-2ff1-4f67-846c-978d9fb5891b-14970684.jpg" alt="5.png"></p>
+<p>在FPGA上“执行”软件时，其执行方式与在CPU和GPU上执行已编译和汇编的指令的意义不同。取而代之的是，<strong>数据流经过与软件中表达的操作相匹配的FPGA上定制的深层流水线。</strong>由于数据流管道硬件与软件匹配，因此消除了控制开销，从而提高了性能和效率。<strong>使用CPU和GPU，指令级流水线化，新指令在每个时钟周期开始执行。使用FPGA，操作流水线化，因此对不同数据进行操作的新指令流将在每个时钟周期开始执行。</strong></p>
+<blockquote>
+<p>也就是说，即使CPU和GPU采用SIMD，操作还是要跟着指令流程走，当前指令流程未走完不能开启新的流程。而FPGA每个时钟周期都可以开始一个新的指令流程。</p>
+</blockquote>
+<p><img src="https://api2.mubu.com/v3/document_image/47a05f84-03bc-4d93-9d72-2cc58bce2fcf-14970684.jpg" alt="5.png"></p>
+<p>尽管管线并行化是FPGA并行化的主要形式，但它可以与其他类型的并行化结合使用。例如，可以将数据并行性（SIMD），任务并行性（多个流水线）和超标量执行（并行执行的多个独立指令）与流水线并行性一起使用，以实现最佳性能。</p>
+<p>FPGA的优势：</p>
+<ul>
+<li>效率：数据处理管道完全根据软件需求进行调整。无需控制单元，指令获取单元，寄存器写回和其他执行开销。</li>
+<li>定制指令：CPU / GPU本身不支持的指令可以在FPGA上轻松实现并有效执行（例如，位操作）。</li>
+<li>可以解决跨并行工作的数据依赖性，而不会导致流水线停滞。</li>
+<li>灵活性：可以重新配置FPGA，以适应不同的功能和数据类型，包括非标准数据类型。</li>
+<li>定制的片上存储器拓扑已调整为算法：内置大带宽的片上存储器以适应访问模式，以最大程度地减少或消除停顿。</li>
+<li>丰富的I / O：FPGA内核可以直接与各种网络，内存以及自定义接口和协议进行交互，从而实现了低确定性的延迟解决方案。</li>
+</ul>
+<h3 id="SIMT-Single-Instruction-Multiple-Thread"><a href="#SIMT-Single-Instruction-Multiple-Thread" class="headerlink" title="SIMT(Single Instruction Multiple Thread)"></a>SIMT(Single Instruction Multiple Thread)</h3><p>单指令多线程，一般在CPU和GPU中采用这种模式。</p>
+<p>简单举个例子描述：<br>假设有两个等长的数组，需要每个元素一一对应相加。那么SIMT的思想就是给每个元素分配一个线程，那么一个线程只需要完成一个元素的加法，所有线程并发(Concurrent)执行完成后，两个数组的相加就完成了。</p>
+<p>从结构上来讲，一个多核系统，每个核有它自己的寄存器文件，有它自己的ALU(可能支持SIMD)，有它自己的数据Cache，但是它只有一个Program Counter寄存器，一个指令Cache和一个译码器，指令被同时广播给所有的SIMT核。每个SIMT核有它自己独立的栈和数据集。</p>
+<p>SIMT的好处是无需开发者费力把数据凑成合适的矢量长度，并且SIMT允许每个线程有不同的分支。 纯粹使用SIMD不能并行的执行有条件跳转的函数，很显然条件跳转会根据输入数据不同在不同的线程中有不同表现，这个只有利用SIMT才能做到。（虽然如此，但是SIMT采用分支条件的算法也会大幅度降低性能）</p>
+<h3 id="SIMD-Single-Instruction-Multiple-Data"><a href="#SIMD-Single-Instruction-Multiple-Data" class="headerlink" title="SIMD(Single Instruction Multiple Data)"></a>SIMD(Single Instruction Multiple Data)</h3><p>顾名思义，单指令多数据，即在一条指令完成多个数据的计算。比如，通常一次加法操作只能完成一个整数的加法，而通过SIMD指令，一个次加法可以完成多个整数的加法。这就需要增加硬件ALU单元的数量，同时也需要增加同一个功能单元的数据通路数量，这样就能够增加一个时钟周期的吞吐量。</p>
+<p>再说的白话一些就是，假如我们有两个相同元素个数的数组，想把两个数组元素一一对应相加。在SISD指令中只有一个ALU，我们需要用for循环一个一个元素进行相加，但在SIMD指令中，我们就不需要for循环，可以给每个元素分配一个ALU（假设有足够的ALU），那么这就是SIMD。</p>
+<p>与SIMT相比的不同一点在于SIMD中的向量中的元素相互之间可以自由通信，因为它们存在于相同的地址空间（例如，都在CPU的同一寄存器中），而SIMT中的每个线程的寄存器都是私有的，线程之间只能通过shared memory和同步机制进行通信。</p>
+<p>简而言之，SIMD提供了硬件级的并发支持，对于单纯计算的指令并发有着较好较高的效率。<br>而SIMT则更加灵活，允许有条件分支的存在，对数据的处理也更加方便。<br>相同点都是只有当前指令流结束了才可以开启下一个指令流。（因为PC共用）</p>
+<h1 id="计算密集型-通信-I-O-密集型"><a href="#计算密集型-通信-I-O-密集型" class="headerlink" title="计算密集型/通信(I/O)密集型"></a>计算密集型/通信(I/O)密集型</h1><blockquote>
+<p>计算密集型/通信密集型指的是什么，什么样的任务更适用于FPGA，而不是GPU</p>
+</blockquote>
+<h2 id="计算密集型"><a href="#计算密集型" class="headerlink" title="计算密集型"></a>计算密集型</h2><p>1、特点：要进行大量的计算，消耗CPU资源。比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。</p>
+<p>2、计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。</p>
+<p>3、计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。</p>
+<h2 id="通信密集型"><a href="#通信密集型" class="headerlink" title="通信密集型"></a>通信密集型</h2><p>1、涉及到网络、磁盘IO的任务都是IO密集型任务。</p>
+<p>2、特点：CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。</p>
+<p>3、对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。</p>
+<p>4、IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://mushroom323.github.io/2022/08/13/FPGA_1/" data-id="cl6t7k9su0006hstb1rg1a1bx" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BE%E5%A4%96/" rel="tag">课外</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  
+  <a href="/2022/08/03/OS_1/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">操作系统第一章 概论</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+<div class="vcomments" id="vcomments"></div>
+
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
+    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
+    notify: 'false',
+    verify: 'true',
+    avatar: 'mp',
+    pageSize: '10',
+    placeholder: '发表神谕'
+  })
+</script>
+
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Mushroom&#39;s blog &copy; 2022</li>
+      
+        <li></li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/M.svg" alt="Mushroom&#39;s blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">Tags</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/links">Links</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

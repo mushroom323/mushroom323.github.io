@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <title>
+    操作系统第一章 概论 |
+    
+    Mushroom&#39;s blog
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/images/M.svg">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-OS_1" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  操作系统第一章 概论
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/08/03/OS_1/" class="article-date">
+  <time datetime="2022-08-03T02:59:13.000Z" itemprop="datePublished">2022-08-03</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <p>看到英文ppt有点麻，所以提前过一下，顺便提高一下英语水平，不然到时候都不知道老师在说啥。</p>
+<p>基本就是翻译ppt，让自己有个大概理解。</p>
+<p>纯纯是闲的无聊，一个月就把想玩的游戏打完了。</p>
+<span id="more"></span>
+
+<p>前面跳了，就是讲国内现状。</p>
+<h1 id="1-1-操作系统功能"><a href="#1-1-操作系统功能" class="headerlink" title="1.1 操作系统功能"></a>1.1 操作系统功能</h1><ul>
+<li><p>充当用户和计算机硬件之间的中介( intermediary )程序</p>
+<ul>
+<li>控制应用程序的执行</li>
+<li>应用程序/用户和硬件之间的接口</li>
+</ul>
+</li>
+<li><p>操作系统的目的( objectives )</p>
+<ul>
+<li>方便</li>
+<li>效率</li>
+<li>发展</li>
+</ul>
+</li>
+<li><p>计算机系统组成</p>
+<ul>
+<li>从上到下<ul>
+<li>用户</li>
+<li>应用程序</li>
+<li>系统程序</li>
+<li>操作系统</li>
+<li>硬件</li>
+</ul>
+</li>
+<li><img src="https://api2.mubu.com/v3/document_image/4655291e-c45c-42da-8f40-1512c8daabdf-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-1-1-用户视角"><a href="#1-1-1-用户视角" class="headerlink" title="1.1.1 用户视角"></a>1.1.1 用户视角</h2><ul>
+<li><p>根据使用界面的不同而不同</p>
+</li>
+<li><p>不同操作系统的设计目的不同</p>
+<ul>
+<li>PC</li>
+<li>Mainframe,minicomputer</li>
+<li>Workstation</li>
+<li>Handheld</li>
+<li>Embedded</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-1-2-系统视角"><a href="#1-1-2-系统视角" class="headerlink" title="1.1.2 系统视角"></a>1.1.2 系统视角</h2><ul>
+<li><p>资源分配器</p>
+<ul>
+<li>调配所有资源</li>
+<li>在冲突中决定，让计算机得以高效公平运行</li>
+</ul>
+</li>
+<li><p>控制程序</p>
+<ul>
+<li>控制用户程序和I/O设备的行为，以防对计算机的错误和不当使用</li>
+<li>OS放弃对处理器的控制来执行其他程序。（？</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-1-3-定义OS"><a href="#1-1-3-定义OS" class="headerlink" title="1.1.3 定义OS"></a>1.1.3 定义OS</h2><p>没有统一定义，ppt上倒是中文和英文各给了一遍。</p>
+<ul>
+<li><p>Kernel 内核</p>
+<ul>
+<li>操作系统是一直在计算机上跑的程序</li>
+<li>操作系统的一部分( portion )在主存中</li>
+<li>包含最常用的功能</li>
+<li>也可以称为nucleus( 核 )</li>
+</ul>
+</li>
+<li><p>操作系统是计算机系统中的一个系统软件， 是一些程序模块的集合， 它们能以尽量有效、合理的方式组织和管理计算机的软硬件资源， 合理地组织计算机的工作流程，控制程序的执行， 向用户提供各种服务功能， 使得 用户能够灵活、方便、有效的使用计算机， 使整个计算机系统能高效地运行。</p>
+</li>
+</ul>
+<h1 id="1-2-计算机系统组成"><a href="#1-2-计算机系统组成" class="headerlink" title="1.2 计算机系统组成"></a>1.2 计算机系统组成</h1><ul>
+<li><p>用户可见寄存器</p>
+<ul>
+<li>允许程序员通过优化寄存器使用来最小化主存占用</li>
+</ul>
+</li>
+<li><p>控制和状态寄存器</p>
+<ul>
+<li>处理器用来控制处理器的操作</li>
+<li>操作系统进程用来控制程序的执行</li>
+</ul>
+</li>
+<li><p>用户可见寄存器</p>
+<ul>
+<li>也许可以被机器语言引用</li>
+<li>对所有程序可用——应用程序和系统程序</li>
+<li>寄存器种类<ul>
+<li>数据</li>
+<li>地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>控制和状态寄存器</p>
+<ul>
+<li>PC</li>
+<li>IR</li>
+<li>PSW</li>
+<li>条件码或标志</li>
+</ul>
+</li>
+<li><p>指令类型</p>
+<ul>
+<li>处理器——存储器</li>
+<li>处理器——I/O</li>
+<li>数据处理</li>
+<li>控制</li>
+</ul>
+</li>
+<li><p>计算机启动 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.375ex" xmlns="http://www.w3.org/2000/svg" width="2.44ex" height="1.92ex" role="img" focusable="false" viewBox="0 -683 1078.6 848.6"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mn" transform="translate(675,-150) scale(0.707)"><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></g></g></g></g></svg></mjx-container></p>
+<ul>
+<li>引导程序( bootstrap program )在开机和重启时加载<ul>
+<li>通常存储在ROM或者EEPPROM，也就是一般认为的固件( firmware )</li>
+<li>初始化系统的所有方面</li>
+<li>定位操作系统内核并将其装载到内存中并且开始执行</li>
+</ul>
+</li>
+<li>OS开始执行首个进程，比如说“init”，然后等待其他事件发生<ul>
+<li>硬件发生中断</li>
+<li>软件发生中断</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-2-1-计算机系统操作"><a href="#1-2-1-计算机系统操作" class="headerlink" title="1.2.1 计算机系统操作"></a>1.2.1 计算机系统操作</h2><ul>
+<li><p>I/O和CPU可以并发运行</p>
+</li>
+<li><p>每个设备控制器控制特定的设备类型</p>
+</li>
+<li><p>每个设备控制器都有一个本地缓存</p>
+</li>
+<li><p>CPU把数据从主存移到本地缓存或者从本地缓存移到主存</p>
+</li>
+<li><p>设备控制器通过中断( interrupt )告诉CPU操作结束。</p>
+</li>
+<li><p>中断</p>
+<ul>
+<li>是正常运行流程中的中断</li>
+<li>提升处理效率</li>
+<li>允许处理器在一个I/O操作在执行时去执行其他指令</li>
+<li>由进程之外的事件产生该中断，同时中断结束后进程可恢复</li>
+</ul>
+</li>
+<li><p>中断种类( 程序引起的中断称为陷阱( trap )，其余的称为interrupt )</p>
+<ul>
+<li>程序<ul>
+<li>算数( arithmetic )溢出</li>
+<li>除零</li>
+<li>执行非法指令</li>
+<li>访问了其他用户端的存储空间</li>
+</ul>
+</li>
+<li>计时器</li>
+<li>I/O</li>
+<li>硬件故障</li>
+</ul>
+</li>
+<li><p><strong>trap</strong>是由错误或者用户请求引起的中断。</p>
+</li>
+<li><p>中断的常见功能</p>
+<ul>
+<li>中断将控制转移给中断服务程序( interrupt service routine )。这个过程经由中断向量( interrupt vector )实现，其中包含了所有中断处理程序的起始地址。<blockquote>
+<p>也就是中断处理程序的指针表。一般存储在低地址内存（前100左右）</p>
+</blockquote>
+</li>
+<li>中断体系结构也必须保存中断指令的的地址。</li>
+<li>处理一个中断时，此时传入的中断会被禁用( disabled )，防止中断丢失。</li>
+<li>操作系统是由中断驱动的。</li>
+</ul>
+</li>
+<li><p>中断处理</p>
+<ul>
+<li>操作系统通过保存CPU寄存器和PC来保护CPU状态</li>
+<li>确定已发生的中断类型<ul>
+<li>Polling 轮询</li>
+<li>vectored interrupt system 向量中断系统</li>
+</ul>
+</li>
+<li>单独的代码块决定了对于每种中断采取什么操作。</li>
+</ul>
+</li>
+<li><p>中断周期</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/0e7c3a1c-a48d-4eb4-b095-79a2dc3232e7-14970684.jpg" alt="55.png"></li>
+<li>处理器检测有无中断</li>
+<li>如果没有中断，那么就获取现在运行程序的下一条指令。</li>
+<li>如果发生中断，则停止当前程序，执行中断处理程序</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-2-2-存储结构"><a href="#1-2-2-存储结构" class="headerlink" title="1.2.2 存储结构"></a>1.2.2 存储结构</h2><ul>
+<li>内存( Main memory )<ul>
+<li>处理器可以直接访问的唯一一个大型存储区域。</li>
+<li>一般也称为随机访问内存( RAM )，一般采用动态随机访问内存实现。( DRAM )</li>
+<li>内存是易失性存储设备，掉电会失去所有内容。</li>
+</ul>
+</li>
+<li>辅存( Secondary storage )<ul>
+<li>内存的扩展，提供较大的非易失性存储空间。</li>
+</ul>
+</li>
+<li>磁盘( Maganetic disks )<ul>
+<li>覆盖有磁性记录材料的刚性金属或玻璃板。<ul>
+<li>磁盘表面在逻辑上被划分为轨道，而轨道又被细分为扇区。</li>
+<li>磁盘控制器确定设备和计算机之间的逻辑交互。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>磁带<ul>
+<li>用于备份( backup )，用于存储不常用的信息。</li>
+</ul>
+</li>
+<li>存储器体系<ul>
+<li>存储系统按层次结构分层组织。<ul>
+<li>速度</li>
+<li>开销</li>
+<li>易失性( Volatility )</li>
+</ul>
+</li>
+<li>易失性存储器在断电或者移动设备后丢失其存储内容</li>
+<li>设计计算机存储系统的原则<ul>
+<li>只使用必要的昂贵内存。</li>
+<li>提供尽可能多的廉价、非易失性内存。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储设备体系<ul>
+<li>寄存器</li>
+<li>cache</li>
+<li>主存( main memory )</li>
+<li>固态磁盘( solid-state disk )<ul>
+<li>一种是运行时将数据存储在一个大的DRAM数组上。其有一个隐藏磁盘和一个作为备份电源的电池。外部掉电后，启动备份电源，将RAM上的内容移动到磁盘中。外部有电时，将磁盘里的内容移动到RAM上。</li>
+<li>一种是FLASH闪存，比DRAM慢但是不需要电源来保存内容</li>
+<li>一种是NVRAM，即具有备用电池的DRAM。存储和DRAM一样快，且是非易失的（只要电源有电）。</li>
+</ul>
+</li>
+<li>磁盘/硬盘( magnetic disk )</li>
+<li>光盘( optical disk )</li>
+<li>磁带( magnetic tapes )</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-2-3-I-O结构"><a href="#1-2-3-I-O结构" class="headerlink" title="1.2.3 I/O结构"></a>1.2.3 I/O结构</h2><ul>
+<li>编程I/O</li>
+<li>中断驱动I/O<ul>
+<li>同步</li>
+<li>异步</li>
+</ul>
+</li>
+<li>DMA</li>
+</ul>
+<p>每个通用计算机一般由一个CPU和多个设备控制器组成。</p>
+<ul>
+<li>I/O操作<ul>
+<li>设备控制器<ul>
+<li>局部缓存空间</li>
+<li>一组特定用途的寄存器</li>
+<li>在设备和其本地缓存空间中移动数据。</li>
+</ul>
+</li>
+<li>设备驱动<ul>
+<li>每个设备控制器都有一个。</li>
+<li>为设备提供一个统一的接口。</li>
+</ul>
+</li>
+<li>I/O操作<ul>
+<li>设备驱动程序加载设备控制器的适当寄存器</li>
+<li>设备控制器检查这些寄存器的内容来决定采取什么操作</li>
+<li>设备控制器在缓存和设备间传输数据</li>
+<li>一旦完成，设备控制器设置状态或者通过中断通知驱动程序</li>
+<li>设备驱动程序返回控制到OS，如果是读操作，则也会返回相应数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="编程I-O"><a href="#编程I-O" class="headerlink" title="编程I/O"></a>编程I/O</h2><ul>
+<li>I/O结构：编程I/O<ul>
+<li>I/O模块执行操作，而非处理器。</li>
+<li>在I/O状态寄存器中设置合适的比特。</li>
+<li>没有中断发生。</li>
+<li>处理器会检查状态，直到操作完成为止（轮询，一直问）。</li>
+<li>读取字符。</li>
+</ul>
+</li>
+</ul>
+<h2 id="中断驱动I-O"><a href="#中断驱动I-O" class="headerlink" title="中断驱动I/O"></a>中断驱动I/O</h2><ul>
+<li>I/O结构：中断驱动I/O<ul>
+<li>通知I/O由读写事件。</li>
+<li>当I/O准备好交换数据的时候，处理器中断</li>
+<li>在I/O准备好之前，处理器可以去做其他工作</li>
+<li>等待是不必要的</li>
+<li>消耗了大量的处理器时间，因为每个字符读或写都要经过处理器。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>中断驱动I/O<ul>
+<li>同步I/O<ul>
+<li>在I/O启动之后，只有I/O操作完成之后，控制权才会返回给用户程序。</li>
+</ul>
+</li>
+<li>异步I/O<ul>
+<li>I/O启动之后，不需要等待I/O操作完成，也可以将控制返回给用户程序。</li>
+</ul>
+</li>
+<li>为了提高CPU和I/O的利用率，我们需要<ul>
+<li>System call ——  要求操作系统允许用户等待I/O操作完成。</li>
+<li>Device-status table —— 包含每个I/O设备的条目，以指示其类型、地址和状态。</li>
+</ul>
+</li>
+<li>操作系统索引到I/O设备表中，以确定设备状态以及修改包括中断在内的表条目</li>
+</ul>
+</li>
+</ul>
+<h2 id="DMA"><a href="#DMA" class="headerlink" title="DMA"></a>DMA</h2><ul>
+<li>I/O结构：直接内存访问( DMA )<ul>
+<li>直接以块为单位在本地缓存和内存中传输数据。</li>
+<li>用于能够以接近存储器的速度传输信息的高速I/O设备。</li>
+<li>在为这种I/O设备设置好缓冲、指针和计数器之后，设备控制器可在本地缓冲和内存之间传送整块的数据，</li>
+<li>每个块只产生一个中断<ul>
+<li>在任务完成时发送一个中断</li>
+<li>处理器只在传输的开始和结束阶段有所参与</li>
+</ul>
+</li>
+<li>CPU在设备控制器执行DMA传输时完成其他工作。</li>
+</ul>
+</li>
+</ul>
+<h2 id="通道"><a href="#通道" class="headerlink" title="通道"></a>通道</h2><p>然后PPT里在这三个方式后面还用中文补了个通道方式。<br>不知道考不考反正放上来。</p>
+<ul>
+<li><p>I/O结构：通道控制方式</p>
+<ul>
+<li>是DMA方式的发展，进一步减少了CPU的干预。</li>
+<li>完成一组数据块的读(或写)操作之后产生一次中断。</li>
+<li>实现了CPU、通道和I/O设备三者的并行操作。</li>
+<li>CPU对通道的管理是通过I/O指令实现的。<ul>
+<li>I/O指令属于特权指令，仅能由操作系统使用。</li>
+<li>在I/O指令中需指定通道号、设备号、以及通道程序的内存地址。</li>
+</ul>
+</li>
+<li>当CPU要完成一组相关的读(或写)操作及有关控制时，只需向I/O通道发送一条I/O指令，以给出其所要执行的通道程序的首址和要访问的I/O设备，通道接到该指令后，通过执行通道程序便可完成CPU指定的I/O任务。</li>
+<li>通道指令也称为通道命令字(CCW, ChannelCommand Word)<ul>
+<li>对设备进行初始化、读、写、查询、转移等。</li>
+<li>使用CCW可以编写对各种不同设备进行管理和控制的通道程序。</li>
+<li>一个通道可以以分时方式同时执行几个通道程序。</li>
+<li>通道指令在进程要求数据时自动生成。</li>
+</ul>
+</li>
+<li>指令格式：OP P R 计数 内存地址<ul>
+<li>OP：读、写、或控制。</li>
+<li>P：通道程序结束标志。P=’1’，本条指令为最后一条指令。</li>
+<li>R：记录结束标志。<ul>
+<li>R=’0’，本指令与下一条指令所处理的数据属于同一条记录</li>
+<li>R=’1’，本指令是处理某记录的最后一条指令。</li>
+</ul>
+</li>
+<li>计数：本条指令所要处理数据的字节数</li>
+<li>内存地址：<ul>
+<li>读操作：数据要写入的内存地址。</li>
+<li>写操作：要写出的数据在内存中的起始地址。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>现代计算机系统</p>
+<ul>
+<li>高端系统采用交换而不是总线结构。</li>
+<li>多个组件可以与其他组件同时对话，而不是竞争公共总线的周期，此时DMA更为有效。</li>
+<li><img src="https://api2.mubu.com/v3/document_image/4cf93e42-4e18-420e-b7fa-2675d19e574a-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-3-计算机系统的体系结构"><a href="#1-3-计算机系统的体系结构" class="headerlink" title="1.3 计算机系统的体系结构"></a>1.3 计算机系统的体系结构</h1><h2 id="单处理器系统"><a href="#单处理器系统" class="headerlink" title="单处理器系统"></a>单处理器系统</h2><ul>
+<li>单处理器系统( Single-processor system )<ul>
+<li>一个主CPU执行一个通用指令集。</li>
+<li>专用处理器执行优先指令集，不执行用户进程。<ul>
+<li>键盘和磁盘控制器。</li>
+<li>I/O处理器（在大型机上）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="多处理器系统"><a href="#多处理器系统" class="headerlink" title="多处理器系统"></a>多处理器系统</h2><ul>
+<li>多处理器系统/并行系统( Multiprocessor system / parallel system )<ul>
+<li>两个或多个紧密通信的CPU，共享计算机总线，有时共享始终，内存和外设等。</li>
+<li>多处理可使系统的内存访问模型，从均匀内存访问( UMA )到非均匀内存访问( NUMA )。对UMA，CPU访问RAM的所需时间是相同的；而对UNMA，有的内存访问的所需时间更多，会降低性能。</li>
+<li>优势<ul>
+<li>增加吞吐量，经济效益。增加可靠性。</li>
+</ul>
+</li>
+<li>非对称处理( Asymmetric multiprocessing )<ul>
+<li>每个处理器都有特定的任务</li>
+<li>一个主处理器( Boss processor )控制系统</li>
+<li>其他的从属处理器( Slave processors )向主处理器要任务或者做预定的任务</li>
+<li>主处理器给从属处理器制定和分配任务。</li>
+</ul>
+</li>
+<li>对称多处理( Symmetric multiprocessing – SMP )<ul>
+<li>每个处理器都参与完成操作系统的所有任务。</li>
+<li>所有处理器对等。</li>
+<li>每个处理器都有自己的寄存器集。也有私有或本地缓存。</li>
+</ul>
+</li>
+<li>多核处理器( Multi-core CPUs )<ul>
+<li>多个计算核集成到单个芯片。</li>
+<li>多处理器芯片。</li>
+<li>比多个单核处理器效率更高。<blockquote>
+<p>多核为多处理器系统，但并不是所有多处理器系统都是多核的。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>刀片服务器( blade servers )<ul>
+<li>多处理器板，I/O板和网络板全部置于同一机箱。</li>
+<li>每个刀片处理器板可以独立启动并运行在各自的操作系统。</li>
+<li>一些刀片服务器板也是多处理器的。</li>
+<li>本质上，这些服务器是由多个独立的多处理器系统组成。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="集群系统"><a href="#集群系统" class="headerlink" title="集群系统"></a>集群系统</h2><ul>
+<li>集群系统( Clustered system )<ul>
+<li>集群计算机共享存储，并且采用LAN连接或者更快的内部连接。</li>
+<li>用来提供高可用性( high-availavility )服务。</li>
+<li>集群软件层在集群节点上运行。</li>
+<li>非对称集群<ul>
+<li>一台机器处于热备份模式，而另一台运行应用程序。</li>
+<li>热备份模式的机器只监视活动服务器，而不做其他事。</li>
+</ul>
+</li>
+<li>对称集群<ul>
+<li>两个或多个主机都运行应用程序，并相互监视。</li>
+<li>由于充分利用了现有硬件，因此多个应用程序可供执行的时候，这种结构更为高效。</li>
+</ul>
+</li>
+<li>并行集群</li>
+<li>WAN集群</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-4-操作系统的结构"><a href="#1-4-操作系统的结构" class="headerlink" title="1.4 操作系统的结构"></a>1.4 操作系统的结构</h1><h2 id="单道程序设计"><a href="#单道程序设计" class="headerlink" title="单道程序设计"></a>单道程序设计</h2><p>书上没提到单道程序设计，ppt上有。</p>
+<ul>
+<li><p>单道程序设计( Uniprogramming )</p>
+<ul>
+<li><img src="https://api2.mubu.com/v3/document_image/08e85457-08b6-497e-a7dd-7eb5b7376a37-14970684.jpg" alt="55.png"></li>
+<li>问题：低执行力<ul>
+<li>I/O和CPU的运行时间不能重叠</li>
+<li>I/O非常慢。处理器必须等待I/O指令完成后才能完成。</li>
+</ul>
+</li>
+<li>解决方法：离线I/O操作<ul>
+<li>从磁带将作业加载到内存中。</li>
+<li>读卡和印线离线进行。</li>
+<li><img src="https://api2.mubu.com/v3/document_image/b4eda53c-ac23-4c21-8d8b-d90272047e57-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>假脱机( Spooling )</p>
+<ul>
+<li>Simultaneous Peripheral Operation On Line</li>
+<li>将一个作业的I/O操作与另一个操作的计算重叠。<ul>
+<li>在执行一个作业的时候，OS将下一个作业从读卡器读取到磁盘（作业队列），同时将上一个作业的打印输出从磁盘输出到打印机。</li>
+</ul>
+</li>
+<li>作业池( Job pool )<ul>
+<li>允许操作系统选择下一个运行的作业以增加CPU利用率的数据结构。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="多道程序设计"><a href="#多道程序设计" class="headerlink" title="多道程序设计"></a>多道程序设计</h2><ul>
+<li>多道程序设计( Multiprogramming )<ul>
+<li>单个程序不能保持CPU和I/O设备一直处于忙状态</li>
+<li>多道程序设计通过安排作业（编码和数据）使得CPU总有一个执行作业，从而提高CPU利用率。</li>
+<li>内存的作业集是作业池的一个子集。</li>
+<li>在内存的作业集中，OS可以选择执行作业。</li>
+<li>当该作业需要等待某个任务的时候，例如说I/O操作的完成，OS就会切换到另一个作业。</li>
+<li>当作业需要等待I/O操作，处理器可以切换到另一个作业。</li>
+<li>有两个程序的多道程序设计：<br><img src="https://api2.mubu.com/v3/document_image/324c0bb4-1b8d-4e8a-a234-eeb4a7bdcfc9-14970684.jpg" alt="55.png"></li>
+<li>有三个程序的多道程序设计:<br><img src="https://api2.mubu.com/v3/document_image/74bfb2e8-c913-4b51-8bfb-7694c4158fe0-14970684.jpg" alt="55.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a>分时系统</h2><ul>
+<li><p>分时系统( Time sharing systems )</p>
+<ul>
+<li>分时系统（或多任务）是多道程序设计的自然延伸。CPU还是通过切换作业来执行多个作业，但是由于切换频率很高，用户可以在程序运行时与其交互( interactive )。<ul>
+<li>回复时间应当较短，通常小于1秒。</li>
+<li>每个用户至少有一个程序在内存中——进程( process )。</li>
+<li>如果多个作业可以加载到内存中，同时内存太小无法容纳所有这些作业，那么系统就做出选择——作业调度( job scheduling )</li>
+<li>多个任务同时等待执行，那么系统应当做出选择——CPU调度( CPU scheduling )</li>
+<li>如果进程不适合内存，那么就将其交换到磁盘中运行——swapper</li>
+<li>允许一个进程不必完全在内存中——虚拟内存( virtual memory )</li>
+</ul>
+</li>
+<li>用多道程序设计去处理多个交互任务。</li>
+<li>CPU在内存和磁盘上的几个作业中进行复用<ul>
+<li>处理器的时间由多个用户共享。</li>
+<li>CPU只分配给在内存中的作业。</li>
+</ul>
+</li>
+<li>一个作业可能在内存和磁盘之间交换</li>
+<li>许多用户同时共享计算机<ul>
+<li>提供了用户与系统之间的在线通信。</li>
+<li>多个用户通过终端同时访问系统。</li>
+<li>当操作系统完成一个命令的执行时，它会不是从读卡器，而是从用户的键盘</li>
+</ul>
+</li>
+<li>在线系统的数据和代码对用户必须是可获取的。</li>
+</ul>
+</li>
+<li><p>分时系统：特性</p>
+<ul>
+<li>I/O进程由系统提供。</li>
+<li>内存管理。系统必须将内存分配给多个任务。</li>
+<li>虚拟内存。允许执行作业不必完全在内存中。</li>
+<li>磁盘管理。必须提供驻留在磁盘集合上的文件系统。</li>
+<li>CPU调度。并发执行、作业同步和通信的机制，避免死锁。</li>
+<li>资源分配。</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-5-操作系统的执行"><a href="#1-5-操作系统的执行" class="headerlink" title="1.5 操作系统的执行"></a>1.5 操作系统的执行</h1><ul>
+<li>现代操作系统都是中断驱动的。</li>
+<li>中断是由硬件驱动的。</li>
+<li>软件错误或者请求可能生成陷阱( trap )或者异常( exception )。<ul>
+<li>除零，操作系统服务请求。</li>
+</ul>
+</li>
+<li>其他进程问题包括无限循环、进程相互修改甚至修改操作系统本身。</li>
+</ul>
+<h2 id="1-5-1-双重模式和多重模式的执行"><a href="#1-5-1-双重模式和多重模式的执行" class="headerlink" title="1.5.1 双重模式和多重模式的执行"></a>1.5.1 双重模式和多重模式的执行</h2><ul>
+<li><p>双重模式可以让OS保护其本身以及其他系统组件。</p>
+<ul>
+<li>采用硬件支持，用于区分至少两种模式<ul>
+<li>用户模式。进行用户操作。</li>
+<li>监视模式（也有内核模式，系统模式或者特权模式）。进行系统操作。</li>
+</ul>
+</li>
+<li>硬件提供模式位( mode bit )<ul>
+<li>内核模式（0），用户模式（1）</li>
+<li>用以区分操作系统执行的任务和用户执行的任务。</li>
+<li>一些指令被划分为特权指令( privileged instruction )，只能在内核模式下执行。</li>
+<li>请求操作系统服务时( system call )，从用户模式切换到内核模式。</li>
+</ul>
+</li>
+<li>当中断或者错误( fault )发生时，硬件切换到内核模式。<blockquote>
+<p>内核模式通过设置用户模式位来切换到用户模式</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://api2.mubu.com/v3/document_image/31c3774c-f9f1-422b-ba69-d635b68e8718-14970684.jpg" alt="55.png"></p>
+</li>
+<li><p>从用户模式转到内核模式</p>
+<ul>
+<li>使用定时器来防止死循环/进程占用资源，或不调用系统服务或不将控制权返还给操作系统。<ul>
+<li>定时器在指定周期后中断计算机。</li>
+<li>OS递减定时器。</li>
+<li>当定时器为0时产生一个中断。</li>
+<li>在调度进程（控制权交给用户）前进行设置，以便在时间到达后重新获得控制权，或终止超过了分配时间的程序。</li>
+<li>修改定时器内容的指令是特权指令。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-6-进程管理"><a href="#1-6-进程管理" class="headerlink" title="1.6 进程管理"></a>1.6 进程管理</h1><ul>
+<li>进程是一个在执行中的程序，是系统上的工作，是可以分配给处理器并在处理器上执行的实体。</li>
+<li>进程需要一定资源来完成任务。</li>
+<li>进程需要归还所有可重用的资源。</li>
+<li>单线程进程有一个程序计数器，指定了下一个所要执行的指令。</li>
+<li>多线程的进程每一个线程有一个PC</li>
+<li>系统在一个或者多个CPU上有多个线程同时运行。</li>
+<li>OS负责进程管理的以下活动<ul>
+<li>CPU上调度进程和线程</li>
+<li>创建和删除用户进程和系统进程</li>
+<li>挂起和重启进程</li>
+<li>提供进程同步机制</li>
+<li>提供进程通信机制</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-7-内存管理"><a href="#1-7-内存管理" class="headerlink" title="1.7 内存管理"></a>1.7 内存管理</h1><ul>
+<li>内存是现代计算机系统执行的中心。<ul>
+<li>所有数据在处理前都在内存。</li>
+<li>所有指令为了处理都存储在内存中。</li>
+</ul>
+</li>
+<li>CPU所能直接寻址和访问的唯一的大容量存储器。</li>
+<li>内存管理决定哪些内容在内存中<ul>
+<li>用来优化CPU利用率和计算机对用户的响应速度。</li>
+</ul>
+</li>
+<li>内存管理活动<ul>
+<li>记录内存中哪部分在使用以及被谁使用。</li>
+<li>决定哪些进程（或其部分）会调入或调出内存。</li>
+<li>根据需要分配和释放内存空间。</li>
+</ul>
+</li>
+</ul>
+<h1 id="1-8-存储管理"><a href="#1-8-存储管理" class="headerlink" title="1.8 存储管理"></a>1.8 存储管理</h1><h2 id="1-8-1-文件系统管理"><a href="#1-8-1-文件系统管理" class="headerlink" title="1.8.1 文件系统管理"></a>1.8.1 文件系统管理</h2><p>操作系统管理大容量存储介质，如磁盘和磁带，并控制它们，以实现文件这一抽象概念。再者，为了方便使用，文件可组织成目录。</p>
+<ul>
+<li>OS活动<ul>
+<li>创建和删除文件</li>
+<li>创建和删除目录</li>
+<li>提供文件和目录的操作原语</li>
+<li>映射文件到外存</li>
+<li>备份文件到稳定存储介质</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-8-2-大容量存储器管理"><a href="#1-8-2-大容量存储器管理" class="headerlink" title="1.8.2 大容量存储器管理"></a>1.8.2 大容量存储器管理</h2><p>操作系统负责有关硬盘管理的以下活动∶</p>
+<ul>
+<li>空闲空间管理</li>
+<li>存储空间分配 </li>
+<li>硬盘调度</li>
+</ul>
+<p>计算机运行的最终速度与硬盘子系统的速度和管理该子系统的算法有很大关系。</p>
+<p>虽然有的存储相比外存速度更慢、价格更低（或许容量更大），但是也有许多用处，如备份磁盘的数据、存储很少使用的数据、保存长期的档案等。典型的三级存储（tertiary storage）设备包括∶磁带驱动器及其磁带、CD/DVD驱动器及光盘等。这些介质（磁带和光盘）分为一次写多次读（Write-Once Read-Many-times，WORM）和读-写（Read-Write，RW）。</p>
+<p>三级存储对系统性能并不关键，但也应管理好。有的操作系统直接管理，还有的留给应用程序来管理。<br>操作系统的功能可以包括∶</p>
+<ul>
+<li>安装和卸载设备媒介，</li>
+<li>为进程互斥使用而分配和释放设备，</li>
+<li>以及将数据从二级存储移动到三级存储。</li>
+</ul>
+<h1 id="1-8-3-高速缓存"><a href="#1-8-3-高速缓存" class="headerlink" title="1.8.3 高速缓存"></a>1.8.3 高速缓存</h1><p>高速缓存（caching）有时也简称为缓存，是计算机系统的一条重要原理。</p>
+<p>它的工作原理如下∶信息通常保存在一个存储系统中（如内存），使用时，它会被临时复制到更快存储系统，即高速缓存；当需要特定信息时，首先检查它是否处于高速缓存，如果是，可以直接使用高速缓存的信息，如果否，就使用位于源地的信息，同时将其复制到高速缓存以便下次再用。</p>
+<p>内存可以视为外存的最后一个cache。</p>
+<p>在层次存储结构中，同一数据可能出现在存储系统的不同层次上。</p>
+<p>例如，位于文件B的整数A需要加1，而文件B位于磁盘。加1操作这样进行∶先进行I/O操作以将A所在的块调入内存。之后，A被复制到高速缓存和内部寄存器。这样，A的副本出现在多个地方∶磁盘上、内存中、高速缓存中、内部寄存器中（见图1-12）。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/4a458750-aa99-4d3b-8c61-da1131eff80c-14970684.jpg" alt="5.png"></p>
+<p>对于不同的计算机环境，类似情况产生的问题导致**高速缓存一致性( cache coherence )**十分必要。</p>
+<ul>
+<li>单进程</li>
+<li>多任务</li>
+<li>多处理器</li>
+<li>分布式</li>
+</ul>
+<h2 id="1-8-4-I-O系统"><a href="#1-8-4-I-O系统" class="headerlink" title="1.8.4 I/O系统"></a>1.8.4 I/O系统</h2><p>操作系统的目的之一是为用户隐藏具体硬件设备的特性。</p>
+<p>I/O子系统包括以下几个组件∶</p>
+<ul>
+<li>包括缓冲、高速缓存和假脱机的内存管理组件。</li>
+<li>设备驱动器的通用接口。</li>
+<li>特定硬件设备的驱动程序。</li>
+</ul>
+<h1 id="1-9-保护和安全"><a href="#1-9-保护和安全" class="headerlink" title="1.9 保护和安全"></a>1.9 保护和安全</h1><p>保护（protection）是一种机制，用于控制进程或用户访问计算机系统的资源。</p>
+<p>防止系统不受外部或内部的攻击是安全（security）的工作。</p>
+<p>保护和安全要求系统能够区分所有用户。<br>大多数的操作系统采用一个列表，以便维护<strong>用户名称及其关联用户标识（User ID，UID</strong>）。按照Windows的说法，这称为安全ID（Secure ID，SID）。这些数字ID对每个用户来说是唯一的，当一个用户登录到系统时，认证阶段确定用户的合适ID。该用户ID与所有该用户的进程和线程相关联。当该ID需要为用户可读时，它就会通过用户名称列表而转换成用户名称。<br>有些环境希望区分用户集合而非单个用户。例如，UNIX系统的某个文件的所有者可对文件进行所有操作，而有些选定的用户集合只能读取文件。为此，需要定义一个组名称以及属于该组的用户集。组功能的实现可以采用一个系统级的列表，以维护<strong>组名称和组标识（group identifier）</strong>。一个用户可以属于一个或多个组，这取决于操作系统的设计决策。用户的组ID也包含在每个相关的进程和线程中。<br>对于正常系统使用，用户ID和组ID就足够了。不过，用户有时需要<strong>升级特权（escalate privilege），来获得某个活动的额外许可</strong>。例如，在UNIX系统中，程序的setuid属性允许按程序文件所有者的用户ID而不是当前的用户ID来运行该程序，该进程会按有效UID （effective UID）运行，直至它关掉额外特权或终止。</p>
+<p>后面的ppt和教材对不上，不写了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://mushroom323.github.io/2022/08/03/OS_1/" data-id="cl6t7k9sy000ghstb6n1d06q6" class="article-share-link">
+        Share
+      </a>
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2022/08/13/FPGA_1/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      FPGA_1
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2022/07/30/python/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">过python的入门笔记</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+<div class="vcomments" id="vcomments"></div>
+
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'ufPR3EsabCPKRDngccwM3C57-gzGzoHsz',
+    appKey: 'h1P7KQ81rD4E6n9G8GRYpenL',
+    notify: 'false',
+    verify: 'true',
+    avatar: 'mp',
+    pageSize: '10',
+    placeholder: '发表神谕'
+  })
+</script>
+
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>Mushroom&#39;s blog &copy; 2022</li>
+      
+        <li></li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/M.svg" alt="Mushroom&#39;s blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">Archives</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">Tags</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">About</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/links">Links</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
