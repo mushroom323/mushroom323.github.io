@@ -246,21 +246,43 @@ mjx-container[display="true"] + br {
 <p>再说的白话一些就是，假如我们有两个相同元素个数的数组，想把两个数组元素一一对应相加。在SISD指令中只有一个ALU，我们需要用for循环一个一个元素进行相加，但在SIMD指令中，我们就不需要for循环，可以给每个元素分配一个ALU（假设有足够的ALU），那么这就是SIMD。</p>
 <p>与SIMT相比的不同一点在于SIMD中的向量中的元素相互之间可以自由通信，因为它们存在于相同的地址空间（例如，都在CPU的同一寄存器中），而SIMT中的每个线程的寄存器都是私有的，线程之间只能通过shared memory和同步机制进行通信。</p>
 <p>简而言之，SIMD提供了硬件级的并发支持，对于单纯计算的指令并发有着较好较高的效率。<br>而SIMT则更加灵活，允许有条件分支的存在，对数据的处理也更加方便。<br>相同点都是只有当前指令流结束了才可以开启下一个指令流。（因为PC共用）</p>
-<h1 id="计算密集型-通信-I-O-密集型"><a href="#计算密集型-通信-I-O-密集型" class="headerlink" title="计算密集型/通信(I/O)密集型"></a>计算密集型/通信(I/O)密集型</h1><blockquote>
+<h1 id="计算密集型-通信密集型"><a href="#计算密集型-通信密集型" class="headerlink" title="计算密集型/通信密集型"></a>计算密集型/通信密集型</h1><blockquote>
 <p>计算密集型/通信密集型指的是什么，什么样的任务更适用于FPGA，而不是GPU</p>
 </blockquote>
 <h2 id="计算密集型"><a href="#计算密集型" class="headerlink" title="计算密集型"></a>计算密集型</h2><p>1、特点：要进行大量的计算，消耗CPU资源。比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。</p>
 <p>2、计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。</p>
 <p>3、计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。</p>
-<h2 id="通信密集型"><a href="#通信密集型" class="headerlink" title="通信密集型"></a>通信密集型</h2><p>1、涉及到网络、磁盘IO的任务都是IO密集型任务。</p>
-<p>2、特点：CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。</p>
-<p>3、对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。</p>
-<p>4、IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。</p>
+<p>计算密集型任务的例子包括矩阵运算、图像处理、机器学习、压缩、非对称加密、Bing 搜索的排序等。</p>
+<h2 id="通信密集型"><a href="#通信密集型" class="headerlink" title="通信密集型"></a>通信密集型</h2><p>对称加密、防火墙、网络虚拟化都是通信密集型的例子。</p>
+<h2 id="GPU-VS-FPGA-机器学习为例"><a href="#GPU-VS-FPGA-机器学习为例" class="headerlink" title="GPU VS FPGA (机器学习为例)"></a>GPU VS FPGA (机器学习为例)</h2><p>source:<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/23966798">服务器端人工智能，FPGA和GPU到底谁更强？</a></p>
+<p>主要从以下几个指标来对比GPU和FPGA：</p>
+<ul>
+<li>峰值性能</li>
+<li>灵活性</li>
+<li>平均性能</li>
+<li>功耗和能效比</li>
+</ul>
+<h3 id="峰值性能"><a href="#峰值性能" class="headerlink" title="峰值性能"></a>峰值性能</h3><p><strong>GPU（10Tflops)远远高于FPGA(&lt;1TFlops)。</strong></p>
+<p>这是由于GPU的架构经过仔细设计（例如使用深度流水线，retiming等技巧），在电路实现上是基于标准单元库而在关键路径（即芯片中一个时钟周期内延迟最长的路径，直接决定了电路最高运行速度）上可以用手工定制电路，甚至在必要的情形下可以让半导体fab依据设计需求微调工艺制程，因此可以让许多core同时跑在非常高的频率。</p>
+<p>相对而言，FPGA首先设计资源受到很大的限制，例如GPU如果想多加几个core只要增加芯片面积就行，但FPGA一旦你型号选定了逻辑资源上限就确定了（浮点运算在FPGA里会占用很多资源）。而且，FPGA里面的逻辑单元是基于SRAM-查找表，其性能会比GPU里面的标准逻辑单元差好多。最后，FPGA的布线资源也受限制（有些线必须要绕很远），不像GPU这样走ASIC flow可以随意布线，这也会限制性能。</p>
+<p>除了芯片性能外，<strong>GPU相对于FPGA还有一个优势就是内存接口。</strong>GPU的内存接口（传统的GDDR5，最近更是用上了HBM和HBM2）的带宽远好于FPGA的传统DDR接口（大约带宽高4-5倍），而众所周知服务器端机器学习算法需要频繁访问内存，因此内存接口的带宽可以决定机器学习应用的性能。</p>
+<h3 id="灵活性"><a href="#灵活性" class="headerlink" title="灵活性"></a>灵活性</h3><p><strong>从灵活性来说，FPGA远好于GPU。</strong></p>
+<p>FPGA可以根据特定的应用去编程硬件（例如如果应用里面的加法运算非常多就可以把大量的逻辑资源去实现加法器），但是GPU一旦设计完那就没法改动了，没法根据应用去调整硬件资源。</p>
+<p>目前机器学习大多数适合使用SIMD架构（即只需一条指令可以平行处理大量数据），因此用GPU很适合。但是有些应用是MISD（即单一数据需要用许多条指令平行处理），这种情况下用FPGA做一个MISD的架构就会比GPU有优势。</p>
+<h3 id="平均性能"><a href="#平均性能" class="headerlink" title="平均性能"></a>平均性能</h3><p>综上，由于GPU的峰值远高于FPGA的峰值性能，因此平均性能上FPGA只能依靠架构优势。即对于平均性能，看的就是FPGA加速器架构上的优势是否能弥补运行速度上的劣势。如果FPGA上的架构优化可以带来相比GPU架构两到三个数量级的优势，那么FPGA在平均性能上会好于GPU。</p>
+<p>例如，百度在HotChips上发布的paper显示，GPU的平均性能相比FPGA在矩阵运算等标准batch data SIMD bench上远好于FPGA；但是在处理服务器端的少量多次处理请求（即频繁请求但每次请求的数据量和计算量都不大）的场合下，平均性能会比GPU更好。</p>
+<p><img src="https://api2.mubu.com/v3/document_image/06aaa120-13c5-48fe-b7ee-b8bfe0c57ea0-14970684.jpg" alt="55.png"></p>
+<p><img src="https://api2.mubu.com/v3/document_image/c98075f3-28b4-47bc-a52d-ce839e514a1b-14970684.jpg" alt="55.png"></p>
+<p>Baidu的研究显示，对于矩阵运算bench GPU远好于FPGA，但是当处理小计算量大批次的实际计算时FPGA性能优于GPU。</p>
+<h3 id="功耗"><a href="#功耗" class="headerlink" title="功耗"></a>功耗</h3><p>与平均性能一样，这一点也要看具体的架构设计情况。</p>
+<p>虽然GPU的功耗（200W）远大于FPGA的功耗（10W），但是如果要比较功耗应该比较在执行效率相同时需要的功耗。</p>
+<p>如果FPGA的架构优化能做到很好以致于一块FPGA的平均性能能接近一块GPU，那么FPGA方案的总功耗远小于GPU，散热问题可以大大减轻。反之，如果需要二十块FPGA才能实现一块GPU的平均性能，那么FPGA在功耗方面并没有优势。</p>
+<p>能效比的比较也是类似，能效指的是完成程序执行消耗的能量，而能量消耗等于功耗乘以程序执行的时间。虽然GPU的功耗远大于FPGA的功耗，但是如果FPGA执行相同程序需要的时间比GPU长几十倍，那FPGA在能效比上就没有优势了；反之如果FPGA上实现的硬件架构优化得很适合特定的机器学习应用，执行算法所需的时间仅仅是GPU的几倍或甚至于接近GPU，那么FPGA的能效比就会比GPU强。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2022/08/13/FPGA_1/" data-id="cl6t7k9su0006hstb1rg1a1bx" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2022/08/13/FPGA_1/" data-id="cl739ap3000038ktb9zv09qxd" class="article-share-link">
         Share
       </a>
       
