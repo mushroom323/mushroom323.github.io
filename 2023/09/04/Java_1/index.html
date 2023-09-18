@@ -172,21 +172,151 @@ mjx-container[display="true"] + br {
 
     
     
+<div class="tocbot"></div>
+
     
 
     <div class="article-entry" itemprop="articleBody">
       
       
       
-      <p>看Java的一些笔记，有的没的。</p>
+      <p>看Java的一些笔记，有的没的，记点自己之前不知道的东西。</p>
 <p>过了一年才准备重新学点东西。</p>
 <span id="more"></span>
 
+<p>整体的顺序是参考<a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Java%20%E5%9F%BA%E7%A1%80.md">Java 基础</a></p>
+<p>这一篇应该只涉及最基础的语法部分。</p>
+<h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="包装类型"><a href="#包装类型" class="headerlink" title="包装类型"></a>包装类型</h3><p>Java中有基本类型和包装类型，基本类型也就是int、boolean、byte等那八种，包装类型则是在基本类型的基础上进行了方法包装。</p>
+<table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>二进制位数</th>
+<th>包装器类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td>1</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>8</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>char</td>
+<td>16</td>
+<td>Character</td>
+</tr>
+<tr>
+<td>short</td>
+<td>16</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>32</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>64</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>32</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>64</td>
+<td>Double</td>
+</tr>
+</tbody></table>
+<p>大概对应如上。</p>
+<p><strong>Java基本类型存储在栈</strong>中，因此它们的存取速度要快于<strong>存储在堆中的对应包装类的实例对象。</strong></p>
+<p>Java是一个面向对象的语言，基本类型并不具有对象的性质，为了与其他对象“接轨”就出现了包装类型（如我们在使用集合类型Collection时就一定要使用包装类型而非基本类型），它相当于将基本类型“包装起来”，使得它具有了对象的性质，并且为其添加了属性和方法，丰富了基本类型的操作。</p>
+<p>基本类型的优势：数据存储相对简单，运算效率比较高<br>包装类的优势：有的容易，比如集合的元素必须是对象类型，满足了java一切皆是对象的思想</p>
+<ul>
+<li>声明方式不同，基本类型不适用new关键字，而包装类型需要使用new关键字来在堆中分配存储空间；</li>
+<li>存储方式及位置不同，基本类型是直接将变量值存储在堆栈中，而包装类型是将对象放在堆中，然后通过引用来使用；</li>
+<li>初始值不同，基本类型的初始值如int为0，boolean为false，而包装类型的初始值为null</li>
+<li>使用方式不同，基本类型直接赋值直接使用就好，而包装类型在集合如Collection、Map时会使用到</li>
+</ul>
+<h3 id="缓存池"><a href="#缓存池" class="headerlink" title="缓存池"></a>缓存池</h3><p>new Integer(123) 与 Integer.valueOf(123) 的区别在于：</p>
+<ul>
+<li>new Integer(123) 每次都会新建一个对象；</li>
+<li>Integer.valueOf(123) 会使用缓存池中的对象，多次调用会取得同一个对象的引用。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Integer x = <span class="keyword">new</span> Integer(<span class="number">123</span>);</span><br><span class="line">Integer y = <span class="keyword">new</span> Integer(<span class="number">123</span>);</span><br><span class="line">System.out.println(x == y);    <span class="comment">// false</span></span><br><span class="line">Integer z = Integer.valueOf(<span class="number">123</span>);</span><br><span class="line">Integer k = Integer.valueOf(<span class="number">123</span>);</span><br><span class="line">System.out.println(z == k);   <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
+<p>valueOf() 方法的实现比较简单，就是先判断值是否在缓存池中，如果在的话就直接返回缓存池的内容。</p>
+<p>编译器会在自动装箱过程调用 valueOf() 方法，因此多个值相同且值在缓存池范围内的 Integer 实例使用自动装箱来创建，那么就会引用相同的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer m = <span class="number">123</span>;</span><br><span class="line">Integer n = <span class="number">123</span>;</span><br><span class="line">System.out.println(m == n); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>基本类型对应的缓冲池如下：</p>
+<ul>
+<li>boolean values true and false</li>
+<li>all byte values</li>
+<li>short values between -128 and 127</li>
+<li>int values between -128 and 127</li>
+<li>char in the range \u0000 to \u007F</li>
+</ul>
+<p>在使用这些基本类型对应的包装类型时，如果该数值范围在缓冲池范围内，就可以直接使用缓冲池中的对象。</p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>在 Java 8 中，String 内部使用 char 数组存储数据。</p>
+<p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 coder 来标识使用了哪种编码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>{</span><br><span class="line">    <span class="comment">/** The value is used for character storage. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">byte</span>[] value;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** The identifier of the encoding used to encode the bytes in {<span class="doctag">@code</span> value}. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">byte</span> coder;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>这里提一下final关键字的用处，被其规定的变量不可直接修改引用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">finalTest</span><span class="params">()</span></span>{</span><br><span class="line">   <span class="keyword">final</span> <span class="keyword">char</span>[] value = {<span class="string">'a'</span>,<span class="string">'a'</span>,<span class="string">'a'</span>};</span><br><span class="line">    <span class="keyword">char</span>[] value2 = {<span class="string">'b'</span>,<span class="string">'b'</span>,<span class="string">'b'</span>};</span><br><span class="line">    value = value2;<span class="comment">//cannot assign a value to final variable</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>但是引用不能更改不代表不能修改里面的值，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">finalTest</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">char</span>[] value = {<span class="string">'a'</span>, <span class="string">'a'</span>, <span class="string">'a'</span>};</span><br><span class="line">    System.out.println(value);</span><br><span class="line">    value[<span class="number">2</span>] = <span class="string">'b'</span>;<span class="comment">//将索引位置为2的修改为b</span></span><br><span class="line">    System.out.println(value);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aaa</span><br><span class="line">aab</span><br></pre></td></tr></table></figure>
+
+<p>而 String 的value 数组被声明为 final，这意味着 value 数组初始化之后就不能再引用其它数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 String 不可变。</p>
+<h3 id="String不可变的好处"><a href="#String不可变的好处" class="headerlink" title="String不可变的好处"></a>String不可变的好处</h3><ul>
+<li>只有当字符串是不可变的，字符串池才有可能实现。字符串池的实现可以在运行时节约很多heap空间，因为不同的字符串变量都指向池中的同一个字符串。如果字符串是可变的，那么String interning将不能实现(String interning是指对不同的字符串仅仅只保存一个，即不会保存多个相同的字符串)，因为这样的话，如果变量改变了它的值，那么其它指向这个值的变量的值也会一起改变。</li>
+<li>如果字符串是可变的，那么会引起很严重的安全问题。譬如，数据库的用户名、密码都是以字符串的形式传入来获得数据库的连接，或者在socket编程中，主机名和端口都是以字符串的形式传入。 因为字符串是不可变的，所以它的值是不可改变的，否则黑客们可以钻到空子，改变字符串指向的对象的值，造成安全漏洞。</li>
+<li>因为字符串是不可变的，所以是多线程安全的，同一个字符串实例可以被多个线程共享。这样便不用因为线程安全问题而使用同步。字符串自己便是线程安全的。</li>
+<li>因为字符串是不可变的，所以在它创建的时候hashcode就被缓存了，不需要重新计算。这就使得字符串很适合作为Map中的键，字符串的处理速度要快过其它的键对象。这就是HashMap中的键往往都使用字符串。</li>
+</ul>
+<h3 id="String并非绝对不可变"><a href="#String并非绝对不可变" class="headerlink" title="String并非绝对不可变"></a>String并非绝对不可变</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testString3</span><span class="params">()</span> <span class="keyword">throws</span> IllegalAccessException, NoSuchFieldException </span>{</span><br><span class="line">    String strObj = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">    System.out.println(<span class="string">"反射执行前字符串："</span> + strObj);</span><br><span class="line">    System.out.println(<span class="string">"反射执行前的hash值："</span> + strObj.hashCode());</span><br><span class="line">    Field field = strObj.getClass().getDeclaredField(<span class="string">"value"</span>);</span><br><span class="line">    field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">    <span class="keyword">char</span>[] value = (<span class="keyword">char</span>[]) field.get(strObj);</span><br><span class="line">    value[<span class="number">2</span>] = <span class="string">'b'</span>;</span><br><span class="line">    System.out.println(<span class="string">"反射执行后字符串："</span> + strObj);</span><br><span class="line">    System.out.println(<span class="string">"反射执行后的hash值："</span> + strObj.hashCode());</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">反射执行前字符串：aaa</span><br><span class="line">反射执行前的hash值：96321</span><br><span class="line">反射执行后字符串：aab</span><br><span class="line">反射执行后的hash值：96321</span><br></pre></td></tr></table></figure>
+
+<p>说明通过反射我们是可以修改String的值的。</p>
+<h3 id="String-StringBuffer-and-StringBuilder"><a href="#String-StringBuffer-and-StringBuilder" class="headerlink" title="String, StringBuffer and StringBuilder"></a>String, StringBuffer and StringBuilder</h3><p><strong>可变性：</strong></p>
+<ul>
+<li>String 不可变</li>
+<li>StringBuffer 和 StringBuilder 可变</li>
+</ul>
+<p><strong>线程安全：</strong></p>
+<ul>
+<li>String 不可变，因此是线程安全的</li>
+<li>StringBuilder 不是线程安全的</li>
+<li>StringBuffer 是线程安全的，内部使用 synchronized 进行同步</li>
+</ul>
+<p>StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。</p>
+<h3 id="String-Pool"><a href="#String-Pool" class="headerlink" title="String Pool"></a>String Pool</h3><p>字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool 中。</p>
+<p>当一个字符串调用 intern() 方法时，如果 String Pool 中已经存在一个字符串和该字符串值相等（使用 equals() 方法进行确定），那么就会返回 String Pool 中字符串的引用；否则，就会在 String Pool 中添加一个新的字符串，并返回这个新字符串的引用。</p>
+<p>下面示例中，s1 和 s2 采用 new String() 的方式新建了两个不同字符串，而 s3 和 s4 是通过 s1.intern() 和 s2.intern() 方法取得同一个字符串引用。intern() 首先把 “aaa” 放到 String Pool 中，然后返回这个字符串引用，因此 s3 和 s4 引用的是同一个字符串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">String s2 = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">System.out.println(s1 == s2);           <span class="comment">// false</span></span><br><span class="line">String s3 = s1.intern();</span><br><span class="line">String s4 = s2.intern();</span><br><span class="line">System.out.println(s3 == s4);           <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>如果是采用 “bbb” 这种字面量的形式创建字符串，会自动地将字符串放入 String Pool 中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s5 = <span class="string">"bbb"</span>;</span><br><span class="line">String s6 = <span class="string">"bbb"</span>;</span><br><span class="line">System.out.println(s5 == s6);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>在 Java 7 之前，String Pool 被放在运行时常量池中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+<h3 id="new-String-“abc”"><a href="#new-String-“abc”" class="headerlink" title="new String(“abc”)"></a>new String(“abc”)</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2023/09/04/Java_1/" data-id="clm4u3cn4000b84tbdcwheycw" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2023/09/04/Java_1/" data-id="clmoxfosk000bf8tbaqaa1tnr" class="article-share-link">
         Share
       </a>
       
@@ -199,6 +329,15 @@ mjx-container[display="true"] + br {
   
   
 <nav class="article-nav">
+  
+  <a href="/2023/09/17/TCPetc/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      TCP、HTTP、HTTPS、UDP
+      
+    </div>
+  </a>
   
   
   <a href="/2022/09/03/Decision_Tree/" class="article-nav-link">
