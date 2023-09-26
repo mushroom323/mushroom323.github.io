@@ -225,7 +225,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2021/11/25/encry/" data-id="cln0n8i51000rsstb9ha4f4t0" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2021/11/25/encry/" data-id="cln0nas35000lyotb0xbog1ap" class="article-share-link">
         Share
       </a>
       
@@ -275,27 +275,18 @@ mjx-container[display="true"] + br {
         
       
       
-      <p>应该是一个坑，关于python和c++中的自定义cmp函数这一块的。</p>
-<p>首先发现这个问题是在力扣每日一题：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/filter-restaurants-by-vegan-friendly-price-and-distance/description/?envType=daily-question&envId=2023-09-27">1333. 餐厅过滤器
-</a></p>
-<p>然后前后两次用c++和python分别写了一次，c++速通了，然后被python的cmp函数折磨的云里雾里。</p>
-<p>先给c++的代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt; &amp;a, vector&lt;<span class="keyword">int</span>&gt; &amp;b)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (a[<span class="number">1</span>] &gt; b[<span class="number">1</span>]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a[<span class="number">1</span>] == b[<span class="number">1</span>]) {</span><br><span class="line">        <span class="keyword">if</span> (a[<span class="number">0</span>] &gt; b[<span class="number">0</span>]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">filterRestaurants</span><span class="params">(vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;&amp; restaurants, <span class="keyword">int</span> veganFriendly, <span class="keyword">int</span> maxPrice, <span class="keyword">int</span> maxDistance)</span> </span>{</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; restaurants.<span class="built_in">size</span>(); i++) {</span><br><span class="line">            vector&lt;<span class="keyword">int</span>&gt; cur = restaurants[i];</span><br><span class="line">            <span class="keyword">if</span> (cur[<span class="number">2</span>] &gt;= veganFriendly &amp;&amp; cur[<span class="number">3</span>] &lt;= maxPrice &amp;&amp; cur[<span class="number">4</span>] &lt;= maxDistance) {</span><br><span class="line">                ans.<span class="built_in">push_back</span>(cur);</span><br><span class="line">                cout &lt;&lt; cur[<span class="number">0</span>];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="built_in">sort</span>(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>(), cmp);</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : ans) {</span><br><span class="line">            res.<span class="built_in">push_back</span>(i[<span class="number">0</span>]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
-
-<p>然后看python</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cmp1</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    <span class="keyword">if</span> a[<span class="number">1</span>] - b[<span class="number">1</span>] != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">1</span>] - b[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">0</span>] - b[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">filterRestaurants</span>(<span class="params">self, restaurants, veganFriendly, maxPrice, maxDistance</span>):</span></span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">for</span> cur <span class="keyword">in</span> restaurants:</span><br><span class="line">            <span class="keyword">if</span> cur[<span class="number">2</span>] &gt;= veganFriendly <span class="keyword">and</span> cur[<span class="number">3</span>] &lt;= maxPrice <span class="keyword">and</span> cur[<span class="number">4</span>] &lt;= maxDistance:</span><br><span class="line">                ans.append(cur)</span><br><span class="line">        ls = <span class="built_in">sorted</span>(ans, key=cmp_to_key(cmp1), reverse = <span class="literal">True</span>)</span><br><span class="line">        res = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> ls:</span><br><span class="line">            res.append(i[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>首先提一点，python里的这个cmp只能返回整数，大于整数等于零小于负数这样子，返回bool是不认的。<br>相反，c++返回的就是bool。</p>
-</blockquote>
-<p>重点在于，虽然两个cmp函数的逻辑是一样的，对相同输入返回的比较结果也是一样的，<strong>但是在python的sorted中，reverse字段设置为了True。</strong></p>
-<p>这也是二者的差异所在，<strong>在默认的情况下，c++的cmp函数返回的更像是是一个权重结果，权重更高的元素会放在前面；但是python的cmp返回的是比较结果，而其中更大的数会放在后面（默认升序）。</strong></p>
-<p>当然这道题python的排序函数也可以写成这样，相对更省事：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls = <span class="built_in">sorted</span>(ans, key=<span class="keyword">lambda</span> x:(x[<span class="number">1</span>],x[<span class="number">0</span>]), reverse = <span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+        <p>应该是一个坑，关于python和c++中的自定义cmp函数这一块的。</p>
+        
+          <p>
+            <a class="article-more-link" href="/2023/09/27/leetcode_1/">
+              阅读全文...
+            </a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2023/09/27/leetcode_1/" data-id="cln0n8i5a001bsstb7deu1xc9" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2023/09/27/leetcode_1/" data-id="cln0nas390013yotbahww6e7e" class="article-share-link">
         Share
       </a>
       
@@ -356,7 +347,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2023/09/17/TCPetc/" data-id="cln0n8i4y000hsstbcp9p0gkm" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2023/09/17/TCPetc/" data-id="cln0nas33000hyotbcxwpeme8" class="article-share-link">
         Share
       </a>
       
@@ -418,7 +409,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2023/09/04/Java_1/" data-id="cln0n8i4y000fsstb18w21d0s" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2023/09/04/Java_1/" data-id="cln0nas32000cyotb0new8jrw" class="article-share-link">
         Share
       </a>
       
@@ -480,7 +471,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2022/09/03/Decision_Tree/" data-id="cln0n8i4r0003sstbhbk729x1" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2022/09/03/Decision_Tree/" data-id="cln0nas2w0003yotb0bzg932w" class="article-share-link">
         Share
       </a>
       
@@ -542,7 +533,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2022/08/13/FPGA_1/" data-id="cln0n8i4t0006sstbc4il80zl" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2022/08/13/FPGA_1/" data-id="cln0nas2u0001yotb1s915czy" class="article-share-link">
         Share
       </a>
       
@@ -605,7 +596,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2022/08/03/OS_1/" data-id="cln0n8i4u0008sstb50c69500" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2022/08/03/OS_1/" data-id="cln0nas32000fyotb91n60q6w" class="article-share-link">
         Share
       </a>
       
@@ -668,7 +659,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2022/07/30/python/" data-id="cln0n8i5b001hsstbf0706v4u" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2022/07/30/python/" data-id="cln0nas3b001cyotb43muflip" class="article-share-link">
         Share
       </a>
       
@@ -729,7 +720,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2022/05/29/jiwang_5/" data-id="cln0n8i5a001dsstbbhx98ghb" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2022/05/29/jiwang_5/" data-id="cln0nas390011yotbf8p6e1fa" class="article-share-link">
         Share
       </a>
       
@@ -791,7 +782,7 @@ mjx-container[display="true"] + br {
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mushroom323.github.io/2022/04/25/jiwang_4/" data-id="cln0n8i53000wsstbchrsb7oi" class="article-share-link">
+      <a data-url="https://mushroom323.github.io/2022/04/25/jiwang_4/" data-id="cln0nas38000wyotbcrkb6q5p" class="article-share-link">
         Share
       </a>
       
